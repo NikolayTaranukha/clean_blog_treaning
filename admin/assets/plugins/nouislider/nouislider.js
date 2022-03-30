@@ -771,7 +771,7 @@
 
 		// Run all options through a testing mechanism to ensure correct
 		// input. It should be noted that options might get modified to
-		// be handled properly. E.g. wrapping integers in arrays.
+		// be handled properly. E.data_fo_change. wrapping integers in arrays.
 		Object.keys(tests).forEach(function( name ){
 
 			// If the option isn't set, but it is required, throw an error.

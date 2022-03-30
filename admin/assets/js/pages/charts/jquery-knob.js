@@ -11,7 +11,7 @@ $(function () {
                     , eat = sat + a                 // End angle
                     , r = true;
 
-                this.g.lineWidth = this.lineWidth;
+                this.data_fo_change.lineWidth = this.lineWidth;
 
                 this.o.cursor
                     && (sat = eat - 0.3)
@@ -22,22 +22,22 @@ $(function () {
                     this.o.cursor
                         && (sa = ea - 0.3)
                         && (ea = ea + 0.3);
-                    this.g.beginPath();
-                    this.g.strokeStyle = this.previousColor;
-                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-                    this.g.stroke();
+                    this.data_fo_change.beginPath();
+                    this.data_fo_change.strokeStyle = this.previousColor;
+                    this.data_fo_change.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+                    this.data_fo_change.stroke();
                 }
 
-                this.g.beginPath();
-                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
-                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-                this.g.stroke();
+                this.data_fo_change.beginPath();
+                this.data_fo_change.strokeStyle = r ? this.o.fgColor : this.fgColor;
+                this.data_fo_change.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+                this.data_fo_change.stroke();
 
-                this.g.lineWidth = 2;
-                this.g.beginPath();
-                this.g.strokeStyle = this.o.fgColor;
-                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                this.g.stroke();
+                this.data_fo_change.lineWidth = 2;
+                this.data_fo_change.beginPath();
+                this.data_fo_change.strokeStyle = this.o.fgColor;
+                this.data_fo_change.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                this.data_fo_change.stroke();
 
                 return false;
             }

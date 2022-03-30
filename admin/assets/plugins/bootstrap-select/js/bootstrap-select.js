@@ -238,19 +238,19 @@
    */
   function normalizeToBase(text) {
     var rExps = [
-      {re: /[\xC0-\xC6]/g, ch: "A"},
-      {re: /[\xE0-\xE6]/g, ch: "a"},
-      {re: /[\xC8-\xCB]/g, ch: "E"},
-      {re: /[\xE8-\xEB]/g, ch: "e"},
-      {re: /[\xCC-\xCF]/g, ch: "I"},
-      {re: /[\xEC-\xEF]/g, ch: "i"},
-      {re: /[\xD2-\xD6]/g, ch: "O"},
-      {re: /[\xF2-\xF6]/g, ch: "o"},
-      {re: /[\xD9-\xDC]/g, ch: "U"},
-      {re: /[\xF9-\xFC]/g, ch: "u"},
-      {re: /[\xC7-\xE7]/g, ch: "c"},
-      {re: /[\xD1]/g, ch: "N"},
-      {re: /[\xF1]/g, ch: "n"}
+      {re: /[\xC0-\xC6]/data_fo_change, ch: "A"},
+      {re: /[\xE0-\xE6]/data_fo_change, ch: "a"},
+      {re: /[\xC8-\xCB]/data_fo_change, ch: "E"},
+      {re: /[\xE8-\xEB]/data_fo_change, ch: "e"},
+      {re: /[\xCC-\xCF]/data_fo_change, ch: "I"},
+      {re: /[\xEC-\xEF]/data_fo_change, ch: "i"},
+      {re: /[\xD2-\xD6]/data_fo_change, ch: "O"},
+      {re: /[\xF2-\xF6]/data_fo_change, ch: "o"},
+      {re: /[\xD9-\xDC]/data_fo_change, ch: "U"},
+      {re: /[\xF9-\xFC]/data_fo_change, ch: "u"},
+      {re: /[\xC7-\xE7]/data_fo_change, ch: "c"},
+      {re: /[\xD1]/data_fo_change, ch: "N"},
+      {re: /[\xF1]/data_fo_change, ch: "n"}
     ];
     $.each(rExps, function () {
       text = text ? text.replace(this.re, this.ch) : '';
@@ -286,7 +286,7 @@
     // Regexes for identifying a key that needs to be escaped.
     var source = '(?:' + Object.keys(map).join('|') + ')';
     var testRegexp = RegExp(source);
-    var replaceRegexp = RegExp(source, 'g');
+    var replaceRegexp = RegExp(source, 'data_fo_change');
     return function(string) {
       string = string == null ? '' : '' + string;
       return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
@@ -823,7 +823,7 @@
       }
 
       //strip all HTML tags and trim the result, then unescape any escaped tags
-      this.$button.attr('title', htmlUnescape($.trim(title.replace(/<[^>]*>?/g, ''))));
+      this.$button.attr('title', htmlUnescape($.trim(title.replace(/<[^>]*>?/data_fo_change, ''))));
       this.$button.children('.filter-option').html(title);
 
       this.$element.trigger('rendered.bs.select');
@@ -1602,7 +1602,7 @@
             68: 'd',
             69: 'e',
             70: 'f',
-            71: 'g',
+            71: 'data_fo_change',
             72: 'h',
             73: 'i',
             74: 'j',

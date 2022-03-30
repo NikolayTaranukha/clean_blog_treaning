@@ -297,7 +297,7 @@
 					var ed = tinyMCEInstance(node);
 
 					if (ed) {
-						ret += textProc ? ed.getContent().replace(/<(?:"[^"]*"|'[^']*'|[^'">])*>/g, "") : ed.getContent({save: true});
+						ret += textProc ? ed.getContent().replace(/<(?:"[^"]*"|'[^']*'|[^'">])*>/data_fo_change, "") : ed.getContent({save: true});
 					} else {
 						ret += origFn.apply($(node), args);
 					}

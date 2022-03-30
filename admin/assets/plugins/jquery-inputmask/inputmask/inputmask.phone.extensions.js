@@ -37,7 +37,7 @@
             nojumps: !0,
             nojumpsThreshold: 1,
             onBeforeMask: function(value, opts) {
-                var processedValue = value.replace(/^0{1,2}/, "").replace(/[\s]/g, "");
+                var processedValue = value.replace(/^0{1,2}/, "").replace(/[\s]/data_fo_change, "");
                 return (processedValue.indexOf(opts.countrycode) > 1 || -1 === processedValue.indexOf(opts.countrycode)) && (processedValue = "+" + opts.countrycode + processedValue), 
                 processedValue;
             }

@@ -21,23 +21,23 @@
 	function stripHtml( value ) {
 
 		// Remove html tags and space chars
-		return value.replace( /<.[^<>]*?>/g, " " ).replace( /&nbsp;|&#160;/gi, " " )
+		return value.replace( /<.[^<>]*?>/data_fo_change, " " ).replace( /&nbsp;|&#160;/gi, " " )
 
 		// Remove punctuation
-		.replace( /[.(),;:!?%#$'\"_+=\/\-“”’]*/g, "" );
+		.replace( /[.(),;:!?%#$'\"_+=\/\-“”’]*/data_fo_change, "" );
 	}
 
 	$.validator.addMethod( "maxWords", function( value, element, params ) {
-		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/g ).length <= params;
+		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/data_fo_change ).length <= params;
 	}, $.validator.format( "Please enter {0} words or less." ) );
 
 	$.validator.addMethod( "minWords", function( value, element, params ) {
-		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/g ).length >= params;
+		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/data_fo_change ).length >= params;
 	}, $.validator.format( "Please enter at least {0} words." ) );
 
 	$.validator.addMethod( "rangeWords", function( value, element, params ) {
 		var valueStripped = stripHtml( value ),
-			regex = /\b\w+\b/g;
+			regex = /\b\w+\b/data_fo_change;
 		return this.optional( element ) || valueStripped.match( regex ).length >= params[ 0 ] && valueStripped.match( regex ).length <= params[ 1 ];
 	}, $.validator.format( "Please enter between {0} and {1} words." ) );
 
@@ -47,7 +47,7 @@
 $.validator.addMethod( "accept", function( value, element, param ) {
 
 	// Split mime on commas in case we have multiple types we can accept
-	var typeParam = typeof param === "string" ? param.replace( /\s/g, "" ) : "image/*",
+	var typeParam = typeof param === "string" ? param.replace( /\s/data_fo_change, "" ) : "image/*",
 		optionalValue = this.optional( element ),
 		i, file, regex;
 
@@ -62,9 +62,9 @@ $.validator.addMethod( "accept", function( value, element, param ) {
 		// see: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 		// Escape also "/*" as "/.*" as a wildcard
 		typeParam = typeParam
-				.replace( /[\-\[\]\/\{\}\(\)\+\?\.\\\^\$\|]/g, "\\$&" )
-				.replace( /,/g, "|" )
-				.replace( /\/\*/g, "/.*" );
+				.replace( /[\-\[\]\/\{\}\(\)\+\?\.\\\^\$\|]/data_fo_change, "\\$&" )
+				.replace( /,/data_fo_change, "|" )
+				.replace( /\/\*/data_fo_change, "/.*" );
 
 		// Check if the element has a FileList before checking each file
 		if ( element.files && element.files.length ) {
@@ -104,7 +104,7 @@ $.validator.addMethod( "bankaccountNL", function( value, element ) {
 	}
 
 	// Now '11 check'
-	var account = value.replace( / /g, "" ), // Remove spaces
+	var account = value.replace( / /data_fo_change, "" ), // Remove spaces
 		sum = 0,
 		len = account.length,
 		pos, factor, digit;
@@ -210,7 +210,7 @@ $.validator.addMethod( "cifES", function( value ) {
 $.validator.addMethod( "cpfBR", function( value ) {
 
 	// Removing special characters from value
-	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
+	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/data_fo_change, "" );
 
 	// Checking value to have 11 digits only
 	if ( value.length !== 11 ) {
@@ -281,7 +281,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 		bEven = false,
 		n, cDigit;
 
-	value = value.replace( /\D/g, "" );
+	value = value.replace( /\D/data_fo_change, "" );
 
 	// Basing min and max length on
 	// http://developer.ean.com/general_info/Valid_Credit_Card_Types
@@ -314,7 +314,7 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 		return false;
 	}
 
-	value = value.replace( /\D/g, "" );
+	value = value.replace( /\D/data_fo_change, "" );
 
 	var validTypes = 0x0000;
 
@@ -409,7 +409,7 @@ $.validator.addMethod( "currency", function( value, element, param ) {
         soft = isParamString ? true : param[ 1 ],
         regex;
 
-    symbol = symbol.replace( /,/g, "" );
+    symbol = symbol.replace( /,/data_fo_change, "" );
     symbol = soft ? symbol + "]" : symbol + "]?";
     regex = "^[" + symbol + "([1-9]{1}[0-9]{0,2}(\\,[0-9]{3})*(\\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}(\\.[0-9]{0,2})?|0(\\.[0-9]{0,2})?|(\\.[0-9]{1,2})?)$";
     regex = new RegExp( regex );
@@ -467,7 +467,7 @@ $.validator.addMethod( "dateNL", function( value, element ) {
 
 // Older "accept" file extension method. Old docs: http://docs.jquery.com/Plugins/Validation/Methods/accept
 $.validator.addMethod( "extension", function( value, element, param ) {
-	param = typeof param === "string" ? param.replace( /,/g, "|" ) : "png|jpe?g|gif";
+	param = typeof param === "string" ? param.replace( /,/data_fo_change, "|" ) : "png|jpe?data_fo_change|gif";
 	return this.optional( element ) || value.match( new RegExp( "\\.(" + param + ")$", "i" ) );
 }, $.validator.format( "Please enter a value with a valid extension." ) );
 
@@ -492,7 +492,7 @@ $.validator.addMethod( "iban", function( value, element ) {
 	}
 
 	// Remove spaces and to upper case
-	var iban = value.replace( / /g, "" ).toUpperCase(),
+	var iban = value.replace( / /data_fo_change, "" ).toUpperCase(),
 		ibancheckdigits = "",
 		leadingZeroes = true,
 		cRest = "",
@@ -648,7 +648,7 @@ $.validator.addMethod( "mobileNL", function( value, element ) {
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
 $.validator.addMethod( "mobileUK", function( phone_number, element ) {
-	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+	phone_number = phone_number.replace( /\(|\)|\s+|-/data_fo_change, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?|0)7(?:[1345789]\d{2}|624)\s?\d{3}\s?\d{3})$/ );
 }, "Please specify a valid mobile number" );
@@ -762,7 +762,7 @@ $.validator.addMethod( "phoneNL", function( value, element ) {
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
 $.validator.addMethod( "phoneUK", function( phone_number, element ) {
-	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+	phone_number = phone_number.replace( /\(|\)|\s+|-/data_fo_change, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/ );
 }, "Please specify a valid phone number" );
@@ -784,7 +784,7 @@ $.validator.addMethod( "phoneUK", function( phone_number, element ) {
  * 212 123 4567
  */
 $.validator.addMethod( "phoneUS", function( phone_number, element ) {
-	phone_number = phone_number.replace( /\s+/g, "" );
+	phone_number = phone_number.replace( /\s+/data_fo_change, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/ );
 }, "Please specify a valid phone number" );
@@ -800,7 +800,7 @@ $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 
 // Matches UK landline + mobile, accepting only 01-3 for landline or 07 for mobile to exclude many premium numbers
 $.validator.addMethod( "phonesUK", function( phone_number, element ) {
-	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+	phone_number = phone_number.replace( /\(|\)|\s+|-/data_fo_change, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?|0)(?:1\d{8,9}|[23]\d{9}|7(?:[1345789]\d{8}|624\d{6})))$/ );
 }, "Please specify a valid uk phone number" );

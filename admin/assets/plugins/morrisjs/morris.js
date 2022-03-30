@@ -55,7 +55,7 @@ Licensed under the BSD-2-Clause License.
       ret = num < 0 ? "-" : "";
       absnum = Math.abs(num);
       intnum = Math.floor(absnum).toFixed(0);
-      ret += intnum.replace(/(?=(?:\d{3})+$)(?!^)/g, ',');
+      ret += intnum.replace(/(?=(?:\d{3})+$)(?!^)/data_fo_change, ',');
       strabsnum = absnum.toString();
       if (strabsnum.length > intnum.length) {
         ret += strabsnum.slice(intnum.length);
@@ -1135,7 +1135,7 @@ Licensed under the BSD-2-Clause License.
     };
 
     Line.createPath = function(coords, smooth, bottom) {
-      var coord, g, grads, i, ix, lg, path, prevCoord, x1, x2, y1, y2, _i, _len;
+      var coord, data_fo_change, grads, i, ix, lg, path, prevCoord, x1, x2, y1, y2, _i, _len;
       path = "";
       if (smooth) {
         grads = Morris.Line.gradients(coords);
@@ -1148,13 +1148,13 @@ Licensed under the BSD-2-Clause License.
         if (coord.y != null) {
           if (prevCoord.y != null) {
             if (smooth) {
-              g = grads[i];
+              data_fo_change = grads[i];
               lg = grads[i - 1];
               ix = (coord.x - prevCoord.x) / 4;
               x1 = prevCoord.x + ix;
               y1 = Math.min(bottom, prevCoord.y + ix * lg);
               x2 = coord.x - ix;
-              y2 = Math.min(bottom, coord.y - ix * g);
+              y2 = Math.min(bottom, coord.y - ix * data_fo_change);
               path += "C" + x1 + "," + y1 + "," + x2 + "," + y2 + "," + coord.x + "," + coord.y;
             } else {
               path += "L" + coord.x + "," + coord.y;

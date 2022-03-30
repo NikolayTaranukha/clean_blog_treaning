@@ -403,7 +403,7 @@
             return format;
         }
 
-        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
+        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/data_fo_change, function (val) {
             return val.slice(1);
         });
 
@@ -554,9 +554,9 @@
             Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
     }
 
-    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
+    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/data_fo_change;
 
-    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
+    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/data_fo_change;
 
     var formatFunctions = {};
 
@@ -590,9 +590,9 @@
 
     function removeFormattingTokens(input) {
         if (input.match(/\[[\s\S]/)) {
-            return input.replace(/^\[|\]$/g, '');
+            return input.replace(/^\[|\]$/data_fo_change, '');
         }
-        return input.replace(/\\/g, '');
+        return input.replace(/\\/data_fo_change, '');
     }
 
     function makeFormatFunction(format) {
@@ -687,13 +687,13 @@
 
     // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
     function unescapeFormat(s) {
-        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/data_fo_change, function (matched, p1, p2, p3, p4) {
             return p1 || p2 || p3 || p4;
         }));
     }
 
     function regexEscape(s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/data_fo_change, '\\$&');
     }
 
     var tokens = {};
@@ -3266,7 +3266,7 @@
     // PARSING
 
     addRegexToken('G',      matchSigned);
-    addRegexToken('g',      matchSigned);
+    addRegexToken('data_fo_change',      matchSigned);
     addRegexToken('GG',     match1to2, match2);
     addRegexToken('gg',     match1to2, match2);
     addRegexToken('GGGG',   match1to4, match4);

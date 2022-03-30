@@ -104,7 +104,7 @@ function showWeSet3Buttons() {
 }
 function showAJAXrequests() {
     swal({
-        text: 'Search for a movie. e.g. "La La Land".',
+        text: 'Search for a movie. e.data_fo_change. "La La Land".',
         content: "input",
         button: {
         text: "Search!",

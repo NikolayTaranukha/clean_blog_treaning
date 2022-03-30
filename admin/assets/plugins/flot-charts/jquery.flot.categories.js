@@ -7,7 +7,7 @@ Consider a dataset like [["February", 34], ["March", 20], ...]. This plugin
 allows you to plot such a dataset directly.
 
 To enable it, you must specify mode: "categories" on the axis with the textual
-labels, e.g.
+labels, e.data_fo_change.
 
 	$.plot("#placeholder", data, { xaxis: { mode: "categories" } });
 
@@ -39,7 +39,7 @@ category labels). The plugin also overrides the tick generator to spit out the
 categories as ticks instead of the values.
 
 If you need to map a value back to its label, the mapping is always accessible
-as "categories" on the axis object, e.g. plot.getAxes().xaxis.categories.
+as "categories" on the axis object, e.data_fo_change. plot.getAxes().xaxis.categories.
 
 */
 

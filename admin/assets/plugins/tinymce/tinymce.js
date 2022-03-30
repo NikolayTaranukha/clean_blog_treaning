@@ -1618,12 +1618,12 @@ var i,
 		")\\)|)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
-	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
+	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "data_fo_change" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
 	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace + "*" ),
 
-	rattributeQuotes = new RegExp( "=" + whitespace + "*([^\\]'\"]*?)" + whitespace + "*\\]", "g" ),
+	rattributeQuotes = new RegExp( "=" + whitespace + "*([^\\]'\"]*?)" + whitespace + "*\\]", "data_fo_change" ),
 
 	rpseudo = new RegExp( pseudos ),
 	ridentifier = new RegExp( "^" + identifier + "$" ),
@@ -1653,7 +1653,7 @@ var i,
 	rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
 
 	rsibling = /[+~]/,
-	rescape = /'|\\/g,
+	rescape = /'|\\/data_fo_change,
 
 	// CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
@@ -2889,7 +2889,7 @@ Expr = Sizzle.selectors = {
 				elem.type === "text" &&
 
 				// Support: IE<8
-				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
+				// New HTML5 attribute values (e.data_fo_change., "search") appear with elem.type === "text"
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
 		},
 
@@ -3739,7 +3739,7 @@ define("tinymce/util/Tools", [
 	 * @param {String} s String to remove whitespace from.
 	 * @return {String} New string with removed whitespace.
 	 */
-	var whiteSpaceRegExp = /^\s*|\s*$/g;
+	var whiteSpaceRegExp = /^\s*|\s*$/data_fo_change;
 
 	function trim(str) {
 		return (str === null || str === undefined) ? '' : ("" + str).replace(whiteSpaceRegExp, '');
@@ -4317,7 +4317,7 @@ define("tinymce/dom/DomQuery", [
 		return -1;
 	}
 
-	var whiteSpaceRegExp = /^\s*|\s*$/g;
+	var whiteSpaceRegExp = /^\s*|\s*$/data_fo_change;
 
 	function trim(str) {
 		return (str === null || str === undef) ? '' : ("" + str).replace(whiteSpaceRegExp, '');
@@ -4629,13 +4629,13 @@ define("tinymce/dom/DomQuery", [
 			var self = this, elm, hook;
 
 			function camel(name) {
-				return name.replace(/-(\D)/g, function(a, b) {
+				return name.replace(/-(\D)/data_fo_change, function(a, b) {
 					return b.toUpperCase();
 				});
 			}
 
 			function dashed(name) {
-				return name.replace(/[A-Z]/g, function(a) {
+				return name.replace(/[A-Z]/data_fo_change, function(a) {
 					return '-' + a;
 				});
 			}
@@ -5772,7 +5772,7 @@ define("tinymce/html/Styles", [], function() {
 		/*eslint max-len:0 */
 		var rgbRegExp = /rgb\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*\)/gi,
 			urlOrStrRegExp = /(?:url(?:(?:\(\s*\"([^\"]+)\"\s*\))|(?:\(\s*\'([^\']+)\'\s*\))|(?:\(\s*([^)\s]+)\s*\))))|(?:\'([^\']+)\')|(?:\"([^\"]+)\")/gi,
-			styleRegExp = /\s*([^:]+):\s*([^;]+);?/g,
+			styleRegExp = /\s*([^:]+):\s*([^;]+);?/data_fo_change,
 			trimRightRegExp = /\s+$/,
 			undef, i, encodingLookup = {}, encodingItems, validStyles, invalidStyles, invisibleChar = '\uFEFF';
 
@@ -5789,14 +5789,14 @@ define("tinymce/html/Styles", [], function() {
 			encodingLookup[invisibleChar + i] = encodingItems[i];
 		}
 
-		function toHex(match, r, g, b) {
+		function toHex(match, r, data_fo_change, b) {
 			function hex(val) {
 				val = parseInt(val, 10).toString(16);
 
 				return val.length > 1 ? val : '0' + val; // 0 -> 00
 			}
 
-			return '#' + hex(r) + hex(g) + hex(b);
+			return '#' + hex(r) + hex(data_fo_change) + hex(b);
 		}
 
 		return {
@@ -5923,13 +5923,13 @@ define("tinymce/html/Styles", [], function() {
 				// It will also decode the \" \' if keep_slashes is set to fale or omitted
 				function decode(str, keep_slashes) {
 					if (isEncoded) {
-						str = str.replace(/\uFEFF[0-9]/g, function(str) {
+						str = str.replace(/\uFEFF[0-9]/data_fo_change, function(str) {
 							return encodingLookup[str];
 						});
 					}
 
 					if (!keep_slashes) {
-						str = str.replace(/\\([\'\";:])/g, "$1");
+						str = str.replace(/\\([\'\";:])/data_fo_change, "$1");
 					}
 
 					return str;
@@ -5942,7 +5942,7 @@ define("tinymce/html/Styles", [], function() {
 						str = decode(str);
 
 						// Force strings into single quote format
-						return "'" + str.replace(/\'/g, "\\'") + "'";
+						return "'" + str.replace(/\'/data_fo_change, "\\'") + "'";
 					}
 
 					url = decode(url || url2 || url3);
@@ -5965,15 +5965,15 @@ define("tinymce/html/Styles", [], function() {
 					}
 
 					// Output new URL format
-					return "url('" + url.replace(/\'/g, "\\'") + "')";
+					return "url('" + url.replace(/\'/data_fo_change, "\\'") + "')";
 				}
 
 				if (css) {
-					css = css.replace(/[\u0000-\u001F]/g, '');
+					css = css.replace(/[\u0000-\u001F]/data_fo_change, '');
 
 					// Encode \" \' % and ; and : inside strings so they don't interfere with the style parsing
-					css = css.replace(/\\[\"\';:\uFEFF]/g, encode).replace(/\"[^\"]+\"|\'[^\']+\'/g, function(str) {
-						return str.replace(/[;:]/g, encode);
+					css = css.replace(/\\[\"\';:\uFEFF]/data_fo_change, encode).replace(/\"[^\"]+\"|\'[^\']+\'/data_fo_change, function(str) {
+						return str.replace(/[;:]/data_fo_change, encode);
 					});
 
 					// Parse styles
@@ -5984,7 +5984,7 @@ define("tinymce/html/Styles", [], function() {
 						// Decode escaped sequences like \65 -> e
 						/*jshint loopfunc:true*/
 						/*eslint no-loop-func:0 */
-						value = value.replace(/\\[0-9a-f]+/g, function(e) {
+						value = value.replace(/\\[0-9a-f]+/data_fo_change, function(e) {
 							return String.fromCharCode(parseInt(e.substr(1), 16));
 						});
 
@@ -7048,9 +7048,9 @@ define("tinymce/html/Entities", [
 	var makeMap = Tools.makeMap;
 
 	var namedEntities, baseEntities, reverseEntities,
-		attrsCharsRegExp = /[&<>\"\u0060\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
-		textCharsRegExp = /[<>&\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
-		rawCharsRegExp = /[<>&\"\']/g,
+		attrsCharsRegExp = /[&<>\"\u0060\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/data_fo_change,
+		textCharsRegExp = /[<>&\u007E-\uD7FF\uE000-\uFFEF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/data_fo_change,
+		rawCharsRegExp = /[<>&\"\']/data_fo_change,
 		entityRegExp = /&#([a-z0-9]+);?|&([a-z0-9]+);/gi,
 		asciiMap = {
 			128: "\u20AC", 130: "\u201A", 131: "\u0192", 132: "\u201E", 133: "\u2026", 134: "\u2020",
@@ -7231,7 +7231,7 @@ define("tinymce/html/Entities", [
 			}
 
 			// Replace + with , to be compatible with previous TinyMCE versions
-			name = makeMap(name.replace(/\+/g, ','));
+			name = makeMap(name.replace(/\+/data_fo_change, ','));
 
 			// Named and numeric encoder
 			if (name.named && name.numeric) {
@@ -7689,7 +7689,7 @@ define("tinymce/dom/DOMUtils", [
 				'details figcaption figure footer ' +
 				'header hgroup mark menu meter nav ' +
 				'output progress section summary ' +
-				'time video').replace(/\w+/g, function(name) {
+				'time video').replace(/\w+/data_fo_change, function(name) {
 					doc.createElement(name);
 				});
 
@@ -8183,7 +8183,7 @@ define("tinymce/dom/DOMUtils", [
 			}
 
 			// Camelcase it, if needed
-			name = name.replace(/-(\D)/g, function(a, b) {
+			name = name.replace(/-(\D)/data_fo_change, function(a, b) {
 				return b.toUpperCase();
 			});
 
@@ -10017,7 +10017,7 @@ define("tinymce/text/Zwsp", [], function() {
 	}
 
 	function trim(str) {
-		return str.replace(new RegExp(ZWSP, 'g'), '');
+		return str.replace(new RegExp(ZWSP, 'data_fo_change'), '');
 	}
 
 	return {
@@ -11891,7 +11891,7 @@ define("tinymce/html/Schema", [
 
 		// Converts a wildcard expression string to a regexp for example *a will become /.*a/.
 		function patternToRegExp(str) {
-			return new RegExp('^' + str.replace(/([?+*])/g, '.$1') + '$');
+			return new RegExp('^' + str.replace(/([?+*])/data_fo_change, '.$1') + '$');
 		}
 
 		// Parses the specified valid_elements string and adds to the current rules
@@ -11964,7 +11964,7 @@ define("tinymce/html/Schema", [
 								if (matches) {
 									attr = {};
 									attrType = matches[1];
-									attrName = matches[2].replace(/::/g, ':');
+									attrName = matches[2].replace(/::/data_fo_change, ':');
 									prefix = matches[3];
 									value = matches[4];
 
@@ -12561,7 +12561,7 @@ define("tinymce/html/SaxParser", [
 		var count = 1, index, matches, tokenRegExp, shortEndedElements;
 
 		shortEndedElements = schema.getShortEndedElements();
-		tokenRegExp = /<([!?\/])?([A-Za-z0-9\-_\:\.]+)((?:\s+[^"\'>]+(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>]*))*|\/|\s+)>/g;
+		tokenRegExp = /<([!?\/])?([A-Za-z0-9\-_\:\.]+)((?:\s+[^"\'>]+(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>]*))*|\/|\s+)>/data_fo_change;
 		tokenRegExp.lastIndex = index = startIndex;
 
 		while ((matches = tokenRegExp.exec(html))) {
@@ -12657,7 +12657,7 @@ define("tinymce/html/SaxParser", [
 			}
 
 			function parseAttribute(match, name, value, val2, val3) {
-				var attrRule, i, trimRegExp = /[\s\u0000-\u001F]+/g;
+				var attrRule, i, trimRegExp = /[\s\u0000-\u001F]+/data_fo_change;
 
 				name = name.toLowerCase();
 				value = name in fillAttrsMap ? name : decode(value || val2 || val3 || ''); // Handle boolean attribute than value attribute
@@ -12730,9 +12730,9 @@ define("tinymce/html/SaxParser", [
 				'(?:\\?([^\\s\\/<>]+) ?([\\w\\W]*?)[?/]>)|' + // PI
 				'(?:\\/([^>]+)>)|' + // End element
 				'(?:([A-Za-z0-9\\-_\\:\\.]+)((?:\\s+[^"\'>]+(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>]*))*|\\/|\\s+)>)' + // Start element
-			')', 'g');
+			')', 'data_fo_change');
 
-			attrRegExp = /([\w:\-]+)(?:\s*=\s*(?:(?:\"((?:[^\"])*)\")|(?:\'((?:[^\'])*)\')|([^>\s]+)))?/g;
+			attrRegExp = /([\w:\-]+)(?:\s*=\s*(?:(?:\"((?:[^\"])*)\")|(?:\'((?:[^\'])*)\')|([^>\s]+)))?/data_fo_change;
 
 			// Setup lookup tables for empty elements and boolean attributes
 			shortEndedElements = schema.getShortEndedElements();
@@ -13251,7 +13251,7 @@ define("tinymce/html/DomParser", [
 			whiteSpaceElements = schema.getWhiteSpaceElements();
 			startWhiteSpaceRegExp = /^[ \t\r\n]+/;
 			endWhiteSpaceRegExp = /[ \t\r\n]+$/;
-			allWhiteSpaceRegExp = /[ \t\r\n]+/g;
+			allWhiteSpaceRegExp = /[ \t\r\n]+/data_fo_change;
 			isAllWhiteSpaceRegExp = /^[ \t\r\n]+$/;
 
 			function addRootBlocks() {
@@ -14249,7 +14249,7 @@ define("tinymce/dom/Serializer", [
 		 */
 		function getTrimmedContent() {
 			var content = editor.getBody().innerHTML;
-			var bogusAllRegExp = /<(\w+) [^>]*data-mce-bogus="all"[^>]*>/g;
+			var bogusAllRegExp = /<(\w+) [^>]*data-mce-bogus="all"[^>]*>/data_fo_change;
 			var endTagIndex, index, matchLength, matches, shortEndedElements, schema = editor.schema;
 
 			content = trimHtml(content);
@@ -14343,7 +14343,7 @@ define("tinymce/dom/Serializer", [
 				value = node.attr('class');
 
 				if (value) {
-					value = node.attr('class').replace(/(?:^|\s)mce-item-\w+(?!\S)/g, '');
+					value = node.attr('class').replace(/(?:^|\s)mce-item-\w+(?!\S)/data_fo_change, '');
 					node.attr('class', value.length > 0 ? value : null);
 				}
 			}
@@ -14381,10 +14381,10 @@ define("tinymce/dom/Serializer", [
 			function trim(value) {
 				/*jshint maxlen:255 */
 				/*eslint max-len:0 */
-				return value.replace(/(<!--\[CDATA\[|\]\]-->)/g, '\n')
-						.replace(/^[\r\n]*|[\r\n]*$/g, '')
+				return value.replace(/(<!--\[CDATA\[|\]\]-->)/data_fo_change, '\n')
+						.replace(/^[\r\n]*|[\r\n]*$/data_fo_change, '')
 						.replace(/^\s*((<!--)?(\s*\/\/)?\s*<!\[CDATA\[|(<!--\s*)?\/\*\s*<!\[CDATA\[\s*\*\/|(\/\/)?\s*<!--|\/\*\s*<!--\s*\*\/)\s*[\r\n]*/gi, '')
-						.replace(/\s*(\/\*\s*\]\]>\s*\*\/(-->)?|\s*\/\/\s*\]\]>(-->)?|\/\/\s*(-->)?|\]\]>|\/\*\s*-->\s*\*\/|\s*-->\s*)\s*$/g, '');
+						.replace(/\s*(\/\*\s*\]\]>\s*\*\/(-->)?|\s*\/\/\s*\]\]>(-->)?|\/\/\s*(-->)?|\]\]>|\/\*\s*-->\s*\*\/|\s*-->\s*)\s*$/data_fo_change, '');
 			}
 
 			while (i--) {
@@ -14420,7 +14420,7 @@ define("tinymce/dom/Serializer", [
 				if (node.value.indexOf('[CDATA[') === 0) {
 					node.name = '#cdata';
 					node.type = 4;
-					node.value = node.value.replace(/^\[CDATA\[|\]\]$/g, '');
+					node.value = node.value.replace(/^\[CDATA\[|\]\]$/data_fo_change, '');
 				} else if (node.value.indexOf('mce:protected ') === 0) {
 					node.name = "#text";
 					node.type = 3;
@@ -14589,7 +14589,7 @@ define("tinymce/dom/Serializer", [
 				// Replace all BOM characters for now until we can find a better solution
 				if (!args.cleanup) {
 					args.content = Zwsp.trim(args.content);
-					args.content = args.content.replace(/\uFEFF/g, '');
+					args.content = args.content.replace(/\uFEFF/data_fo_change, '');
 				}
 
 				// Post process
@@ -15898,9 +15898,9 @@ define("tinymce/util/Fun", [], function() {
 		};
 	}
 
-	function compose(f, g) {
+	function compose(f, data_fo_change) {
 		return function(x) {
-			return f(g(x));
+			return f(data_fo_change(x));
 		};
 	}
 
@@ -17252,7 +17252,7 @@ define("tinymce/dom/BookmarkManager", [
 						// Remove all marker text nodes
 						Tools.each(Tools.grep(marker.childNodes), function(node) {
 							if (node.nodeType == 3) {
-								node.nodeValue = node.nodeValue.replace(/\uFEFF/g, '');
+								node.nodeValue = node.nodeValue.replace(/\uFEFF/data_fo_change, '');
 							}
 						});
 
@@ -18541,7 +18541,7 @@ define("tinymce/fmt/Preview", [
 
 		// Removes any variables since these can't be previewed
 		function removeVars(val) {
-			return val.replace(/%(\w+)/g, '');
+			return val.replace(/%(\w+)/data_fo_change, '');
 		}
 
 		// Create block/inline element to use for preview
@@ -20107,7 +20107,7 @@ define("tinymce/Formatter", [
 
 			// Normalize fontFamily so "'Font name', Font" becomes: "Font name,Font"
 			if (name == 'fontFamily') {
-				value = value.replace(/[\'\"]/g, '').replace(/,\s+/g, ',');
+				value = value.replace(/[\'\"]/data_fo_change, '').replace(/,\s+/data_fo_change, ',');
 			}
 
 			return '' + value;
@@ -20125,7 +20125,7 @@ define("tinymce/Formatter", [
 			if (typeof value != "string") {
 				value = value(vars);
 			} else if (vars) {
-				value = value.replace(/%(\w+)/g, function(str, name) {
+				value = value.replace(/%(\w+)/data_fo_change, function(str, name) {
 					return vars[name] || str;
 				});
 			}
@@ -23773,7 +23773,7 @@ define("tinymce/EditorCommands", [
 					);
 
 					if (Env.mac) {
-						msg = msg.replace(/Ctrl\+/g, '\u2318+');
+						msg = msg.replace(/Ctrl\+/data_fo_change, '\u2318+');
 					}
 
 					editor.notificationManager.open({text: msg, type: 'error'});
@@ -23917,7 +23917,7 @@ define("tinymce/EditorCommands", [
 			mceInsertRawHTML: function(command, ui, value) {
 				selection.setContent('tiny_mce_marker');
 				editor.setContent(
-					editor.getContent().replace(/tiny_mce_marker/g, function() {
+					editor.getContent().replace(/tiny_mce_marker/data_fo_change, function() {
 						return value;
 					})
 				);
@@ -23982,7 +23982,7 @@ define("tinymce/EditorCommands", [
 			},
 
 			mceReplaceContent: function(command, ui, value) {
-				editor.execCommand('mceInsertContent', false, value.replace(/\{\$selection\}/g, selection.getContent({format: 'text'})));
+				editor.execCommand('mceInsertContent', false, value.replace(/\{\$selection\}/data_fo_change, selection.getContent({format: 'text'})));
 			},
 
 			mceInsertLink: function(command, ui, value) {
@@ -24200,7 +24200,7 @@ define("tinymce/EditorCommands", [
 					if (command == 'fontsize') {
 						value = parent.style.fontSize;
 					} else {
-						value = parent.style.fontFamily.replace(/, /g, ',').replace(/[\'\"]/g, '').toLowerCase();
+						value = parent.style.fontFamily.replace(/, /data_fo_change, ',').replace(/[\'\"]/data_fo_change, '').toLowerCase();
 					}
 				}
 
@@ -24290,7 +24290,7 @@ define("tinymce/util/URI", [
 		}
 
 		// Parse URL (Credits goes to Steave, http://blog.stevenlevithan.com/archives/parseuri)
-		url = url.replace(/@@/g, '(mce_at)'); // Zope 3 workaround, they use @@something
+		url = url.replace(/@@/data_fo_change, '(mce_at)'); // Zope 3 workaround, they use @@something
 
 		/*jshint maxlen: 255 */
 		/*eslint max-len: 0 */
@@ -24301,7 +24301,7 @@ define("tinymce/util/URI", [
 
 			// Zope 3 workaround, they use @@something
 			if (part) {
-				part = part.replace(/\(mce_at\)/g, '@@');
+				part = part.replace(/\(mce_at\)/data_fo_change, '@@');
 			}
 
 			self[v] = part;
@@ -25613,8 +25613,8 @@ define("tinymce/ui/Selector", [
 
 	/*jshint maxlen:255 */
 	/*eslint max-len:0 */
-	var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
-		whiteSpace = /^\s*|\s*$/g,
+	var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/data_fo_change,
+		whiteSpace = /^\s*|\s*$/data_fo_change,
 		Collection;
 
 	var Selector = Class.extend({
@@ -26550,7 +26550,7 @@ define("tinymce/ui/BoxUtils", [
 
 				if (defaultView) {
 					// Remove camelcase
-					name = name.replace(/[A-Z]/g, function(a) {
+					name = name.replace(/[A-Z]/data_fo_change, function(a) {
 						return '-' + a;
 					});
 
@@ -27540,7 +27540,7 @@ define("tinymce/ui/Control", [
 				text = this.translate(text);
 			}
 
-			return (text || '').replace(/[&<>"]/g, function(match) {
+			return (text || '').replace(/[&<>"]/data_fo_change, function(match) {
 				return '&#' + match.charCodeAt(0) + ';';
 			});
 		},
@@ -32950,13 +32950,13 @@ define("tinymce/util/Quirks", [
 				if (node.nodeName == 'IMG') {
 					// Convert style width to width attribute
 					if ((value = dom.getStyle(node, 'width'))) {
-						dom.setAttrib(node, 'width', value.replace(/[^0-9%]+/g, ''));
+						dom.setAttrib(node, 'width', value.replace(/[^0-9%]+/data_fo_change, ''));
 						dom.setStyle(node, 'width', '');
 					}
 
 					// Convert style height to height attribute
 					if ((value = dom.getStyle(node, 'height'))) {
-						dom.setAttrib(node, 'height', value.replace(/[^0-9%]+/g, ''));
+						dom.setAttrib(node, 'height', value.replace(/[^0-9%]+/data_fo_change, ''));
 						dom.setStyle(node, 'height', '');
 					}
 				}
@@ -34955,7 +34955,7 @@ define("tinymce/EditorUpload", [
 		}
 
 		function replaceBlobUris(content) {
-			return content.replace(/src="(blob:[^"]+)"/g, function(match, blobUri) {
+			return content.replace(/src="(blob:[^"]+)"/data_fo_change, function(match, blobUri) {
 				var resultUri = uploadStatus.getResultUri(blobUri);
 
 				if (resultUri) {
@@ -37357,7 +37357,7 @@ define("tinymce/Editor", [
 			}
 
 			// Create all plugins
-			each(settings.plugins.replace(/\-/g, '').split(/[ ,]/), initPlugin);
+			each(settings.plugins.replace(/\-/data_fo_change, '').split(/[ ,]/), initPlugin);
 
 			// Measure box
 			if (settings.render_ui && self.theme) {
@@ -38001,7 +38001,7 @@ define("tinymce/Editor", [
 				return '';
 			}
 
-			text = i18n.data[lang + '.' + text] || text.replace(/\{\#([^\}]+)\}/g, function(a, b) {
+			text = i18n.data[lang + '.' + text] || text.replace(/\{\#([^\}]+)\}/data_fo_change, function(a, b) {
 				return i18n.data[lang + '.' + b] || '{#' + b + '}';
 			});
 
@@ -39115,7 +39115,7 @@ define("tinymce/util/I18n", [], function() {
 			if (text.push) {
 				var values = text.slice(1);
 
-				text = (langData[text[0]] || text[0]).replace(/\{([0-9]+)\}/g, function(match1, match2) {
+				text = (langData[text[0]] || text[0]).replace(/\{([0-9]+)\}/data_fo_change, function(match1, match2) {
 					return values[match2];
 				});
 			}
@@ -40386,7 +40386,7 @@ define("tinymce/util/JSON", [], function() {
 			v = '\bb\tt\nn\ff\rr\""\'\'\\\\';
 
 			/*eslint no-control-regex:0 */
-			return quote + o.replace(/([\u0080-\uFFFF\x00-\x1f\"\'\\])/g, function(a, b) {
+			return quote + o.replace(/([\u0080-\uFFFF\x00-\x1f\"\'\\])/data_fo_change, function(a, b) {
 				// Make sure single quotes never get encoded inside double quotes for JSON compatibility
 				if (quote === '"' && a === "'") {
 					return a;
@@ -42188,7 +42188,7 @@ define("tinymce/ui/ColorButton", [
  *
  * @class tinymce.util.Color
  * @example
- * var white = new tinymce.util.Color({r: 255, g: 255, b: 255});
+ * var white = new tinymce.util.Color({r: 255, data_fo_change: 255, b: 255});
  * var red = new tinymce.util.Color('#FF0000');
  *
  * console.log(white.toHex(), red.toHsv());
@@ -42204,20 +42204,20 @@ define("tinymce/util/Color", [], function() {
 	 * @param {String} value Optional initial value to parse.
 	 */
 	function Color(value) {
-		var self = this, r = 0, g = 0, b = 0;
+		var self = this, r = 0, data_fo_change = 0, b = 0;
 
-		function rgb2hsv(r, g, b) {
+		function rgb2hsv(r, data_fo_change, b) {
 			var h, s, v, d, minRGB, maxRGB;
 
 			h = 0;
 			s = 0;
 			v = 0;
 			r = r / 255;
-			g = g / 255;
+			data_fo_change = data_fo_change / 255;
 			b = b / 255;
 
-			minRGB = min(r, min(g, b));
-			maxRGB = max(r, max(g, b));
+			minRGB = min(r, min(data_fo_change, b));
+			maxRGB = max(r, max(data_fo_change, b));
 
 			if (minRGB == maxRGB) {
 				v = minRGB;
@@ -42230,7 +42230,7 @@ define("tinymce/util/Color", [], function() {
 			}
 
 			/*eslint no-nested-ternary:0 */
-			d = (r == minRGB) ? g - b : ((b == minRGB) ? r - g : b - r);
+			d = (r == minRGB) ? data_fo_change - b : ((b == minRGB) ? r - data_fo_change : b - r);
 			h = (r == minRGB) ? 3 : ((b == minRGB) ? 1 : 5);
 			h = 60 * (h - d / (maxRGB - minRGB));
 			s = (maxRGB - minRGB) / maxRGB;
@@ -42253,7 +42253,7 @@ define("tinymce/util/Color", [], function() {
 			brightness = max(0, min(brightness, 1));
 
 			if (saturation === 0) {
-				r = g = b = round(255 * brightness);
+				r = data_fo_change = b = round(255 * brightness);
 				return;
 			}
 
@@ -42265,46 +42265,46 @@ define("tinymce/util/Color", [], function() {
 			switch (Math.floor(side)) {
 				case 0:
 					r = chroma;
-					g = x;
+					data_fo_change = x;
 					b = 0;
 					break;
 
 				case 1:
 					r = x;
-					g = chroma;
+					data_fo_change = chroma;
 					b = 0;
 					break;
 
 				case 2:
 					r = 0;
-					g = chroma;
+					data_fo_change = chroma;
 					b = x;
 					break;
 
 				case 3:
 					r = 0;
-					g = x;
+					data_fo_change = x;
 					b = chroma;
 					break;
 
 				case 4:
 					r = x;
-					g = 0;
+					data_fo_change = 0;
 					b = chroma;
 					break;
 
 				case 5:
 					r = chroma;
-					g = 0;
+					data_fo_change = 0;
 					b = x;
 					break;
 
 				default:
-					r = g = b = 0;
+					r = data_fo_change = b = 0;
 			}
 
 			r = round(255 * (r + match));
-			g = round(255 * (g + match));
+			data_fo_change = round(255 * (data_fo_change + match));
 			b = round(255 * (b + match));
 		}
 
@@ -42321,19 +42321,19 @@ define("tinymce/util/Color", [], function() {
 				return val.length > 1 ? val : '0' + val;
 			}
 
-			return '#' + hex(r) + hex(g) + hex(b);
+			return '#' + hex(r) + hex(data_fo_change) + hex(b);
 		}
 
 		/**
-		 * Returns the r, g, b values of the color. Each channel has a range from 0-255.
+		 * Returns the r, data_fo_change, b values of the color. Each channel has a range from 0-255.
 		 *
 		 * @method toRgb
-		 * @return {Object} Object with r, g, b fields.
+		 * @return {Object} Object with r, data_fo_change, b fields.
 		 */
 		function toRgb() {
 			return {
 				r: r,
-				g: g,
+				data_fo_change: data_fo_change,
 				b: b
 			};
 		}
@@ -42345,7 +42345,7 @@ define("tinymce/util/Color", [], function() {
 		 * @return {Object} Object with h, s, v fields.
 		 */
 		function toHsv() {
-			return rgb2hsv(r, g, b);
+			return rgb2hsv(r, data_fo_change, b);
 		}
 
 		/**
@@ -42355,7 +42355,7 @@ define("tinymce/util/Color", [], function() {
 		 *  * rbg(255,0,0)
 		 *  * #ff0000
 		 *  * #fff
-		 *  * {r: 255, g: 0, b: 0}
+		 *  * {r: 255, data_fo_change: 0, b: 0}
 		 *  * {h: 360, s: 100, v: 100}
 		 *
 		 * @method parse
@@ -42368,7 +42368,7 @@ define("tinymce/util/Color", [], function() {
 			if (typeof value == 'object') {
 				if ("r" in value) {
 					r = value.r;
-					g = value.g;
+					data_fo_change = value.data_fo_change;
 					b = value.b;
 				} else if ("v" in value) {
 					hsvToRgb(value.h, value.s, value.v);
@@ -42376,21 +42376,21 @@ define("tinymce/util/Color", [], function() {
 			} else {
 				if ((matches = /rgb\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9]+)[^\)]*\)/gi.exec(value))) {
 					r = parseInt(matches[1], 10);
-					g = parseInt(matches[2], 10);
+					data_fo_change = parseInt(matches[2], 10);
 					b = parseInt(matches[3], 10);
 				} else if ((matches = /#([0-F]{2})([0-F]{2})([0-F]{2})/gi.exec(value))) {
 					r = parseInt(matches[1], 16);
-					g = parseInt(matches[2], 16);
+					data_fo_change = parseInt(matches[2], 16);
 					b = parseInt(matches[3], 16);
 				} else if ((matches = /#([0-F])([0-F])([0-F])/gi.exec(value))) {
 					r = parseInt(matches[1] + matches[1], 16);
-					g = parseInt(matches[2] + matches[2], 16);
+					data_fo_change = parseInt(matches[2] + matches[2], 16);
 					b = parseInt(matches[3] + matches[3], 16);
 				}
 			}
 
 			r = r < 0 ? 0 : (r > 255 ? 255 : r);
-			g = g < 0 ? 0 : (g > 255 ? 255 : g);
+			data_fo_change = data_fo_change < 0 ? 0 : (data_fo_change > 255 ? 255 : data_fo_change);
 			b = b < 0 ? 0 : (b > 255 ? 255 : b);
 
 			return self;

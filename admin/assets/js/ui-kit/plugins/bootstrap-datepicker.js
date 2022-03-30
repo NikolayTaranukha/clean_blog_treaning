@@ -187,7 +187,7 @@
                     return false;
                 }
                 // If no html, everything ok
-                if ((tmp.match(/[<>]/g) || []).length <= 0) {
+                if ((tmp.match(/[<>]/data_fo_change) || []).length <= 0) {
                     return true;
                 }
                 // Checking if html is fine
@@ -266,7 +266,7 @@
                 return DPGlobal.parseDate(d, format, o.language, o.assumeNearbyYear);
             });
 
-            var plc = String(o.orientation).toLowerCase().split(/\s+/g),
+            var plc = String(o.orientation).toLowerCase().split(/\s+/data_fo_change),
                 _plc = o.orientation.toLowerCase();
             plc = $.grep(plc, function(word) {
                 return /^auto|left|right|top|bottom$/.test(word);
@@ -1783,8 +1783,8 @@
                 navStep: 1000
             }
         ],
-        validParts: /dd?|DD?|mm?|MM?|yy(?:yy)?/g,
-        nonpunctuation: /[^ -\/:-@\u5e74\u6708\u65e5\[-`{-~\t\n\r]+/g,
+        validParts: /dd?|DD?|mm?|MM?|yy(?:yy)?/data_fo_change,
+        nonpunctuation: /[^ -\/:-@\u5e74\u6708\u65e5\[-`{-~\t\n\r]+/data_fo_change,
         parseFormat: function(format) {
             if (typeof format.toValue === 'function' && typeof format.toDisplay === 'function')
                 return format;

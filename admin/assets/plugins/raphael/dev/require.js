@@ -14,7 +14,7 @@ var requirejs, require, define;
         interactiveScript, currentlyAddingScript, mainScript, subPath,
         version = '2.1.8',
         commentRegExp = /(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/mg,
-        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
+        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/data_fo_change,
         jsSuffixRegExp = /\.js$/,
         currDirRegExp = /^\.\//,
         op = Object.prototype,
@@ -144,11 +144,11 @@ var requirejs, require, define;
         if (!value) {
             return value;
         }
-        var g = global;
+        var data_fo_change = global;
         each(value.split('.'), function (part) {
-            g = g[part];
+            data_fo_change = data_fo_change[part];
         });
-        return g;
+        return data_fo_change;
     }
 
     /**

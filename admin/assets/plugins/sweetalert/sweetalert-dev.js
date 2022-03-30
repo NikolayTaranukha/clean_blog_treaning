@@ -458,7 +458,7 @@ var handleConfirm = function handleConfirm(modal, params) {
  */
 var handleCancel = function handleCancel(modal, params) {
   // Check if callback function expects a parameter (to track cancel actions)
-  var functionAsStr = String(params.doneFunction).replace(/\s/g, '');
+  var functionAsStr = String(params.doneFunction).replace(/\s/data_fo_change, '');
   var functionHandlesCancel = functionAsStr.substring(0, 9) === 'function(' && functionAsStr.substring(9, 10) !== ')';
 
   if (functionHandlesCancel) {
@@ -494,12 +494,12 @@ var addClass = function addClass(elem, className) {
 };
 
 var removeClass = function removeClass(elem, className) {
-  var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+  var newClass = ' ' + elem.className.replace(/[\t\r\n]/data_fo_change, ' ') + ' ';
   if (hasClass(elem, className)) {
     while (newClass.indexOf(' ' + className + ' ') >= 0) {
       newClass = newClass.replace(' ' + className + ' ', ' ');
     }
-    elem.className = newClass.replace(/^\s+|\s+$/g, '');
+    elem.className = newClass.replace(/^\s+|\s+$/data_fo_change, '');
   }
 };
 

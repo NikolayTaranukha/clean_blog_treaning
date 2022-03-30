@@ -484,10 +484,10 @@
 		}
 
 		self.find = function(text, matchCase, wholeWord) {
-			text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+			text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/data_fo_change, "\\$&");
 			text = wholeWord ? '\\b' + text + '\\b' : text;
 
-			var count = markAllMatches(new RegExp(text, matchCase ? 'g' : 'gi'));
+			var count = markAllMatches(new RegExp(text, matchCase ? 'data_fo_change' : 'gi'));
 
 			if (count) {
 				currentIndex = -1;

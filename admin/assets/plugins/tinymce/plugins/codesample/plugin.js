@@ -143,7 +143,7 @@ var _ = _self.Prism = {
 			} else if (_.util.type(tokens) === 'Array') {
 				return tokens.map(_.util.encode);
 			} else {
-				return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\u00a0/g, ' ');
+				return tokens.replace(/&/data_fo_change, '&amp;').replace(/</data_fo_change, '&lt;').replace(/\u00a0/data_fo_change, ' ');
 			}
 		},
 
@@ -151,7 +151,7 @@ var _ = _self.Prism = {
 			return Object.prototype.toString.call(o).match(/\[object (\w+)\]/)[1];
 		},
 
-		// Deep clone a language definition (e.g. to extend it)
+		// Deep clone a language definition (e.data_fo_change. to extend it)
 		clone: function (o) {
 			var type = _.util.type(o);
 
@@ -282,13 +282,13 @@ var _ = _self.Prism = {
 		}
 
 		// Set language on the element, if not present
-		element.className = element.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
+		element.className = element.className.replace(lang, '').replace(/\s+/data_fo_change, ' ') + ' language-' + language;
 
 		// Set language on the parent, for styling
 		parent = element.parentNode;
 
 		if (/pre/i.test(parent.nodeName)) {
-			parent.className = parent.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
+			parent.className = parent.className.replace(lang, '').replace(/\s+/data_fo_change, ' ') + ' language-' + language;
 		}
 
 		var code = element.textContent;
@@ -862,7 +862,7 @@ if (Prism.languages.markup) {
 		});
 	});
 
-	// Restore env.code for other plugins (e.g. line-numbers)
+	// Restore env.code for other plugins (e.data_fo_change. line-numbers)
 	Prism.hooks.add('before-insert', function(env) {
 		if (env.language === 'php') {
 			env.code = env.backupCode;
@@ -878,7 +878,7 @@ if (Prism.languages.markup) {
 
 		for (var i = 0, t; t = env.tokenStack[i]; i++) {
 			// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
-			env.highlightedCode = env.highlightedCode.replace('{{{PHP' + (i + 1) + '}}}', Prism.highlight(t, env.grammar, 'php').replace(/\$/g, '$$$$'));
+			env.highlightedCode = env.highlightedCode.replace('{{{PHP' + (i + 1) + '}}}', Prism.highlight(t, env.grammar, 'php').replace(/\$/data_fo_change, '$$$$'));
 		}
 
 		env.element.innerHTML = env.highlightedCode;
@@ -887,7 +887,7 @@ if (Prism.languages.markup) {
 	// Wrap tokens in classes that are missing them
 	Prism.hooks.add('wrap', function(env) {
 		if (env.language === 'php' && env.type === 'markup') {
-			env.content = env.content.replace(/(\{\{\{PHP[0-9]+\}\}\})/g, "<span class=\"token php\">$1</span>");
+			env.content = env.content.replace(/(\{\{\{PHP[0-9]+\}\}\})/data_fo_change, "<span class=\"token php\">$1</span>");
 		}
 	});
 
@@ -908,7 +908,7 @@ Prism.languages.python= {
 	},
 	'string': /"""[\s\S]+?"""|'''[\s\S]+?'''|("|')(?:\\?.)*?\1/,
 	'function' : {
-		pattern: /((?:^|\s)def[ \t]+)[a-zA-Z_][a-zA-Z0-9_]*(?=\()/g,
+		pattern: /((?:^|\s)def[ \t]+)[a-zA-Z_][a-zA-Z0-9_]*(?=\()/data_fo_change,
 		lookbehind: true
 	},
 	'class-name': {

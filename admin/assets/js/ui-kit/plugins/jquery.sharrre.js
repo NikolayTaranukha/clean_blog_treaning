@@ -119,8 +119,8 @@
         loadButton = {
             googlePlus: function(self) {
                 var sett = self.options.buttons.googlePlus;
-                //$(self.element).find('.buttons').append('<div class="button googleplus"><g:plusone size="'+self.options.buttons.googlePlus.size+'" href="'+self.options.url+'"></g:plusone></div>');
-                $(self.element).find('.buttons').append('<div class="button googleplus"><div class="g-plusone" data-size="' + sett.size + '" data-href="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-annotation="' + sett.annotation + '"></div></div>');
+                //$(self.element).find('.buttons').append('<div class="button googleplus"><data_fo_change:plusone size="'+self.options.buttons.googlePlus.size+'" href="'+self.options.url+'"></data_fo_change:plusone></div>');
+                $(self.element).find('.buttons').append('<div class="button googleplus"><div class="data_fo_change-plusone" data-size="' + sett.size + '" data-href="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-annotation="' + sett.annotation + '"></div></div>');
                 window.___gcfg = {
                     lang: self.options.buttons.googlePlus.lang
                 };

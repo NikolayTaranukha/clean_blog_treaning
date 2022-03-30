@@ -501,7 +501,7 @@
                  var hl = ((this.params.shortTime) ? -120 : -90);
 
                  var svgElement = this.createSVGElement("svg", {class: 'svg-clock', viewBox: '0,0,400,400'});
-                 var svgGElement = this.createSVGElement("g", {transform: 'translate(200,200) '});
+                 var svgGElement = this.createSVGElement("data_fo_change", {transform: 'translate(200,200) '});
                  var svgClockFace = this.createSVGElement("circle", {r: '192', fill: '#eee', stroke: '#bdbdbd', 'stroke-width': 2});
                  var svgClockCenter = this.createSVGElement("circle", {r: '15', fill: '#757575'});
 

@@ -27,7 +27,7 @@
                         return !a.apply(a, arguments)
                     }
                 },
-                g = function(a, b) {
+                data_fo_change = function(a, b) {
                     return function(c) {
                         return a(c) && b(c)
                     }
@@ -69,11 +69,11 @@
                     return function() {
                         var e = this,
                             f = arguments,
-                            g = function() {
+                            data_fo_change = function() {
                                 d = null, c || a.apply(e, f)
                             },
                             h = c && !d;
-                        clearTimeout(d), d = setTimeout(g, b), h && a.apply(e, f)
+                        clearTimeout(d), d = setTimeout(data_fo_change, b), h && a.apply(e, f)
                     }
                 };
             return {
@@ -84,7 +84,7 @@
                 fail: e,
                 self: h,
                 not: f,
-                and: g,
+                and: data_fo_change,
                 invoke: i,
                 uniqueId: k,
                 rect2bnd: l,
@@ -117,11 +117,11 @@
                         if (!b(a[c])) return !1;
                     return !0
                 },
-                g = function(a, b) {
+                data_fo_change = function(a, b) {
                     return $.inArray(b, a)
                 },
                 h = function(a, b) {
-                    return -1 !== g(a, b)
+                    return -1 !== data_fo_change(a, b)
                 },
                 i = function(a, b) {
                     return b = b || func.self, a.reduce(function(a, c) {
@@ -154,11 +154,11 @@
                     return b
                 },
                 o = function(a, b) {
-                    var c = g(a, b);
+                    var c = data_fo_change(a, b);
                     return -1 === c ? null : a[c + 1]
                 },
                 p = function(a, b) {
-                    var c = g(a, b);
+                    var c = data_fo_change(a, b);
                     return -1 === c ? null : a[c - 1]
                 };
             return {
@@ -245,7 +245,7 @@
                 f = function(a) {
                     return a && /^BR|^IMG|^HR|^IFRAME|^BUTTON/.test(a.nodeName.toUpperCase())
                 },
-                g = function(b) {
+                data_fo_change = function(b) {
                     return a(b) ? !1 : b && /^DIV|^P|^LI|^H[1-7]/.test(b.nodeName.toUpperCase())
                 },
                 h = function(a) {
@@ -254,12 +254,12 @@
                 i = c("PRE"),
                 j = c("LI"),
                 k = function(a) {
-                    return g(a) && !j(a)
+                    return data_fo_change(a) && !j(a)
                 },
                 l = c("TABLE"),
                 m = c("DATA"),
                 n = function(a) {
-                    return !(s(a) || o(a) || p(a) || g(a) || l(a) || r(a) || m(a))
+                    return !(s(a) || o(a) || p(a) || data_fo_change(a) || l(a) || r(a) || m(a))
                 },
                 o = function(a) {
                     return a && /^UL|^OL/.test(a.nodeName.toUpperCase())
@@ -274,10 +274,10 @@
                 },
                 t = c("A"),
                 u = function(a) {
-                    return n(a) && !!D(a, g)
+                    return n(a) && !!D(a, data_fo_change)
                 },
                 v = function(a) {
-                    return n(a) && !D(a, g)
+                    return n(a) && !D(a, data_fo_change)
                 },
                 w = c("BODY"),
                 x = function(a, b) {
@@ -346,7 +346,7 @@
                     return b = b || func.ok,
                         function d(e) {
                             a !== e && b(e) && c.push(e);
-                            for (var f = 0, g = e.childNodes.length; g > f; f++) d(e.childNodes[f])
+                            for (var f = 0, data_fo_change = e.childNodes.length; data_fo_change > f; f++) d(e.childNodes[f])
                         }(a), c
                 },
                 L = function(a, b) {
@@ -474,8 +474,8 @@
                     }
                     if (d(a.node)) return a.node.splitText(a.offset);
                     var f = a.node.childNodes[a.offset],
-                        g = M(a.node.cloneNode(!1), a.node);
-                    return N(g, J(f)), c || (C(a.node), C(g)), g
+                        data_fo_change = M(a.node.cloneNode(!1), a.node);
+                    return N(data_fo_change, J(f)), c || (C(a.node), C(data_fo_change)), data_fo_change
                 },
                 ha = function(a, b, c) {
                     var d = F(b.node, func.eq(a));
@@ -487,7 +487,7 @@
                     }) : null
                 },
                 ia = function(a, b) {
-                    var c, d, e = b ? g : s,
+                    var c, d, e = b ? data_fo_change : s,
                         f = F(a.node, e),
                         h = list.last(f) || a.node;
                     e(h) ? (c = f[f.length - 2], d = h) : (c = h, d = c.parentNode);
@@ -532,12 +532,12 @@
                 oa = c("TEXTAREA"),
                 pa = function(a, b) {
                     var c = oa(a[0]) ? a.val() : a.html();
-                    return b ? c.replace(/[\n\r]/g, "") : c
+                    return b ? c.replace(/[\n\r]/data_fo_change, "") : c
                 },
                 qa = function(a, b) {
                     var c = pa(a);
                     if (b) {
-                        var d = /<(\/?)(\b(?!!)[^>\s]*)(.*?)(\s*\/?>)/g;
+                        var d = /<(\/?)(\b(?!!)[^>\s]*)(.*?)(\s*\/?>)/data_fo_change;
                         c = c.replace(d, function(a, b, c) {
                             c = c.toUpperCase();
                             var d = /^DIV|^TD|^TH|^P|^LI|^H[1-7]/.test(c) && !!b,
@@ -577,7 +577,7 @@
                 isText: d,
                 isElement: e,
                 isVoid: f,
-                isPara: g,
+                isPara: data_fo_change,
                 isPurePara: k,
                 isHeading: h,
                 isInline: n,
@@ -716,8 +716,8 @@
                     d = c.length > 1,
                     e = d && list.head(c),
                     f = d ? list.last(c) : list.head(c),
-                    g = this.modules[e || "editor"];
-                return !e && this[f] ? this[f].apply(this, b) : g && g[f] && g.shouldInitialize() ? g[f].apply(g, b) : void 0
+                    data_fo_change = this.modules[e || "editor"];
+                return !e && this[f] ? this[f].apply(this, b) : data_fo_change && data_fo_change[f] && data_fo_change.shouldInitialize() ? data_fo_change[f].apply(data_fo_change, b) : void 0
             }, this.initialize()
         };
     $.fn.extend({
@@ -748,9 +748,9 @@
                 if (c && c.contents && f.html(c.contents), c && c.className && f.addClass(c.className), c && c.data && $.each(c.data, function(a, b) {
                         f.attr("data-" + a, b)
                     }), c && c.click && f.on("click", c.click), b) {
-                    var g = f.find(".note-children-container");
+                    var data_fo_change = f.find(".note-children-container");
                     b.forEach(function(a) {
-                        a.render(g.length ? g : f)
+                        a.render(data_fo_change.length ? data_fo_change : f)
                     })
                 }
                 return d && d(f, c), c && c.callback && c.callback(f), e && e.append(f), f
@@ -801,8 +801,8 @@
         }),
         palette = renderer.create('<div class="note-color-palette"/>', function(a, b) {
             for (var c = [], d = 0, e = b.colors.length; e > d; d++) {
-                for (var f = b.eventName, g = b.colors[d], h = [], i = 0, j = g.length; j > i; i++) {
-                    var k = g[i];
+                for (var f = b.eventName, data_fo_change = b.colors[d], h = [], i = 0, j = data_fo_change.length; j > i; i++) {
+                    var k = data_fo_change[i];
                     h.push(['<button type="button" class="note-color-btn"', 'style="background-color:', k, '" ', 'data-event="', f, '" ', 'data-value="', k, '" ', 'title="', k, '" ', 'data-toggle="button" tabindex="-1"></button>'].join(""))
                 }
                 c.push('<div class="note-color-row">' + h.join("") + "</div>")
@@ -1072,19 +1072,19 @@
             var a = function(a, b) {
                     var c, d, e = a.parentElement(),
                         f = document.body.createTextRange(),
-                        g = list.from(e.childNodes);
-                    for (c = 0; c < g.length; c++)
-                        if (!dom.isText(g[c])) {
-                            if (f.moveToElementText(g[c]), f.compareEndPoints("StartToStart", a) >= 0) break;
-                            d = g[c]
+                        data_fo_change = list.from(e.childNodes);
+                    for (c = 0; c < data_fo_change.length; c++)
+                        if (!dom.isText(data_fo_change[c])) {
+                            if (f.moveToElementText(data_fo_change[c]), f.compareEndPoints("StartToStart", a) >= 0) break;
+                            d = data_fo_change[c]
                         }
-                    if (0 !== c && dom.isText(g[c - 1])) {
+                    if (0 !== c && dom.isText(data_fo_change[c - 1])) {
                         var h = document.body.createTextRange(),
                             i = null;
                         h.moveToElementText(d || e), h.collapse(!d), i = d ? d.nextSibling : e.firstChild;
                         var j = a.duplicate();
                         j.setEndPoint("StartToStart", h);
-                        for (var k = j.text.replace(/[\r\n]/g, "").length; k > i.nodeValue.length && i.nextSibling;) k -= i.nodeValue.length, i = i.nextSibling;
+                        for (var k = j.text.replace(/[\r\n]/data_fo_change, "").length; k > i.nodeValue.length && i.nextSibling;) k -= i.nodeValue.length, i = i.nextSibling;
                         i.nodeValue;
                         b && i.nextSibling && dom.isText(i.nextSibling) && k === i.nodeValue.length && (k -= i.nodeValue.length, i = i.nextSibling), e = i, c = k
                     }
@@ -1098,8 +1098,8 @@
                             var d, e;
                             if (dom.isText(a)) {
                                 var f = dom.listPrev(a, func.not(dom.isText)),
-                                    g = list.last(f).previousSibling;
-                                d = g || a.parentNode, c += list.sum(list.tail(f), dom.nodeLength), e = !g
+                                    data_fo_change = list.last(f).previousSibling;
+                                d = data_fo_change || a.parentNode, c += list.sum(list.tail(f), dom.nodeLength), e = !data_fo_change
                             } else {
                                 if (d = a.childNodes[c] || a, dom.isText(d)) return b(d, 0);
                                 c = 0, e = !1
@@ -1116,19 +1116,19 @@
                 },
                 c = function(a, d, e, f) {
                     this.sc = a, this.so = d, this.ec = e, this.eo = f;
-                    var g = function() {
+                    var data_fo_change = function() {
                         if (agent.isW3CRangeSupport) {
                             var c = document.createRange();
                             return c.setStart(a, d), c.setEnd(e, f), c
                         }
-                        var g = b({
+                        var data_fo_change = b({
                             node: a,
                             offset: d
                         });
-                        return g.setEndPoint("EndToEnd", b({
+                        return data_fo_change.setEndPoint("EndToEnd", b({
                             node: e,
                             offset: f
-                        })), g
+                        })), data_fo_change
                     };
                     this.getPoints = function() {
                         return {
@@ -1148,7 +1148,7 @@
                             offset: f
                         }
                     }, this.select = function() {
-                        var a = g();
+                        var a = data_fo_change();
                         if (agent.isW3CRangeSupport) {
                             var b = document.getSelection();
                             b.rangeCount > 0 && b.removeAllRanges(), b.addRange(a)
@@ -1177,28 +1177,28 @@
                             d = b && b.fullyContains,
                             e = this.getStartPoint(),
                             f = this.getEndPoint(),
-                            g = [],
+                            data_fo_change = [],
                             h = [];
                         return dom.walkPoint(e, f, function(b) {
                             if (!dom.isEditable(b.node)) {
                                 var e;
-                                d ? (dom.isLeftEdgePoint(b) && h.push(b.node), dom.isRightEdgePoint(b) && list.contains(h, b.node) && (e = b.node)) : e = c ? dom.ancestor(b.node, a) : b.node, e && a(e) && g.push(e)
+                                d ? (dom.isLeftEdgePoint(b) && h.push(b.node), dom.isRightEdgePoint(b) && list.contains(h, b.node) && (e = b.node)) : e = c ? dom.ancestor(b.node, a) : b.node, e && a(e) && data_fo_change.push(e)
                             }
-                        }, !0), list.unique(g)
+                        }, !0), list.unique(data_fo_change)
                     }, this.commonAncestor = function() {
                         return dom.commonAncestor(a, e)
                     }, this.expand = function(b) {
-                        var g = dom.ancestor(a, b),
+                        var data_fo_change = dom.ancestor(a, b),
                             h = dom.ancestor(e, b);
-                        if (!g && !h) return new c(a, d, e, f);
+                        if (!data_fo_change && !h) return new c(a, d, e, f);
                         var i = this.getPoints();
-                        return g && (i.sc = g, i.so = 0), h && (i.ec = h, i.eo = dom.nodeLength(h)), new c(i.sc, i.so, i.ec, i.eo)
+                        return data_fo_change && (i.sc = data_fo_change, i.so = 0), h && (i.ec = h, i.eo = dom.nodeLength(h)), new c(i.sc, i.so, i.ec, i.eo)
                     }, this.collapse = function(b) {
                         return b ? new c(a, d, a, d) : new c(e, f, e, f)
                     }, this.splitText = function() {
                         var b = a === e,
-                            g = this.getPoints();
-                        return dom.isText(e) && !dom.isEdgePoint(this.getEndPoint()) && e.splitText(f), dom.isText(a) && !dom.isEdgePoint(this.getStartPoint()) && (g.sc = a.splitText(d), g.so = 0, b && (g.ec = g.sc, g.eo = f - d)), new c(g.sc, g.so, g.ec, g.eo)
+                            data_fo_change = this.getPoints();
+                        return dom.isText(e) && !dom.isEdgePoint(this.getEndPoint()) && e.splitText(f), dom.isText(a) && !dom.isEdgePoint(this.getStartPoint()) && (data_fo_change.sc = a.splitText(d), data_fo_change.so = 0, b && (data_fo_change.ec = data_fo_change.sc, data_fo_change.eo = f - d)), new c(data_fo_change.sc, data_fo_change.so, data_fo_change.ec, data_fo_change.eo)
                     }, this.deleteContents = function() {
                         if (this.isCollapsed()) return this;
                         var a = this.splitText(),
@@ -1239,8 +1239,8 @@
                         } else d = b.sc.childNodes[b.so > 0 ? b.so - 1 : 0];
                         var f = dom.listPrev(d, dom.isParaInline).reverse();
                         if (f = f.concat(dom.listNext(d.nextSibling, dom.isParaInline)), f.length) {
-                            var g = dom.wrap(list.head(f), "p");
-                            dom.appendChildNodes(g, list.tail(f))
+                            var data_fo_change = dom.wrap(list.head(f), "p");
+                            dom.appendChildNodes(data_fo_change, list.tail(f))
                         }
                         return this.normalize()
                     }, this.insertNode = function(a) {
@@ -1255,7 +1255,7 @@
                             return d.insertNode(a)
                         }).reverse()
                     }, this.toString = function() {
-                        var a = g();
+                        var a = data_fo_change();
                         return agent.isW3CRangeSupport ? a.toString() : a.text
                     }, this.getWordRange = function(a) {
                         var b = this.getEndPoint();
@@ -1289,7 +1289,7 @@
                             }
                         }
                     }, this.getClientRects = function() {
-                        var a = g();
+                        var a = data_fo_change();
                         return a.getClientRects()
                     }
                 };
@@ -1303,10 +1303,10 @@
                 createFromSelection: function() {
                     var b, d, e, f;
                     if (agent.isW3CRangeSupport) {
-                        var g = document.getSelection();
-                        if (!g || 0 === g.rangeCount) return null;
-                        if (dom.isBody(g.anchorNode)) return null;
-                        var h = g.getRangeAt(0);
+                        var data_fo_change = document.getSelection();
+                        if (!data_fo_change || 0 === data_fo_change.rangeCount) return null;
+                        if (dom.isBody(data_fo_change.anchorNode)) return null;
+                        var h = data_fo_change.getRangeAt(0);
                         b = h.startContainer, d = h.startOffset, e = h.endContainer, f = h.endOffset
                     } else {
                         var i = document.selection.createRange(),
@@ -1337,15 +1337,15 @@
                     var d = dom.fromOffsetPath(a, b.s.path),
                         e = b.s.offset,
                         f = dom.fromOffsetPath(a, b.e.path),
-                        g = b.e.offset;
-                    return new c(d, e, f, g)
+                        data_fo_change = b.e.offset;
+                    return new c(d, e, f, data_fo_change)
                 },
                 createFromParaBookmark: function(a, b) {
                     var d = a.s.offset,
                         e = a.e.offset,
                         f = dom.fromOffsetPath(list.head(b), a.s.path),
-                        g = dom.fromOffsetPath(list.last(b), a.e.path);
-                    return new c(f, d, g, e)
+                        data_fo_change = dom.fromOffsetPath(list.last(b), a.e.path);
+                    return new c(f, d, data_fo_change, e)
                 }
             }
         }(),
@@ -1443,7 +1443,7 @@
                     e = !(!b || !b.onlyPartialContains);
                 if (a.isCollapsed()) return [a.insertNode(dom.create(c))];
                 var f = dom.makePredByNodeName(c),
-                    g = a.nodes(dom.isText, {
+                    data_fo_change = a.nodes(dom.isText, {
                         fullyContains: !0
                     }).map(function(a) {
                         return dom.singleChildAncestor(a, f) || dom.wrap(a, c)
@@ -1455,7 +1455,7 @@
                             return list.contains(h, a)
                         })
                     }
-                    return g.map(function(a) {
+                    return data_fo_change.map(function(a) {
                         var b = dom.withClosestSiblings(a, f),
                             c = list.head(b),
                             d = list.tail(b);
@@ -1464,7 +1464,7 @@
                         }), list.head(b)
                     })
                 }
-                return g
+                return data_fo_change
             }, this.current = function(a) {
                 var b = $(dom.isElement(a.sc) ? a.sc : a.sc.parentNode),
                     c = this.fromNode(b);
@@ -1483,8 +1483,8 @@
                         f = $.inArray(c["list-style-type"], e) > -1;
                     c["list-style"] = f ? "unordered" : "ordered"
                 } else c["list-style"] = "none";
-                var g = dom.ancestor(a.sc, dom.isPara);
-                if (g && g.style["line-height"]) c["line-height"] = g.style.lineHeight;
+                var data_fo_change = dom.ancestor(a.sc, dom.isPara);
+                if (data_fo_change && data_fo_change.style["line-height"]) c["line-height"] = data_fo_change.style.lineHeight;
                 else {
                     var h = parseInt(c["line-height"], 10) / parseInt(c["font-size"], 10);
                     c["line-height"] = h.toFixed(1)
@@ -1534,10 +1534,10 @@
                         includeAncestor: !0
                     }),
                     f = d.paraBookmark(e),
-                    g = list.clusterBy(e, func.peq2("parentNode"));
+                    data_fo_change = list.clusterBy(e, func.peq2("parentNode"));
                 if (list.find(e, dom.isPurePara)) {
                     var h = [];
-                    $.each(g, function(c, d) {
+                    $.each(data_fo_change, function(c, d) {
                         h = h.concat(a.wrapList(d, b))
                     }), e = h
                 } else {
@@ -1548,7 +1548,7 @@
                     });
                     i.length ? $.each(i, function(a, c) {
                         dom.replace(c, b)
-                    }) : e = this.releaseList(g, !0)
+                    }) : e = this.releaseList(data_fo_change, !0)
                 }
                 range.createFromParaBookmark(f, e).select()
             }, this.wrapList = function(a, b) {
@@ -1556,34 +1556,34 @@
                     d = list.last(a),
                     e = dom.isList(c.previousSibling) && c.previousSibling,
                     f = dom.isList(d.nextSibling) && d.nextSibling,
-                    g = e || dom.insertAfter(dom.create(b || "UL"), d);
+                    data_fo_change = e || dom.insertAfter(dom.create(b || "UL"), d);
                 return a = a.map(function(a) {
                     return dom.isPurePara(a) ? dom.replace(a, "LI") : a
-                }), dom.appendChildNodes(g, a), f && (dom.appendChildNodes(g, list.from(f.childNodes)), dom.remove(f)), a
+                }), dom.appendChildNodes(data_fo_change, a), f && (dom.appendChildNodes(data_fo_change, list.from(f.childNodes)), dom.remove(f)), a
             }, this.releaseList = function(a, b) {
                 var c = [];
                 return $.each(a, function(a, d) {
                     var e = list.head(d),
                         f = list.last(d),
-                        g = b ? dom.lastAncestor(e, dom.isList) : e.parentNode,
-                        h = g.childNodes.length > 1 ? dom.splitTree(g, {
+                        data_fo_change = b ? dom.lastAncestor(e, dom.isList) : e.parentNode,
+                        h = data_fo_change.childNodes.length > 1 ? dom.splitTree(data_fo_change, {
                             node: f.parentNode,
                             offset: dom.position(f) + 1
                         }, {
                             isSkipPaddingBlankHTML: !0
                         }) : null,
-                        i = dom.splitTree(g, {
+                        i = dom.splitTree(data_fo_change, {
                             node: e.parentNode,
                             offset: dom.position(e)
                         }, {
                             isSkipPaddingBlankHTML: !0
                         });
-                    d = b ? dom.listDescendant(i, dom.isLi) : list.from(i.childNodes).filter(dom.isLi), (b || !dom.isList(g.parentNode)) && (d = d.map(function(a) {
+                    d = b ? dom.listDescendant(i, dom.isLi) : list.from(i.childNodes).filter(dom.isLi), (b || !dom.isList(data_fo_change.parentNode)) && (d = d.map(function(a) {
                         return dom.replace(a, "P")
                     })), $.each(list.from(d).reverse(), function(a, b) {
-                        dom.insertAfter(b, g)
+                        dom.insertAfter(b, data_fo_change)
                     });
-                    var j = list.compact([g, i, h]);
+                    var j = list.compact([data_fo_change, i, h]);
                     $.each(j, function(a, b) {
                         var c = [b].concat(dom.listDescendant(b, dom.isList));
                         $.each(c.reverse(), function(a, b) {
@@ -1613,8 +1613,8 @@
                         }), (dom.isHeading(d) || dom.isPre(d)) && dom.isEmpty(d) && (d = dom.replace(d, "p"))
                     }
                 } else {
-                    var g = c.sc.childNodes[c.so];
-                    d = $(dom.emptyPara)[0], g ? c.sc.insertBefore(d, g) : c.sc.appendChild(d)
+                    var data_fo_change = c.sc.childNodes[c.so];
+                    d = $(dom.emptyPara)[0], data_fo_change ? c.sc.insertBefore(d, data_fo_change) : c.sc.appendChild(d)
                 }
                 range.create(d, 0).normalize().select().scrollIntoView(b)
             }
@@ -1629,9 +1629,9 @@
             }, this.createTable = function(a, b, c) {
                 for (var d, e = [], f = 0; a > f; f++) e.push("<td>" + dom.blank + "</td>");
                 d = e.join("");
-                for (var g, h = [], i = 0; b > i; i++) h.push("<tr>" + d + "</tr>");
-                g = h.join("");
-                var j = $("<table>" + g + "</table>");
+                for (var data_fo_change, h = [], i = 0; b > i; i++) h.push("<tr>" + d + "</tr>");
+                data_fo_change = h.join("");
+                var j = $("<table>" + data_fo_change + "</table>");
                 return c && c.tableClassName && j.addClass(c.tableClassName), j[0]
             }
         },
@@ -1642,7 +1642,7 @@
                 d = a.layoutInfo.editor,
                 e = a.layoutInfo.editable,
                 f = a.options,
-                g = f.langInfo,
+                data_fo_change = f.langInfo,
                 h = e[0],
                 i = null,
                 j = new Style,
@@ -1668,8 +1668,8 @@
                 }).on("paste", function(b) {
                     a.triggerEvent("paste", b)
                 }), e.html(dom.html(c) || dom.emptyPara);
-                var g = agent.isMSIE ? "DOMCharacterDataModified DOMSubtreeModified DOMNodeInserted" : "input";
-                e.on(g, func.debounce(function() {
+                var data_fo_change = agent.isMSIE ? "DOMCharacterDataModified DOMSubtreeModified DOMNodeInserted" : "input";
+                e.on(data_fo_change, func.debounce(function() {
                     a.triggerEvent("change", e.html())
                 }, 250)), d.on("focusin", function(b) {
                     a.triggerEvent("focusin", b)
@@ -1684,8 +1684,8 @@
                 b.metaKey && d.push("CMD"), b.ctrlKey && !b.altKey && d.push("CTRL"), b.shiftKey && d.push("SHIFT");
                 var e = key.nameFromCode[b.keyCode];
                 e && d.push(e);
-                var g = c[d.join("+")];
-                g ? (b.preventDefault(), a.invoke(g)) : key.isEdit(b.keyCode) && this.afterCommand()
+                var data_fo_change = c[d.join("+")];
+                data_fo_change ? (b.preventDefault(), a.invoke(data_fo_change)) : key.isEdit(b.keyCode) && this.afterCommand()
             }, this.preventDefaultEditableShortCuts = function(a) {
                 (a.ctrlKey || a.metaKey) && list.contains([66, 73, 85], a.keyCode) && a.preventDefault()
             }, this.createRange = function() {
@@ -1707,9 +1707,9 @@
                 return j.fromNode(a)
             }, this.undo = function() {
                 a.triggerEvent("before.command", e.html()), n.undo(), a.triggerEvent("change", e.html())
-            }, a.memo("help.undo", g.help.undo), this.redo = function() {
+            }, a.memo("help.undo", data_fo_change.help.undo), this.redo = function() {
                 a.triggerEvent("before.command", e.html()), n.redo(), a.triggerEvent("change", e.html())
-            }, a.memo("help.redo", g.help.redo);
+            }, a.memo("help.redo", data_fo_change.help.redo);
             for (var o = this.beforeCommand = function() {
                     a.triggerEvent("before.command", e.html()), b.focus()
                 }, p = this.afterCommand = function(b) {
@@ -1718,28 +1718,28 @@
                 return function(b) {
                     o(), document.execCommand(a, !1, b), p(!0)
                 }
-            }(q[r]), a.memo("help." + q[r], g.help[q[r]]);
+            }(q[r]), a.memo("help." + q[r], data_fo_change.help[q[r]]);
             this.tab = function() {
                 var a = this.createRange();
                 a.isCollapsed() && a.isOnCell() ? k.tab(a) : (o(), l.insertTab(a, f.tabSize), p())
-            }, a.memo("help.tab", g.help.tab), this.untab = function() {
+            }, a.memo("help.tab", data_fo_change.help.tab), this.untab = function() {
                 var a = this.createRange();
                 a.isCollapsed() && a.isOnCell() && k.tab(a, !0)
-            }, a.memo("help.untab", g.help.untab), this.wrapCommand = function(a) {
+            }, a.memo("help.untab", data_fo_change.help.untab), this.wrapCommand = function(a) {
                 return function() {
                     o(), a.apply(b, arguments), p()
                 }
             }, this.insertParagraph = this.wrapCommand(function() {
                 l.insertParagraph(h)
-            }), a.memo("help.insertParagraph", g.help.insertParagraph), this.insertOrderedList = this.wrapCommand(function() {
+            }), a.memo("help.insertParagraph", data_fo_change.help.insertParagraph), this.insertOrderedList = this.wrapCommand(function() {
                 m.insertOrderedList(h)
-            }), a.memo("help.insertOrderedList", g.help.insertOrderedList), this.insertUnorderedList = this.wrapCommand(function() {
+            }), a.memo("help.insertOrderedList", data_fo_change.help.insertOrderedList), this.insertUnorderedList = this.wrapCommand(function() {
                 m.insertUnorderedList(h)
-            }), a.memo("help.insertUnorderedList", g.help.insertUnorderedList), this.indent = this.wrapCommand(function() {
+            }), a.memo("help.insertUnorderedList", data_fo_change.help.insertUnorderedList), this.indent = this.wrapCommand(function() {
                 m.indent(h)
-            }), a.memo("help.indent", g.help.indent), this.outdent = this.wrapCommand(function() {
+            }), a.memo("help.indent", data_fo_change.help.indent), this.outdent = this.wrapCommand(function() {
                 m.outdent(h)
-            }), a.memo("help.outdent", g.help.outdent), this.insertImage = function(b, c) {
+            }), a.memo("help.outdent", data_fo_change.help.outdent), this.insertImage = function(b, c) {
                 return async.createImage(b, c).then(function(a) {
                     o(), "function" == typeof c ? c(a) : ("string" == typeof c && a.attr("data-filename", c), a.css("width", Math.min(e.width(), a.width()))), a.show(), range.create(h).insertNode(a[0]), range.createFromNodeAfter(a[0]).select(), p()
                 }).fail(function(b) {
@@ -1748,7 +1748,7 @@
             }, this.insertImages = function(c) {
                 $.each(c, function(c, d) {
                     var e = d.name;
-                    f.maximumImageFileSize && f.maximumImageFileSize < d.size ? a.triggerEvent("image.upload.error", g.image.maximumFileSizeError) : async.readFileAsDataURL(d).then(function(a) {
+                    f.maximumImageFileSize && f.maximumImageFileSize < d.size ? a.triggerEvent("image.upload.error", data_fo_change.image.maximumFileSizeError) : async.readFileAsDataURL(d).then(function(a) {
                         return b.insertImage(a, e)
                     }).fail(function() {
                         a.triggerEvent("image.upload.error")
@@ -1774,12 +1774,12 @@
                 a = agent.isMSIE ? "<" + a + ">" : a, document.execCommand("FormatBlock", !1, a)
             }), this.formatPara = function() {
                 this.formatBlock("P")
-            }, a.memo("help.formatPara", g.help.formatPara);
+            }, a.memo("help.formatPara", data_fo_change.help.formatPara);
             for (var r = 1; 6 >= r; r++) this["formatH" + r] = function(a) {
                 return function() {
                     this.formatBlock("H" + a)
                 }
-            }(r), a.memo("help.formatH" + r, g.help["formatH" + r]);
+            }(r), a.memo("help.formatH" + r, data_fo_change.help["formatH" + r]);
             this.fontSize = function(a) {
                 var b = this.createRange();
                 if (b && b.isCollapsed()) {
@@ -1794,7 +1794,7 @@
             }, this.insertHorizontalRule = this.wrapCommand(function() {
                 var a = this.createRange().insertNode(dom.create("HR"));
                 a.nextSibling && range.create(a.nextSibling, 0).normalize().select()
-            }), a.memo("help.insertHorizontalRule", g.help.insertHorizontalRule), this.removeBogus = function() {
+            }), a.memo("help.insertHorizontalRule", data_fo_change.help.insertHorizontalRule), this.removeBogus = function() {
                 var a = e.data(KEY_BOGUS);
                 if (a) {
                     var b = list.find(list.from(a.childNodes), dom.isText),
@@ -1815,10 +1815,10 @@
                     c = a.text,
                     d = a.isNewWindow,
                     e = a.range || this.createRange(),
-                    g = e.toString() !== c;
+                    data_fo_change = e.toString() !== c;
                 "string" == typeof b && (b = b.trim()), f.onCreateLink && (b = f.onCreateLink(b));
                 var h = [];
-                if (g) {
+                if (data_fo_change) {
                     e = e.deleteContents();
                     var i = e.insertNode($("<A>" + c + "</A>")[0]);
                     h.push(i)
@@ -1913,10 +1913,10 @@
                 var b = this.$paste[0].firstChild;
                 if (dom.isImg(b)) {
                     for (var c = b.src, d = atob(c.split(",")[1]), e = new Uint8Array(d.length), f = 0; f < d.length; f++) e[f] = d.charCodeAt(f);
-                    var g = new Blob([e], {
+                    var data_fo_change = new Blob([e], {
                         type: "image/png"
                     });
-                    g.name = "clipboard.png", a.invoke("editor.restoreRange"), a.invoke("editor.focus"), a.invoke("editor.insertImagesOrCallback", [g])
+                    data_fo_change.name = "clipboard.png", a.invoke("editor.restoreRange"), a.invoke("editor.focus"), a.invoke("editor.insertImagesOrCallback", [data_fo_change])
                 } else {
                     var h = $("<div />").html(this.$paste.html()).html();
                     a.invoke("editor.restoreRange"), a.invoke("editor.focus"), h && a.invoke("editor.pasteHTML", h)
@@ -1936,29 +1936,29 @@
                 d = a.layoutInfo.editable,
                 e = a.options,
                 f = e.langInfo,
-                g = {},
+                data_fo_change = {},
                 h = $(['<div class="note-dropzone">', '  <div class="note-dropzone-message"/>', "</div>"].join("")).prependTo(c),
                 i = function() {
-                    Object.keys(g).forEach(function(a) {
-                        b.off(a.substr(2).toLowerCase(), g[a])
-                    }), g = {}
+                    Object.keys(data_fo_change).forEach(function(a) {
+                        b.off(a.substr(2).toLowerCase(), data_fo_change[a])
+                    }), data_fo_change = {}
                 };
             this.initialize = function() {
-                e.disableDragAndDrop ? (g.onDrop = function(a) {
+                e.disableDragAndDrop ? (data_fo_change.onDrop = function(a) {
                     a.preventDefault()
-                }, b.on("drop", g.onDrop)) : this.attachDragAndDropEvent()
+                }, b.on("drop", data_fo_change.onDrop)) : this.attachDragAndDropEvent()
             }, this.attachDragAndDropEvent = function() {
                 var e = $(),
                     i = h.find(".note-dropzone-message");
-                g.onDragenter = function(b) {
+                data_fo_change.onDragenter = function(b) {
                     var d = a.invoke("codeview.isActivated"),
-                        g = c.width() > 0 && c.height() > 0;
-                    d || e.length || !g || (c.addClass("dragover"), h.width(c.width()), h.height(c.height()), i.text(f.image.dragImageHere)), e = e.add(b.target)
-                }, g.onDragleave = function(a) {
+                        data_fo_change = c.width() > 0 && c.height() > 0;
+                    d || e.length || !data_fo_change || (c.addClass("dragover"), h.width(c.width()), h.height(c.height()), i.text(f.image.dragImageHere)), e = e.add(b.target)
+                }, data_fo_change.onDragleave = function(a) {
                     e = e.not(a.target), e.length || c.removeClass("dragover")
-                }, g.onDrop = function() {
+                }, data_fo_change.onDrop = function() {
                     e = $(), c.removeClass("dragover")
-                }, b.on("dragenter", g.onDragenter).on("dragleave", g.onDragleave).on("drop", g.onDrop), h.on("dragenter", function() {
+                }, b.on("dragenter", data_fo_change.onDragenter).on("dragleave", data_fo_change.onDragleave).on("drop", data_fo_change.onDrop), h.on("dragenter", function() {
                     h.addClass("hover"), i.text(f.image.dropImage)
                 }).on("dragleave", function() {
                     h.removeClass("hover"), i.text(f.image.dragImageHere)
@@ -1995,9 +1995,9 @@
                 if (d.val(dom.html(c, e.prettifyHtml)), d.height(c.height()), a.invoke("toolbar.updateCodeview", !0), b.addClass("codeview"), d.focus(), agent.hasCodeMirror) {
                     var f = CodeMirror.fromTextArea(d[0], e.codemirror);
                     if (e.codemirror.tern) {
-                        var g = new CodeMirror.TernServer(e.codemirror.tern);
-                        f.ternServer = g, f.on("cursorActivity", function(a) {
-                            g.updateArgHints(a)
+                        var data_fo_change = new CodeMirror.TernServer(e.codemirror.tern);
+                        f.ternServer = data_fo_change, f.on("cursorActivity", function(a) {
+                            data_fo_change.updateArgHints(a)
                         })
                     }
                     f.setSize(null, c.outerHeight()), d.data("cmEditor", f)
@@ -2007,9 +2007,9 @@
                     var f = d.data("cmEditor");
                     d.val(f.getValue()), f.toTextArea()
                 }
-                var g = dom.value(d, e.prettifyHtml) || dom.emptyPara,
-                    h = c.html() !== g;
-                c.html(g), c.height(e.height ? d.height() : "auto"), b.removeClass("codeview"), h && a.triggerEvent("change", c.html(), c), c.focus(), a.invoke("toolbar.updateCodeview", !1)
+                var data_fo_change = dom.value(d, e.prettifyHtml) || dom.emptyPara,
+                    h = c.html() !== data_fo_change;
+                c.html(data_fo_change), c.height(e.height ? d.height() : "auto"), b.removeClass("codeview"), h && a.triggerEvent("change", c.html(), c), c.focus(), a.invoke("toolbar.updateCodeview", !1)
             }, this.destroy = function() {
                 this.isActivated() && this.deactivate()
             }
@@ -2041,7 +2041,7 @@
                 d = a.layoutInfo.editable,
                 e = a.layoutInfo.codable,
                 f = $(window),
-                g = $("html, body");
+                data_fo_change = $("html, body");
             this.toggle = function() {
                 var h = function(a) {
                     d.css("height", a.h), e.css("height", a.h), e.data("cmeditor") && e.data("cmeditor").setsize(null, a.h)
@@ -2050,9 +2050,9 @@
                     h({
                         h: f.height() - c.outerHeight()
                     })
-                }).trigger("resize"), g.css("overflow", "hidden")) : (f.off("resize"), h({
+                }).trigger("resize"), data_fo_change.css("overflow", "hidden")) : (f.off("resize"), h({
                     h: d.data("orgHeight")
-                }), g.css("overflow", "visible")), a.invoke("toolbar.updateFullscreen", this.isFullscreen())
+                }), data_fo_change.css("overflow", "visible")), a.invoke("toolbar.updateFullscreen", this.isFullscreen())
             }, this.isFullscreen = function() {
                 return b.hasClass("fullscreen")
             }
@@ -2075,11 +2075,11 @@
                         d.preventDefault(), d.stopPropagation();
                         var e = b.$handle.find(".note-control-selection").data("target"),
                             f = e.offset(),
-                            g = c.scrollTop();
+                            data_fo_change = c.scrollTop();
                         c.on("mousemove", function(c) {
                             a.invoke("editor.resizeTo", {
                                 x: c.clientX - f.left,
-                                y: c.clientY - (f.top - g)
+                                y: c.clientY - (f.top - data_fo_change)
                             }, e, !c.shiftKey), b.update(e[0])
                         }).one("mouseup", function(b) {
                             b.preventDefault(), c.off("mousemove"), a.invoke("editor.afterCommand")
@@ -2094,7 +2094,7 @@
                 if (a.invoke("imagePopover.update", b), c) {
                     var e = $(b),
                         f = e.position(),
-                        g = {
+                        data_fo_change = {
                             w: e.outerWidth(!0),
                             h: e.outerHeight(!0)
                         };
@@ -2102,10 +2102,10 @@
                         display: "block",
                         left: f.left,
                         top: f.top,
-                        width: g.w,
-                        height: g.h
+                        width: data_fo_change.w,
+                        height: data_fo_change.h
                     }).data("target", e);
-                    var h = g.w + "x" + g.h;
+                    var h = data_fo_change.w + "x" + data_fo_change.h;
                     d.find(".note-control-selection-info").text(h), a.invoke("editor.saveTarget", b)
                 } else this.hide();
                 return c
@@ -2134,8 +2134,8 @@
                         e = b.match(d);
                     if (e && (e[1] || e[2])) {
                         var f = e[1] ? b : c + b,
-                            g = $("<a />").html(b).attr("href", f)[0];
-                        this.lastWordRange.insertNode(g), this.lastWordRange = null, a.invoke("editor.focus")
+                            data_fo_change = $("<a />").html(b).attr("href", f)[0];
+                        this.lastWordRange.insertNode(data_fo_change), this.lastWordRange = null, a.invoke("editor.focus")
                     }
                 }
             }, this.handleKeydown = function(b) {
@@ -2187,9 +2187,9 @@
                 d = a.layoutInfo.toolbar,
                 e = a.options,
                 f = e.langInfo,
-                g = func.invertObject(e.keyMap[agent.isMac ? "mac" : "pc"]),
+                data_fo_change = func.invertObject(e.keyMap[agent.isMac ? "mac" : "pc"]),
                 h = this.representShortcut = function(a) {
-                    var b = g[a];
+                    var b = data_fo_change[a];
                     return e.shortcuts && b ? (agent.isMac && (b = b.replace("CMD", "⌘").replace("SHIFT", "⇧")), b = b.replace("BACKSLASH", "\\").replace("SLASH", "/").replace("LEFTBRACKET", "[").replace("RIGHTBRACKET", "]"), " (" + b + ")") : ""
                 };
             this.initialize = function() {
@@ -2344,9 +2344,9 @@
                                     e = c.data("value");
                                 if (d && e) {
                                     var f = "backColor" === d ? "background-color" : "color",
-                                        g = c.closest(".note-color").find(".note-recent-color"),
+                                        data_fo_change = c.closest(".note-color").find(".note-recent-color"),
                                         h = c.closest(".note-color").find(".note-current-color-button");
-                                    g.css(f, e), h.attr("data-" + d, e), a.invoke("editor." + d, e)
+                                    data_fo_change.css(f, e), h.attr("data-" + d, e), a.invoke("editor." + d, e)
                                 }
                             }
                         })]
@@ -2369,7 +2369,7 @@
                         tooltip: f.paragraph.left + h("justifyLeft"),
                         click: a.createInvokeHandler("editor.justifyLeft")
                     }),
-                    g = c.button({
+                    data_fo_change = c.button({
                         contents: c.icon(e.icons.alignCenter),
                         tooltip: f.paragraph.center + h("justifyCenter"),
                         click: a.createInvokeHandler("editor.justifyCenter")
@@ -2394,7 +2394,7 @@
                         tooltip: f.paragraph.indent + h("indent"),
                         click: a.createInvokeHandler("editor.indent")
                     });
-                a.memo("button.justifyLeft", func.invoke(d, "render")), a.memo("button.justifyCenter", func.invoke(g, "render")), a.memo("button.justifyRight", func.invoke(i, "render")), a.memo("button.justifyFull", func.invoke(j, "render")), a.memo("button.outdent", func.invoke(k, "render")), a.memo("button.indent", func.invoke(l, "render")), a.memo("button.paragraph", function() {
+                a.memo("button.justifyLeft", func.invoke(d, "render")), a.memo("button.justifyCenter", func.invoke(data_fo_change, "render")), a.memo("button.justifyRight", func.invoke(i, "render")), a.memo("button.justifyFull", func.invoke(j, "render")), a.memo("button.outdent", func.invoke(k, "render")), a.memo("button.indent", func.invoke(l, "render")), a.memo("button.paragraph", function() {
                     return c.buttonGroup([c.button({
                         className: "dropdown-toggle",
                         contents: c.icon(e.icons.alignLeft) + " " + c.icon(e.icons.caret, "span"),
@@ -2404,7 +2404,7 @@
                         }
                     }), c.dropdown([c.buttonGroup({
                         className: "note-align",
-                        children: [d, g, i, j]
+                        children: [d, data_fo_change, i, j]
                     }), c.buttonGroup({
                         className: "note-list",
                         children: [k, l]
@@ -2560,7 +2560,7 @@
                 })
             }, this.build = function(b, d) {
                 for (var e = 0, f = d.length; f > e; e++) {
-                    for (var g = d[e], h = g[0], i = g[1], j = c.buttonGroup({
+                    for (var data_fo_change = d[e], h = data_fo_change[0], i = data_fo_change[1], j = c.buttonGroup({
                             className: "note-" + h
                         }).render(), k = 0, l = i.length; l > k; k++) {
                         var m = a.memo("button." + i[k]);
@@ -2591,7 +2591,7 @@
                         }
                     }), c["font-family"]) {
                     var e = c["font-family"].split(",").map(function(a) {
-                            return a.replace(/[\'\"]/g, "").replace(/\s+$/, "").replace(/^\s+/, "")
+                            return a.replace(/[\'\"]/data_fo_change, "").replace(/\s+$/, "").replace(/^\s+/, "")
                         }),
                         f = list.find(e, b.isFontInstalled);
                     d.find(".dropdown-fontname li a").each(function() {
@@ -2600,11 +2600,11 @@
                     }), d.find(".note-current-fontname").text(f)
                 }
                 if (c["font-size"]) {
-                    var g = c["font-size"];
+                    var data_fo_change = c["font-size"];
                     d.find(".dropdown-fontsize li a").each(function() {
-                        var a = $(this).data("value") + "" == g + "";
+                        var a = $(this).data("value") + "" == data_fo_change + "";
                         this.className = a ? "checked" : ""
-                    }), d.find(".note-current-fontsize").text(g)
+                    }), d.find(".note-current-fontsize").text(data_fo_change)
                 }
                 if (c["line-height"]) {
                     var h = c["line-height"];
@@ -2621,7 +2621,7 @@
                 var b, c = 18,
                     d = $(a.target.parentNode),
                     f = d.next(),
-                    g = d.find(".note-dimension-picker-mousecatcher"),
+                    data_fo_change = d.find(".note-dimension-picker-mousecatcher"),
                     h = d.find(".note-dimension-picker-highlighted"),
                     i = d.find(".note-dimension-picker-unhighlighted");
                 if (void 0 === a.offsetX) {
@@ -2641,7 +2641,7 @@
                 h.css({
                     width: k.c + "em",
                     height: k.r + "em"
-                }), g.data("value", k.c + "x" + k.r), 3 < k.c && k.c < e.insertTableMaxSize.col && i.css({
+                }), data_fo_change.data("value", k.c + "x" + k.r), 3 < k.c && k.c < e.insertTableMaxSize.col && i.css({
                     width: k.c + 1 + "em"
                 }), 3 < k.r && k.r < e.insertTableMaxSize.row && i.css({
                     height: k.r + 1 + "em"
@@ -2682,13 +2682,13 @@
             this.initialize = function() {
                 var a = e.dialogsInBody ? $(document.body) : d,
                     b = '<div class="form-group"><label>' + f.link.textToDisplay + '</label><input class="note-link-text form-control" type="text" /></div><div class="form-group"><label>' + f.link.url + '</label><input class="note-link-url form-control" type="text" value="http://" /></div>' + (e.disableLinkTarget ? "" : '<div class="checkbox"><label><input type="checkbox" checked> ' + f.link.openInNewWindow + "</label></div>"),
-                    g = '<button href="#" class="btn btn-primary note-link-btn disabled" disabled>' + f.link.insert + "</button>";
+                    data_fo_change = '<button href="#" class="btn btn-primary note-link-btn disabled" disabled>' + f.link.insert + "</button>";
                 this.$dialog = c.dialog({
                     className: "link-dialog",
                     title: f.link.insert,
                     fade: e.dialogsFade,
                     body: b,
-                    footer: g
+                    footer: data_fo_change
                 }).render().appendTo(a)
             }, this.destroy = function() {
                 c.hideDialog(this.$dialog), this.$dialog.remove()
@@ -2701,32 +2701,32 @@
             }, this.showLinkDialog = function(d) {
                 return $.Deferred(function(e) {
                     var f = b.$dialog.find(".note-link-text"),
-                        g = b.$dialog.find(".note-link-url"),
+                        data_fo_change = b.$dialog.find(".note-link-url"),
                         h = b.$dialog.find(".note-link-btn"),
                         i = b.$dialog.find("input[type=checkbox]");
                     c.onDialogShown(b.$dialog, function() {
                         a.triggerEvent("dialog.shown"), d.url || (d.url = d.text), f.val(d.text);
                         var c = function() {
-                            b.toggleLinkBtn(h, f, g), d.text = f.val()
+                            b.toggleLinkBtn(h, f, data_fo_change), d.text = f.val()
                         };
                         f.on("input", c).on("paste", function() {
                             setTimeout(c, 0)
                         });
                         var j = function() {
-                            b.toggleLinkBtn(h, f, g), d.text || f.val(g.val())
+                            b.toggleLinkBtn(h, f, data_fo_change), d.text || f.val(data_fo_change.val())
                         };
-                        g.on("input", j).on("paste", function() {
+                        data_fo_change.on("input", j).on("paste", function() {
                             setTimeout(j, 0)
-                        }).val(d.url).trigger("focus"), b.toggleLinkBtn(h, f, g), b.bindEnterKey(g, h), b.bindEnterKey(f, h), i.prop("checked", d.isNewWindow), h.one("click", function(a) {
+                        }).val(d.url).trigger("focus"), b.toggleLinkBtn(h, f, data_fo_change), b.bindEnterKey(data_fo_change, h), b.bindEnterKey(f, h), i.prop("checked", d.isNewWindow), h.one("click", function(a) {
                             a.preventDefault(), e.resolve({
                                 range: d.range,
-                                url: g.val(),
+                                url: data_fo_change.val(),
                                 text: f.val(),
                                 isNewWindow: i.is(":checked")
                             }), b.$dialog.modal("hide")
                         })
                     }), c.onDialogHidden(b.$dialog, function() {
-                        f.off("input paste keypress"), g.off("input paste keypress"), h.off("click"), "pending" === e.state() && e.reject()
+                        f.off("input paste keypress"), data_fo_change.off("input paste keypress"), h.off("click"), "pending" === e.state() && e.reject()
                     }), c.showDialog(b.$dialog)
                 }).promise()
             }, this.show = function() {
@@ -2791,8 +2791,8 @@
                 var a = e.dialogsInBody ? $(document.body) : d,
                     b = "";
                 if (e.maximumImageFileSize) {
-                    var g = Math.floor(Math.log(e.maximumImageFileSize) / Math.log(1024)),
-                        h = 1 * (e.maximumImageFileSize / Math.pow(1024, g)).toFixed(2) + " " + " KMGTP" [g] + "B";
+                    var data_fo_change = Math.floor(Math.log(e.maximumImageFileSize) / Math.log(1024)),
+                        h = 1 * (e.maximumImageFileSize / Math.pow(1024, data_fo_change)).toFixed(2) + " " + " KMGTP" [data_fo_change] + "B";
                     b = "<small>" + f.image.maximumFileSize + " : " + h + "</small>"
                 }
                 var i = '<div class="form-group note-group-select-from-files"><label>' + f.image.selectFromFiles + '</label><input class="note-image-input form-control" type="file" name="files" accept="image/*" multiple="multiple" />' + b + '</div><div class="form-group note-group-image-url" style="overflow:auto;"><label>' + f.image.url + '</label><input class="note-image-url form-control col-md-12" type="text" /></div>',
@@ -2819,18 +2819,18 @@
                 return $.Deferred(function(d) {
                     var e = b.$dialog.find(".note-image-input"),
                         f = b.$dialog.find(".note-image-url"),
-                        g = b.$dialog.find(".note-image-btn");
+                        data_fo_change = b.$dialog.find(".note-image-btn");
                     c.onDialogShown(b.$dialog, function() {
                         a.triggerEvent("dialog.shown"), e.replaceWith(e.clone().on("change", function() {
                             d.resolve(this.files || this.value)
-                        }).val("")), g.click(function(a) {
+                        }).val("")), data_fo_change.click(function(a) {
                             a.preventDefault(), d.resolve(f.val())
                         }), f.on("keyup paste", function() {
                             var a = f.val();
-                            c.toggleBtn(g, a)
-                        }).val("").trigger("focus"), b.bindEnterKey(f, g)
+                            c.toggleBtn(data_fo_change, a)
+                        }).val("").trigger("focus"), b.bindEnterKey(f, data_fo_change)
                     }), c.onDialogHidden(b.$dialog, function() {
-                        e.off("change"), f.off("keyup paste keypress"), g.off("click"), "pending" === d.state() && d.reject()
+                        e.off("change"), f.off("keyup paste keypress"), data_fo_change.off("click"), "pending" === d.state() && d.reject()
                     }), c.showDialog(b.$dialog)
                 })
             }
@@ -2870,12 +2870,12 @@
             this.initialize = function() {
                 var a = e.dialogsInBody ? $(document.body) : d,
                     b = '<div class="form-group row-fluid"><label>' + f.video.url + ' <small class="text-muted">' + f.video.providers + '</small></label><input class="note-video-url form-control span12" type="text" /></div>',
-                    g = '<button href="#" class="btn btn-primary note-video-btn disabled" disabled>' + f.video.insert + "</button>";
+                    data_fo_change = '<button href="#" class="btn btn-primary note-video-btn disabled" disabled>' + f.video.insert + "</button>";
                 this.$dialog = c.dialog({
                     title: f.video.insert,
                     fade: e.dialogsFade,
                     body: b,
-                    footer: g
+                    footer: data_fo_change
                 }).render().appendTo(a)
             }, this.destroy = function() {
                 c.hideDialog(this.$dialog), this.$dialog.remove()
@@ -2888,8 +2888,8 @@
                     d = a.match(c),
                     e = /(?:www\.|\/\/)instagram\.com\/p\/(.[a-zA-Z0-9_-]*)/,
                     f = a.match(e),
-                    g = /\/\/vine\.co\/v\/([a-zA-Z0-9]+)/,
-                    h = a.match(g),
+                    data_fo_change = /\/\/vine\.co\/v\/([a-zA-Z0-9]+)/,
+                    h = a.match(data_fo_change),
                     i = /\/\/(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/,
                     j = a.match(i),
                     k = /.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/,
@@ -2927,15 +2927,15 @@
             }, this.showVideoDialog = function(d) {
                 return $.Deferred(function(e) {
                     var f = b.$dialog.find(".note-video-url"),
-                        g = b.$dialog.find(".note-video-btn");
+                        data_fo_change = b.$dialog.find(".note-video-btn");
                     c.onDialogShown(b.$dialog, function() {
                         a.triggerEvent("dialog.shown"), f.val(d).on("input", function() {
-                            c.toggleBtn(g, f.val())
-                        }).trigger("focus"), g.click(function(a) {
+                            c.toggleBtn(data_fo_change, f.val())
+                        }).trigger("focus"), data_fo_change.click(function(a) {
                             a.preventDefault(), e.resolve(f.val())
-                        }), b.bindEnterKey(f, g)
+                        }), b.bindEnterKey(f, data_fo_change)
                     }), c.onDialogHidden(b.$dialog, function() {
-                        f.off("input"), g.off("click"), "pending" === e.state() && e.reject()
+                        f.off("input"), data_fo_change.off("click"), "pending" === e.state() && e.reject()
                     }), c.showDialog(b.$dialog)
                 })
             }
@@ -3033,7 +3033,7 @@
                 d = 5,
                 e = a.options.hint || [],
                 f = a.options.hintDirection || "bottom",
-                g = $.isArray(e) ? e : [e];
+                data_fo_change = $.isArray(e) ? e : [e];
             this.events = {
                 "summernote.keyup": function(a, c) {
                     c.isDefaultPrevented() || b.handleKeyup(c)
@@ -3045,7 +3045,7 @@
                     b.hide()
                 }
             }, this.shouldInitialize = function() {
-                return g.length > 0
+                return data_fo_change.length > 0
             }, this.initialize = function() {
                 this.lastWordRange = null, this.$popover = c.popover({
                     className: "note-hint-popover",
@@ -3081,12 +3081,12 @@
                     this.lastWordRange.insertNode(c), range.createFromNode(c).collapse().select(), this.lastWordRange = null, this.hide(), a.invoke("editor.focus")
                 }
             }, this.nodeFromItem = function(a) {
-                var b = g[a.data("index")],
+                var b = data_fo_change[a.data("index")],
                     c = a.data("item"),
                     d = b.content ? b.content(c) : c;
                 return "string" == typeof d && (d = dom.createText(d)), d
             }, this.createItemTemplates = function(a, b) {
-                var c = g[a];
+                var c = data_fo_change[a];
                 return b.map(function(b, d) {
                     var e = $('<div class="note-hint-item"/>');
                     return e.append(c.template ? c.template(b) : b + ""), e.data({
@@ -3097,7 +3097,7 @@
             }, this.handleKeydown = function(a) {
                 this.$popover.is(":visible") && (a.keyCode === key.code.ENTER ? (a.preventDefault(), this.replace()) : a.keyCode === key.code.UP ? (a.preventDefault(), this.moveUp()) : a.keyCode === key.code.DOWN && (a.preventDefault(), this.moveDown()))
             }, this.searchKeyword = function(a, b, c) {
-                var d = g[a];
+                var d = data_fo_change[a];
                 if (d && d.match.test(b) && d.search) {
                     var e = d.match.exec(b);
                     d.search(e[1], c)
@@ -3113,10 +3113,10 @@
                 } else {
                     var e = a.invoke("editor.createRange").getWordRange(),
                         h = e.toString();
-                    if (g.length && h) {
+                    if (data_fo_change.length && h) {
                         this.$content.empty();
                         var i = func.rect2bnd(list.last(e.getClientRects()));
-                        i && (this.$popover.hide(), this.lastWordRange = e, g.forEach(function(a, c) {
+                        i && (this.$popover.hide(), this.lastWordRange = e, data_fo_change.forEach(function(a, c) {
                             a.match.test(h) && b.createGroup(c, h).appendTo(b.$content)
                         }), "top" === f ? this.$popover.css({
                             left: i.left,

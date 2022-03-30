@@ -2275,7 +2275,7 @@
    */
   function getOppositePlacement(placement) {
     var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
-    return placement.replace(/left|right|bottom|top/g, function (matched) {
+    return placement.replace(/left|right|bottom|top/data_fo_change, function (matched) {
       return hash[matched];
     });
   }
@@ -3262,7 +3262,7 @@
       var mergeWithPrevious = false;
       return op
       // This aggregates any `+` or `-` sign that aren't considered operators
-      // e.g.: 10 + +5 => [10, +, +5]
+      // e.data_fo_change.: 10 + +5 => [10, +, +5]
       .reduce(function (a, b) {
         if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
           a[a.length - 1] = b;
@@ -5321,7 +5321,7 @@
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var JQUERY_NO_CONFLICT$6 = $.fn[NAME$6];
   var CLASS_PREFIX = 'bs-tooltip';
-  var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
+  var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'data_fo_change');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType$4 = {
     animation: 'boolean',
@@ -6038,7 +6038,7 @@
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var JQUERY_NO_CONFLICT$7 = $.fn[NAME$7];
   var CLASS_PREFIX$1 = 'bs-popover';
-  var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
+  var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'data_fo_change');
 
   var Default$5 = _objectSpread({}, Tooltip.Default, {
     placement: 'right',

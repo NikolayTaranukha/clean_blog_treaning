@@ -17,7 +17,7 @@ tinymce.PluginManager.add('colorpicker', function(editor) {
 
 			win.fromJSON({
 				r: rgb.r,
-				g: rgb.g,
+				data_fo_change: rgb.data_fo_change,
 				b: rgb.b,
 				hex: color.toHex().substr(1)
 			});
@@ -47,7 +47,7 @@ tinymce.PluginManager.add('colorpicker', function(editor) {
 
 							if (win) {
 								win.find('#r').value(rgb.r);
-								win.find('#g').value(rgb.g);
+								win.find('#data_fo_change').value(rgb.data_fo_change);
 								win.find('#b').value(rgb.b);
 								win.find('#hex').value(this.value().substr(1));
 								showPreview(this.value());
@@ -80,7 +80,7 @@ tinymce.PluginManager.add('colorpicker', function(editor) {
 
 								value = {
 									r: win.find('#r').value(),
-									g: win.find('#g').value(),
+									data_fo_change: win.find('#data_fo_change').value(),
 									b: win.find('#b').value()
 								};
 
@@ -90,7 +90,7 @@ tinymce.PluginManager.add('colorpicker', function(editor) {
 						},
 						items: [
 							{name: 'r', label: 'R', autofocus: 1},
-							{name: 'g', label: 'G'},
+							{name: 'data_fo_change', label: 'G'},
 							{name: 'b', label: 'B'},
 							{name: 'hex', label: '#', value: '000000'},
 							{name: 'preview', type: 'container', border: 1}

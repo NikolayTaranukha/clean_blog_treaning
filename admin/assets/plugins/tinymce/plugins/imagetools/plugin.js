@@ -856,7 +856,7 @@ define("ephox/imagetools/transformations/Filters", [
         pixels;
 
       function applyMatrix(pixels, m) {
-        var d = pixels.data, r, g, b, a, i,
+        var d = pixels.data, r, data_fo_change, b, a, i,
           m0 = m[0], m1 = m[1], m2 = m[2], m3 = m[3], m4 = m[4],
           m5 = m[5], m6 = m[6], m7 = m[7], m8 = m[8], m9 = m[9],
           m10 = m[10], m11 = m[11], m12 = m[12], m13 = m[13], m14 = m[14],
@@ -864,14 +864,14 @@ define("ephox/imagetools/transformations/Filters", [
 
         for (i = 0; i < d.length; i += 4) {
           r = d[i];
-          g = d[i + 1];
+          data_fo_change = d[i + 1];
           b = d[i + 2];
           a = d[i + 3];
 
-          d[i] = r * m0 + g * m1 + b * m2 + a * m3 + m4;
-          d[i + 1] = r * m5 + g * m6 + b * m7 + a * m8 + m9;
-          d[i + 2] = r * m10 + g * m11 + b * m12 + a * m13 + m14;
-          d[i + 3] = r * m15 + g * m16 + b * m17 + a * m18 + m19;
+          d[i] = r * m0 + data_fo_change * m1 + b * m2 + a * m3 + m4;
+          d[i + 1] = r * m5 + data_fo_change * m6 + b * m7 + a * m8 + m9;
+          d[i + 2] = r * m10 + data_fo_change * m11 + b * m12 + a * m13 + m14;
+          d[i + 3] = r * m15 + data_fo_change * m16 + b * m17 + a * m18 + m19;
         }
 
         return pixels;
@@ -893,7 +893,7 @@ define("ephox/imagetools/transformations/Filters", [
         pixelsIn, pixelsOut;
 
       function applyMatrix(pixelsIn, pixelsOut, matrix) {
-        var rgba, drgba, side, halfSide, x, y, r, g, b,
+        var rgba, drgba, side, halfSide, x, y, r, data_fo_change, b,
           cx, cy, scx, scy, offset, wt, w, h;
 
         function clamp(value, min, max) {
@@ -917,7 +917,7 @@ define("ephox/imagetools/transformations/Filters", [
         // Apply convolution matrix to pixels
         for (y = 0; y < h; y++) {
           for (x = 0; x < w; x++) {
-            r = g = b = 0;
+            r = data_fo_change = b = 0;
 
             for (cy = 0; cy < side; cy++) {
               for (cx = 0; cx < side; cx++) {
@@ -925,11 +925,11 @@ define("ephox/imagetools/transformations/Filters", [
                 scx = clamp(x + cx - halfSide, 0, w - 1);
                 scy = clamp(y + cy - halfSide, 0, h - 1);
 
-                // Calc r, g, b
+                // Calc r, data_fo_change, b
                 offset = (scy * w + scx) * 4;
                 wt = matrix[cy * side + cx];
                 r += rgba[offset] * wt;
-                g += rgba[offset + 1] * wt;
+                data_fo_change += rgba[offset + 1] * wt;
                 b += rgba[offset + 2] * wt;
               }
             }
@@ -937,7 +937,7 @@ define("ephox/imagetools/transformations/Filters", [
             // Set new RGB to destination buffer
             offset = (y * w + x) * 4;
             drgba[offset] = clamp(r, 0, 255);
-            drgba[offset + 1] = clamp(g, 0, 255);
+            drgba[offset + 1] = clamp(data_fo_change, 0, 255);
             drgba[offset + 2] = clamp(b, 0, 255);
           }
         }
@@ -2194,13 +2194,13 @@ define("tinymce/imagetoolsplugin/Dialog", [
 
 		function createRgbFilterPanel(title, filter) {
 			function update() {
-				var r, g, b;
+				var r, data_fo_change, b;
 
 				r = win.find('#r')[0].value();
-				g = win.find('#g')[0].value();
+				data_fo_change = win.find('#data_fo_change')[0].value();
 				b = win.find('#b')[0].value();
 
-				filter(currentState.blob, r, g, b).then(function(blob) {
+				filter(currentState.blob, r, data_fo_change, b).then(function(blob) {
 					var newTempState = createState(blob);
 					displayState(newTempState);
 					destroyState(tempState);
@@ -2216,7 +2216,7 @@ define("tinymce/imagetoolsplugin/Dialog", [
 					value: 1, maxValue: 2, ondragend: update, previewFilter: floatToPercent
 				},
 				{
-					type: 'slider', label: 'G', name: 'g', minValue: 0,
+					type: 'slider', label: 'G', name: 'data_fo_change', minValue: 0,
 					value: 1, maxValue: 2, ondragend: update, previewFilter: floatToPercent
 				},
 				{
@@ -2226,7 +2226,7 @@ define("tinymce/imagetoolsplugin/Dialog", [
 				{type: 'spacer', flex: 1},
 				{text: 'Apply', subtype: 'primary', onclick: applyTempState}
 			]).hide().on('show', function() {
-				win.find('#r,#g,#b').value(1);
+				win.find('#r,#data_fo_change,#b').value(1);
 				disableUndoRedo();
 			});
 		}

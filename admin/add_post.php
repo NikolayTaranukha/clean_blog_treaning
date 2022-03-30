@@ -1,26 +1,38 @@
-﻿<!doctype html>
+﻿<?php
+require_once('../frontend/db.php');
+require_once('../functions.php');
+$enter = $_GET['enter'];
+//var_dump($enter);
+if (isset($enter)){
+    add_post($_GET);
+}
+else
+    echo "Нажмите кнопку"
+?>
+<!doctype html>
 <html class="no-js " lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-<title>:: Aero Bootstrap4 Admin ::</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- Favicon-->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/plugins/summernote/dist/summernote.css"/>
-<link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
-<!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/style.min.css">
+    <title>:: Aero Bootstrap4 Admin ::</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/summernote/dist/summernote.css"/>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css"/>
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body class="theme-blush">
 
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Aero">
+        </div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -32,7 +44,7 @@
 <div id="search">
     <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
     <form>
-        <input type="search" value="" placeholder="Search..." />
+        <input type="search" value="" placeholder="Search..."/>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
@@ -42,7 +54,8 @@
     <ul class="navbar-nav">
         <li><a href="#search" class="main_search" title="Search..."><i class="zmdi zmdi-search"></i></a></li>
         <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown" role="button"><i class="zmdi zmdi-apps"></i></a>
+            <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown" role="button"><i
+                        class="zmdi zmdi-apps"></i></a>
             <ul class="dropdown-menu slideUp2">
                 <li class="header">App Sortcute</li>
                 <li class="body">
@@ -88,7 +101,8 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" title="Notifications" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+            <a href="javascript:void(0);" class="dropdown-toggle" title="Notifications" data-toggle="dropdown"
+               role="button"><i class="zmdi zmdi-notifications"></i>
                 <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
             </a>
             <ul class="dropdown-menu slideUp2">
@@ -160,25 +174,28 @@
                         </li>
                     </ul>
                 </li>
-                <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
+                <li class="footer"><a href="javascript:void(0);">View All Notifications</a></li>
             </ul>
         </li>
         <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
-            <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i
+                        class="zmdi zmdi-flag"></i>
+                <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
             </a>
             <ul class="dropdown-menu slideUp2">
-                <li class="header">Tasks List <small class="float-right"><a href="javascript:void(0);">View All</a></small></li>
+                <li class="header">Tasks List <small class="float-right"><a href="javascript:void(0);">View
+                            All</a></small></li>
                 <li class="body">
                     <ul class="menu tasks list-unstyled">
                         <li>
                             <div class="progress-container progress-primary">
                                 <span class="progress-badge">eCommerce Website</span>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
                                         <span class="progress-value">86%</span>
                                     </div>
-                                </div>                        
+                                </div>
                                 <ul class="list-unstyled team-info">
                                     <li class="m-r-15"><small>Team</small></li>
                                     <li>
@@ -189,7 +206,7 @@
                                     </li>
                                     <li>
                                         <img src="assets/images/xs/avatar4.jpg" alt="Avatar">
-                                    </li>                            
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -197,7 +214,8 @@
                             <div class="progress-container">
                                 <span class="progress-badge">iOS Game Dev</span>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
                                         <span class="progress-value">45%</span>
                                     </div>
                                 </div>
@@ -225,7 +243,8 @@
                             <div class="progress-container progress-warning">
                                 <span class="progress-badge">Home Development</span>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" style="width: 29%;">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="29"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 29%;">
                                         <span class="progress-value">29%</span>
                                     </div>
                                 </div>
@@ -239,7 +258,7 @@
                                     </li>
                                     <li>
                                         <img src="assets/images/xs/avatar7.jpg" alt="Avatar">
-                                    </li>                            
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -247,10 +266,14 @@
                 </li>
             </ul>
         </li>
-        <li><a href="javascript:void(0);" class="app_calendar" title="Calendar"><i class="zmdi zmdi-calendar"></i></a></li>
-        <li><a href="javascript:void(0);" class="app_google_drive" title="Google Drive"><i class="zmdi zmdi-google-drive"></i></a></li>
-        <li><a href="javascript:void(0);" class="app_group_work" title="Group Work"><i class="zmdi zmdi-group-work"></i></a></li>
-        <li><a href="javascript:void(0);" class="js-right-sidebar" title="Setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+        <li><a href="javascript:void(0);" class="app_calendar" title="Calendar"><i class="zmdi zmdi-calendar"></i></a>
+        </li>
+        <li><a href="javascript:void(0);" class="app_google_drive" title="Google Drive"><i
+                        class="zmdi zmdi-google-drive"></i></a></li>
+        <li><a href="javascript:void(0);" class="app_group_work" title="Group Work"><i class="zmdi zmdi-group-work"></i></a>
+        </li>
+        <li><a href="javascript:void(0);" class="js-right-sidebar" title="Setting"><i
+                        class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
         <li><a href="sign-in.html" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a></li>
     </ul>
 </div>
@@ -259,7 +282,8 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="index.html"><img src="assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Aero</span></a>
+        <a href="index.html"><img src="assets/images/logo.svg" width="25" alt="Aero"><span
+                    class="m-l-10">Aero</span></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -274,158 +298,168 @@
             </li>
             <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             <li><a href="my-profile.html"><i class="zmdi zmdi-account"></i><span>Our Profile</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="mail-inbox.html">Email</a></li>-->
+<!--                    <li><a href="chat.html">Chat Apps</a></li>-->
+<!--                    <li><a href="events.html">Calendar</a></li>-->
+<!--                    <li><a href="contact.html">Contact</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+            <li><a href="javascript:void(0);" class="menu-toggle"><i
+                            class="zmdi zmdi-assignment"></i><span>Действия</span></a>
                 <ul class="ml-menu">
-                    <li><a href="mail-inbox.html">Email</a></li>
-                    <li><a href="chat.html">Chat Apps</a></li>
-                    <li><a href="events.html">Calendar</a></li>
-                    <li><a href="contact.html">Contact</a></li>                    
+                    <li><a href="add_post.php">Добавить пост</a></li>
+                    <li><a href="ticket-list.php">Список постов</a></li>
+                    <li><a href="#">Изменить пост</a></li>
+                    <li><a href="#">Удалить пост</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Projects</span></a>
-                <ul class="ml-menu">
-                    <li><a href="project-list.html">Projects List</a></li>
-                    <li><a href="taskboard.html">Taskboard</a></li>
-                    <li><a href="ticket-list.html">Ticket List</a></li>
-                    <li><a href="ticket-detail.html">Ticket Detail</a></li>
-                </ul>
-            </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>File Manager</span></a>
-                <ul class="ml-menu">
-                    <li><a href="file-dashboard.html">All File</a></li>
-                    <li><a href="file-documents.html">Documents</a></li>
-                    <li><a href="file-images.html">Images</a></li>
-                    <li><a href="file-media.html">Media</a></li>
-                </ul>
-            </li>
-            <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a>
-                <ul class="ml-menu">
-                    <li><a href="blog-dashboard.html">Dashboard</a></li>
-                    <li class="active"><a href="blog-post.html">Blog Post</a></li>
-                    <li><a href="blog-list.html">List View</a></li>
-                    <li><a href="blog-grid.html">Grid View</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Ecommerce</span></a>
-                <ul class="ml-menu">
-                    <li><a href="ec-dashboard.html">Dashboard</a></li>
-                    <li><a href="ec-product.html">Product</a></li>
-                    <li><a href="ec-product-List.html">Product List</a></li>
-                    <li><a href="ec-product-detail.html">Product detail</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>Components</span></a>
-                <ul class="ml-menu">
-                    <li><a href="ui_kit.html">Aero UI KIT</a></li>                    
-                    <li><a href="alerts.html">Alerts</a></li>                    
-                    <li><a href="collapse.html">Collapse</a></li>
-                    <li><a href="colors.html">Colors</a></li>
-                    <li><a href="dialogs.html">Dialogs</a></li>                    
-                    <li><a href="list-group.html">List Group</a></li>
-                    <li><a href="media-object.html">Media Object</a></li>
-                    <li><a href="modals.html">Modals</a></li>
-                    <li><a href="notifications.html">Notifications</a></li>                    
-                    <li><a href="progressbars.html">Progress Bars</a></li>
-                    <li><a href="range-sliders.html">Range Sliders</a></li>
-                    <li><a href="sortable-nestable.html">Sortable & Nestable</a></li>
-                    <li><a href="tabs.html">Tabs</a></li>
-                    <li><a href="waves.html">Waves</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-flower"></i><span>Font Icons</span></a>
-                <ul class="ml-menu">
-                    <li><a href="icons.html">Material Icons</a></li>
-                    <li><a href="icons-themify.html">Themify Icons</a></li>
-                    <li><a href="icons-weather.html">Weather Icons</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Forms</span></a>
-                <ul class="ml-menu">
-                    <li><a href="basic-form-elements.html">Basic Form</a></li>
-                    <li><a href="advanced-form-elements.html">Advanced Form</a></li>
-                    <li><a href="form-examples.html">Form Examples</a></li>
-                    <li><a href="form-validation.html">Form Validation</a></li>
-                    <li><a href="form-wizard.html">Form Wizard</a></li>
-                    <li><a href="form-editors.html">Editors</a></li>
-                    <li><a href="form-upload.html">File Upload</a></li>
-                    <li><a href="form-summernote.html">Summernote</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-grid"></i><span>Tables</span></a>
-                <ul class="ml-menu">
-                    <li><a href="normal-tables.html">Normal Tables</a></li>
-                    <li><a href="jquery-datatable.html">Jquery Datatables</a></li>
-                    <li><a href="editable-table.html">Editable Tables</a></li>
-                    <li><a href="footable.html">Foo Tables</a></li>
-                    <li><a href="table-color.html">Tables Color</a></li>
-                </ul>
-            </li>            
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-chart"></i><span>Charts</span></a>
-                <ul class="ml-menu">
-                    <li><a href="echarts.html">E Chart</a></li>
-                    <li><a href="c3.html">C3 Chart</a></li>
-                    <li><a href="morris.html">Morris</a></li>
-                    <li><a href="flot.html">Flot</a></li>
-                    <li><a href="chartjs.html">ChartJS</a></li>
-                    <li><a href="sparkline.html">Sparkline</a></li>
-                    <li><a href="jquery-knob.html">Jquery Knob</a></li>
-                </ul>
-            </li>            
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Widgets</span></a>
-                <ul class="ml-menu">
-                    <li><a href="widgets-app.html">Apps Widgets</a></li>
-                    <li><a href="widgets-data.html">Data Widgets</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>Authentication</span></a>
-                <ul class="ml-menu">
-                    <li><a href="sign-in.html">Sign In</a></li>
-                    <li><a href="sign-up.html">Sign Up</a></li>
-                    <li><a href="forgot-password.html">Forgot Password</a></li>
-                    <li><a href="404.html">Page 404</a></li>
-                    <li><a href="500.html">Page 500</a></li>
-                    <li><a href="page-offline.html">Page Offline</a></li>
-                    <li><a href="locked.html">Locked Screen</a></li>
-                </ul>
-            </li>
-            <li class="open_top"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Sample Pages</span></a>
-                <ul class="ml-menu">
-                    <li><a href="blank.html">Blank Page</a></li>
-                    <li><a href="image-gallery.html">Image Gallery</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="timeline.html">Timeline</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="invoices.html">Invoices</a></li>
-                    <li><a href="invoices-list.html">Invoices List</a></li>
-                    <li><a href="search-results.html">Search Results</a></li>
-                </ul>
-            </li>
-            <li class="open_top"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-map"></i><span>Maps</span></a>
-                <ul class="ml-menu">
-                    <li><a href="google.html">Google Map</a></li>
-                    <li><a href="yandex.html">YandexMap</a></li>
-                    <li><a href="jvectormap.html">jVectorMap</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="progress-container progress-primary m-t-10">
-                    <span class="progress-badge">Traffic this Month</span>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
-                            <span class="progress-value">67%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="progress-container progress-info">
-                    <span class="progress-badge">Server Load</span>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                            <span class="progress-value">86%</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-folder"></i><span>File Manager</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="file-dashboard.html">All File</a></li>-->
+<!--                    <li><a href="file-documents.html">Documents</a></li>-->
+<!--                    <li><a href="file-images.html">Images</a></li>-->
+<!--                    <li><a href="file-media.html">Media</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-blogger"></i><span>Blog</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="blog-dashboard.html">Dashboard</a></li>-->
+<!--                    <li class="active"><a href="add_post.php">Blog Post</a></li>-->
+<!--                    <li><a href="blog-list.html">List View</a></li>-->
+<!--                    <li><a href="blog-grid.html">Grid View</a></li>-->
+<!--                    <li><a href="blog-details.html">Blog Details</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-shopping-cart"></i><span>Ecommerce</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="ec-dashboard.html">Dashboard</a></li>-->
+<!--                    <li><a href="ec-product.html">Product</a></li>-->
+<!--                    <li><a href="ec-product-List.html">Product List</a></li>-->
+<!--                    <li><a href="ec-product-detail.html">Product detail</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-swap-alt"></i><span>Components</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="ui_kit.html">Aero UI KIT</a></li>-->
+<!--                    <li><a href="alerts.html">Alerts</a></li>-->
+<!--                    <li><a href="collapse.html">Collapse</a></li>-->
+<!--                    <li><a href="colors.html">Colors</a></li>-->
+<!--                    <li><a href="dialogs.html">Dialogs</a></li>-->
+<!--                    <li><a href="list-group.html">List Group</a></li>-->
+<!--                    <li><a href="media-object.html">Media Object</a></li>-->
+<!--                    <li><a href="modals.html">Modals</a></li>-->
+<!--                    <li><a href="notifications.html">Notifications</a></li>-->
+<!--                    <li><a href="progressbars.html">Progress Bars</a></li>-->
+<!--                    <li><a href="range-sliders.html">Range Sliders</a></li>-->
+<!--                    <li><a href="sortable-nestable.html">Sortable & Nestable</a></li>-->
+<!--                    <li><a href="tabs.html">Tabs</a></li>-->
+<!--                    <li><a href="waves.html">Waves</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-flower"></i><span>Font Icons</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="icons.html">Material Icons</a></li>-->
+<!--                    <li><a href="icons-themify.html">Themify Icons</a></li>-->
+<!--                    <li><a href="icons-weather.html">Weather Icons</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Forms</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="basic-form-elements.html">Basic Form</a></li>-->
+<!--                    <li><a href="advanced-form-elements.html">Advanced Form</a></li>-->
+<!--                    <li><a href="form-examples.html">Form Examples</a></li>-->
+<!--                    <li><a href="form-validation.html">Form Validation</a></li>-->
+<!--                    <li><a href="form-wizard.html">Form Wizard</a></li>-->
+<!--                    <li><a href="form-editors.html">Editors</a></li>-->
+<!--                    <li><a href="form-upload.html">File Upload</a></li>-->
+<!--                    <li><a href="form-summernote.html">Summernote</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-grid"></i><span>Tables</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="normal-tables.html">Normal Tables</a></li>-->
+<!--                    <li><a href="jquery-datatable.html">Jquery Datatables</a></li>-->
+<!--                    <li><a href="editable-table.html">Editable Tables</a></li>-->
+<!--                    <li><a href="footable.html">Foo Tables</a></li>-->
+<!--                    <li><a href="table-color.html">Tables Color</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-chart"></i><span>Charts</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="echarts.html">E Chart</a></li>-->
+<!--                    <li><a href="c3.html">C3 Chart</a></li>-->
+<!--                    <li><a href="morris.html">Morris</a></li>-->
+<!--                    <li><a href="flot.html">Flot</a></li>-->
+<!--                    <li><a href="chartjs.html">ChartJS</a></li>-->
+<!--                    <li><a href="sparkline.html">Sparkline</a></li>-->
+<!--                    <li><a href="jquery-knob.html">Jquery Knob</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-delicious"></i><span>Widgets</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="widgets-app.html">Apps Widgets</a></li>-->
+<!--                    <li><a href="widgets-data.html">Data Widgets</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a href="javascript:void(0);" class="menu-toggle"><i-->
+<!--                            class="zmdi zmdi-lock"></i><span>Authentication</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="sign-in.html">Sign In</a></li>-->
+<!--                    <li><a href="sign-up.html">Sign Up</a></li>-->
+<!--                    <li><a href="forgot-password.html">Forgot Password</a></li>-->
+<!--                    <li><a href="404.html">Page 404</a></li>-->
+<!--                    <li><a href="500.html">Page 500</a></li>-->
+<!--                    <li><a href="page-offline.html">Page Offline</a></li>-->
+<!--                    <li><a href="locked.html">Locked Screen</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li class="open_top"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Sample Pages</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="blank.html">Blank Page</a></li>-->
+<!--                    <li><a href="image-gallery.html">Image Gallery</a></li>-->
+<!--                    <li><a href="profile.html">Profile</a></li>-->
+<!--                    <li><a href="timeline.html">Timeline</a></li>-->
+<!--                    <li><a href="pricing.html">Pricing</a></li>-->
+<!--                    <li><a href="invoices.html">Invoices</a></li>-->
+<!--                    <li><a href="invoices-list.html">Invoices List</a></li>-->
+<!--                    <li><a href="search-results.html">Search Results</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li class="open_top"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-map"></i><span>Maps</span></a>-->
+<!--                <ul class="ml-menu">-->
+<!--                    <li><a href="google.html">Google Map</a></li>-->
+<!--                    <li><a href="yandex.html">YandexMap</a></li>-->
+<!--                    <li><a href="jvectormap.html">jVectorMap</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <div class="progress-container progress-primary m-t-10">-->
+<!--                    <span class="progress-badge">Traffic this Month</span>-->
+<!--                    <div class="progress">-->
+<!--                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67"-->
+<!--                             aria-valuemin="0" aria-valuemax="100" style="width: 67%;">-->
+<!--                            <span class="progress-value">67%</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="progress-container progress-info">-->
+<!--                    <span class="progress-badge">Server Load</span>-->
+<!--                    <div class="progress">-->
+<!--                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86"-->
+<!--                             aria-valuemin="0" aria-valuemax="100" style="width: 86%;">-->
+<!--                            <span class="progress-value">86%</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
         </ul>
     </div>
 </aside>
@@ -433,8 +467,10 @@
 <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
     <ul class="nav nav-tabs sm">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a></li>
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i
+                        class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="setting">
@@ -455,13 +491,25 @@
                 <div class="card">
                     <h6>Color Skins</h6>
                     <ul class="choose-skin list-unstyled">
-                        <li data-theme="purple"><div class="purple"></div></li>                   
-                        <li data-theme="blue"><div class="blue"></div></li>
-                        <li data-theme="cyan"><div class="cyan"></div></li>
-                        <li data-theme="green"><div class="green"></div></li>
-                        <li data-theme="orange"><div class="orange"></div></li>
-                        <li data-theme="blush" class="active"><div class="blush"></div></li>
-                    </ul>                    
+                        <li data-theme="purple">
+                            <div class="purple"></div>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush" class="active">
+                            <div class="blush"></div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="card">
                     <h6>General Settings</h6>
@@ -482,7 +530,7 @@
                             <div class="checkbox">
                                 <input id="checkbox3" type="checkbox" checked="">
                                 <label for="checkbox3">Notifications</label>
-                            </div>                        
+                            </div>
                         </li>
                         <li>
                             <div class="checkbox">
@@ -503,9 +551,9 @@
                             </div>
                         </li>
                     </ul>
-                </div>                
-            </div>                
-        </div>       
+                </div>
+            </div>
+        </div>
         <div class="tab-pane right_chat" id="chat">
             <div class="slim_scroll">
                 <div class="card">
@@ -520,7 +568,7 @@
                                         <span class="badge badge-outline status"></span>
                                     </div>
                                 </div>
-                            </a>                            
+                            </a>
                         </li>
                         <li class="online">
                             <a href="javascript:void(0);">
@@ -532,7 +580,7 @@
                                         <span class="badge badge-outline status"></span>
                                     </div>
                                 </div>
-                            </a>                            
+                            </a>
                         </li>
                         <li class="offline">
                             <a href="javascript:void(0);">
@@ -544,7 +592,7 @@
                                         <span class="badge badge-outline status"></span>
                                     </div>
                                 </div>
-                            </a>                            
+                            </a>
                         </li>
                         <li class="me">
                             <a href="javascript:void(0);">
@@ -556,7 +604,7 @@
                                         <span class="badge badge-outline status"></span>
                                     </div>
                                 </div>
-                            </a>                            
+                            </a>
                         </li>
                         <li class="online">
                             <a href="javascript:void(0);">
@@ -568,8 +616,8 @@
                                         <span class="badge badge-outline status"></span>
                                     </div>
                                 </div>
-                            </a>                            
-                        </li>                        
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -582,58 +630,79 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Blog Post</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
-                        <li class="breadcrumb-item"><a href="blog-dashboard.html">Blog</a></li>
-                        <li class="breadcrumb-item active">New Post</li>
-                    </ul>
-                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    <h2>Добавить новость</h2>
+                    <!--                    <ul class="breadcrumb">-->
+                    <!--                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>-->
+                    <!--                        <li class="breadcrumb-item"><a href="blog-dashboard.html">Blog</a></li>-->
+                    <!--                        <li class="breadcrumb-item active">New Post</li>-->
+                    <!--                    </ul>-->
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                                class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">                
-                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                                class="zmdi zmdi-arrow-right"></i></button>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
-                        <div class="body">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Blog title" />
+                    <form action="add_post.php" method="get" id="form">
+                        <div class="card">
+                            <div class="body">
+                                <div class="form-group">
+                                    <input type="text" id="title" name="title" class="form-control"
+                                           placeholder="Enter title"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="description" name="description" class="form-control"
+                                           placeholder="Enter description"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="author" name="author" class="form-control"
+                                           placeholder="Enter author"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" id="date" name="date" class="form-control"
+                                           placeholder="Enter date"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="visible" name="visible" class="form-control"
+                                           placeholder="Enter visible"/>
+                                </div>
+
+                                <select id="category" name="category" class="form-control show-tick">
+                                    <option>Select Category --</option>
+                                    <option>Web Design</option>
+                                    <option>Photography</option>
+                                    <option>Technology</option>
+                                    <option>Lifestyle</option>
+                                    <option>Sports</option>
+                                </select>
                             </div>
-                            <select class="form-control show-tick">
-                                <option>Select Category --</option>
-                                <option>Web Design</option>
-                                <option>Photography</option>
-                                <option>Technology</option>
-                                <option>Lifestyle</option>
-                                <option>Sports</option>
-                            </select>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="body">
-                            <div class="summernote">
-                                Hello there,
-                                <br/>
-                                <p>The toolbar can be customized and it also supports various callbacks such as <code>oninit</code>, <code>onfocus</code>, <code>onpaste</code> and many more.</p>
-                                <p>Please try <b>paste some texts</b> here</p>
+                        <div class="card">
+                            <div class="body">
+                                <div>
+                                <textarea id="text" name="text" id="text" cols="100" rows="10"
+                                          placeholder="Enter text post"></textarea>
+                                </div>
+                                <button type="submit" name="enter" class="btn btn-info waves-effect m-t-20">POST
+                                </button>
                             </div>
-                            <button type="button" class="btn btn-info waves-effect m-t-20">POST</button>
                         </div>
-                    </div>
-                </div>            
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Jquery Core Js --> 
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 
-<script src="assets/plugins/dropzone/dropzone.js"></script> <!-- Dropzone Plugin Js --> 
+<script src="assets/plugins/dropzone/dropzone.js"></script> <!-- Dropzone Plugin Js -->
 
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="assets/plugins/summernote/dist/summernote.js"></script>

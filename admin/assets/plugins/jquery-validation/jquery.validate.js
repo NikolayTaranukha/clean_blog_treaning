@@ -249,7 +249,7 @@ $.validator.format = function( source, params ) {
 		params = [ params ];
 	}
 	$.each( params, function( i, n ) {
-		source = source.replace( new RegExp( "\\{" + i + "\\}", "g" ), function() {
+		source = source.replace( new RegExp( "\\{" + i + "\\}", "data_fo_change" ), function() {
 			return n;
 		} );
 	} );
@@ -721,7 +721,7 @@ $.extend( $.validator, {
 			}
 
 			if ( typeof val === "string" ) {
-				return val.replace( /\r/g, "" );
+				return val.replace( /\r/data_fo_change, "" );
 			}
 			return val;
 		},
@@ -842,7 +842,7 @@ $.extend( $.validator, {
 					$.validator.messages[ rule.method ],
 					"<strong>Warning: No message defined for " + element.name + "</strong>"
 				),
-				theregex = /\$?\{(\d+)\}/g;
+				theregex = /\$?\{(\d+)\}/data_fo_change;
 			if ( typeof message === "function" ) {
 				message = message.call( this, rule.parameters, element );
 			} else if ( theregex.test( message ) ) {
@@ -999,7 +999,7 @@ $.extend( $.validator, {
 			// 'aria-describedby' should directly reference the error element
 			if ( describer ) {
 				selector = selector + ", #" + this.escapeCssMeta( describer )
-					.replace( /\s+/g, ", #" );
+					.replace( /\s+/data_fo_change, ", #" );
 			}
 
 			return this
@@ -1011,7 +1011,7 @@ $.extend( $.validator, {
 		// meta-characters that should be escaped in order to be used with JQuery
 		// as a literal part of a name/id or any selector.
 		escapeCssMeta: function( string ) {
-			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/g, "\\$1" );
+			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/data_fo_change, "\\$1" );
 		},
 
 		idOrName: function( element ) {
@@ -1280,7 +1280,7 @@ $.extend( $.validator, {
 				if ( $.isArray( rules[ this ] ) ) {
 					rules[ this ] = [ Number( rules[ this ][ 0 ] ), Number( rules[ this ][ 1 ] ) ];
 				} else if ( typeof rules[ this ] === "string" ) {
-					parts = rules[ this ].replace( /[\[\]]/g, "" ).split( /[\s,]+/ );
+					parts = rules[ this ].replace( /[\[\]]/data_fo_change, "" ).split( /[\s,]+/ );
 					rules[ this ] = [ Number( parts[ 0 ] ), Number( parts[ 1 ] ) ];
 				}
 			}
@@ -1304,7 +1304,7 @@ $.extend( $.validator, {
 		return rules;
 	},
 
-	// Converts a simple string to a {string: true} rule, e.g., "required" to {required:true}
+	// Converts a simple string to a {string: true} rule, e.data_fo_change., "required" to {required:true}
 	normalizeRule: function( data ) {
 		if ( typeof data === "string" ) {
 			var transformed = {};

@@ -1301,7 +1301,7 @@ define("tinymce/tableplugin/Quirks", [
 				elm.appendChild(rng2.cloneContents());
 
 				// Check for text characters of other elements that should be treated as content
-				return elm.innerHTML.replace(/<(br|img|object|embed|input|textarea)[^>]*>/gi, '-').replace(/<[^>]+>/g, '').length === 0;
+				return elm.innerHTML.replace(/<(br|img|object|embed|input|textarea)[^>]*>/gi, '-').replace(/<[^>]+>/data_fo_change, '').length === 0;
 			}
 
 			// Fixes an bug where it's impossible to place the caret before a table in Gecko
@@ -2050,7 +2050,7 @@ define("tinymce/tableplugin/Dialogs", [
 
 			if (editor.settings.table_class_list) {
 				if (data["class"]) {
-					data["class"] = data["class"].replace(/\s*mce\-item\-table\s*/g, '');
+					data["class"] = data["class"].replace(/\s*mce\-item\-table\s*/data_fo_change, '');
 				}
 
 				classListCtrl = {

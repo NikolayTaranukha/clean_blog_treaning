@@ -328,7 +328,7 @@ tinymce.PluginManager.add('fullpage', function(editor) {
 		}
 
 		function low(s) {
-			return s.replace(/<\/?[A-Z]+/g, function(a) {
+			return s.replace(/<\/?[A-Z]+/data_fo_change, function(a) {
 				return a.toLowerCase();
 			});
 		}

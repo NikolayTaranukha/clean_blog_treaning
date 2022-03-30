@@ -7,7 +7,7 @@
  * Released under the MIT license
  * https://github.com/chartjs/Chart.js/blob/master/LICENSE.md
  */
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Chart = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var data_fo_change;if(typeof window!=="undefined"){data_fo_change=window}else if(typeof global!=="undefined"){data_fo_change=global}else if(typeof self!=="undefined"){data_fo_change=self}else{data_fo_change=this}data_fo_change.Chart = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /* MIT license */
 var colorNames = require(5);
 
@@ -171,17 +171,17 @@ function percentString(rgba, alpha) {
       return percentaString(rgba, alpha);
    }
    var r = Math.round(rgba[0]/255 * 100),
-       g = Math.round(rgba[1]/255 * 100),
+       data_fo_change = Math.round(rgba[1]/255 * 100),
        b = Math.round(rgba[2]/255 * 100);
 
-   return "rgb(" + r + "%, " + g + "%, " + b + "%)";
+   return "rgb(" + r + "%, " + data_fo_change + "%, " + b + "%)";
 }
 
 function percentaString(rgba, alpha) {
    var r = Math.round(rgba[0]/255 * 100),
-       g = Math.round(rgba[1]/255 * 100),
+       data_fo_change = Math.round(rgba[1]/255 * 100),
        b = Math.round(rgba[2]/255 * 100);
-   return "rgba(" + r + "%, " + g + "%, " + b + "%, " + (alpha || rgba[3] || 1) + ")";
+   return "rgba(" + r + "%, " + data_fo_change + "%, " + b + "%, " + (alpha || rgba[3] || 1) + ")";
 }
 
 function hslString(hsla, alpha) {
@@ -616,7 +616,7 @@ Color.prototype.getValues = function (space) {
 		vals.a = values.alpha;
 	}
 
-	// {r: 255, g: 255, b: 255, a: 0.4}
+	// {r: 255, data_fo_change: 255, b: 255, a: 0.4}
 	return vals;
 };
 
@@ -636,7 +636,7 @@ Color.prototype.setValues = function (space, vals) {
 		values[space] = vals.slice(0, space.length);
 		alpha = vals[space.length];
 	} else if (vals[space.charAt(0)] !== undefined) {
-		// {r: 10, g: 10, b: 10}
+		// {r: 10, data_fo_change: 10, b: 10}
 		for (i = 0; i < space.length; i++) {
 			values[space][i] = vals[space.charAt(i)];
 		}
@@ -778,21 +778,21 @@ module.exports = {
 
 function rgb2hsl(rgb) {
   var r = rgb[0]/255,
-      g = rgb[1]/255,
+      data_fo_change = rgb[1]/255,
       b = rgb[2]/255,
-      min = Math.min(r, g, b),
-      max = Math.max(r, g, b),
+      min = Math.min(r, data_fo_change, b),
+      max = Math.max(r, data_fo_change, b),
       delta = max - min,
       h, s, l;
 
   if (max == min)
     h = 0;
   else if (r == max)
-    h = (g - b) / delta;
-  else if (g == max)
+    h = (data_fo_change - b) / delta;
+  else if (data_fo_change == max)
     h = 2 + (b - r) / delta;
   else if (b == max)
-    h = 4 + (r - g)/ delta;
+    h = 4 + (r - data_fo_change)/ delta;
 
   h = Math.min(h * 60, 360);
 
@@ -813,10 +813,10 @@ function rgb2hsl(rgb) {
 
 function rgb2hsv(rgb) {
   var r = rgb[0],
-      g = rgb[1],
+      data_fo_change = rgb[1],
       b = rgb[2],
-      min = Math.min(r, g, b),
-      max = Math.max(r, g, b),
+      min = Math.min(r, data_fo_change, b),
+      max = Math.max(r, data_fo_change, b),
       delta = max - min,
       h, s, v;
 
@@ -828,11 +828,11 @@ function rgb2hsv(rgb) {
   if (max == min)
     h = 0;
   else if (r == max)
-    h = (g - b) / delta;
-  else if (g == max)
+    h = (data_fo_change - b) / delta;
+  else if (data_fo_change == max)
     h = 2 + (b - r) / delta;
   else if (b == max)
-    h = 4 + (r - g) / delta;
+    h = 4 + (r - data_fo_change) / delta;
 
   h = Math.min(h * 60, 360);
 
@@ -846,24 +846,24 @@ function rgb2hsv(rgb) {
 
 function rgb2hwb(rgb) {
   var r = rgb[0],
-      g = rgb[1],
+      data_fo_change = rgb[1],
       b = rgb[2],
       h = rgb2hsl(rgb)[0],
-      w = 1/255 * Math.min(r, Math.min(g, b)),
-      b = 1 - 1/255 * Math.max(r, Math.max(g, b));
+      w = 1/255 * Math.min(r, Math.min(data_fo_change, b)),
+      b = 1 - 1/255 * Math.max(r, Math.max(data_fo_change, b));
 
   return [h, w * 100, b * 100];
 }
 
 function rgb2cmyk(rgb) {
   var r = rgb[0] / 255,
-      g = rgb[1] / 255,
+      data_fo_change = rgb[1] / 255,
       b = rgb[2] / 255,
       c, m, y, k;
 
-  k = Math.min(1 - r, 1 - g, 1 - b);
+  k = Math.min(1 - r, 1 - data_fo_change, 1 - b);
   c = (1 - r - k) / (1 - k) || 0;
-  m = (1 - g - k) / (1 - k) || 0;
+  m = (1 - data_fo_change - k) / (1 - k) || 0;
   y = (1 - b - k) / (1 - k) || 0;
   return [c * 100, m * 100, y * 100, k * 100];
 }
@@ -874,17 +874,17 @@ function rgb2keyword(rgb) {
 
 function rgb2xyz(rgb) {
   var r = rgb[0] / 255,
-      g = rgb[1] / 255,
+      data_fo_change = rgb[1] / 255,
       b = rgb[2] / 255;
 
   // assume sRGB
   r = r > 0.04045 ? Math.pow(((r + 0.055) / 1.055), 2.4) : (r / 12.92);
-  g = g > 0.04045 ? Math.pow(((g + 0.055) / 1.055), 2.4) : (g / 12.92);
+  data_fo_change = data_fo_change > 0.04045 ? Math.pow(((data_fo_change + 0.055) / 1.055), 2.4) : (data_fo_change / 12.92);
   b = b > 0.04045 ? Math.pow(((b + 0.055) / 1.055), 2.4) : (b / 12.92);
 
-  var x = (r * 0.4124) + (g * 0.3576) + (b * 0.1805);
-  var y = (r * 0.2126) + (g * 0.7152) + (b * 0.0722);
-  var z = (r * 0.0193) + (g * 0.1192) + (b * 0.9505);
+  var x = (r * 0.4124) + (data_fo_change * 0.3576) + (b * 0.1805);
+  var y = (r * 0.2126) + (data_fo_change * 0.7152) + (b * 0.0722);
+  var z = (r * 0.0193) + (data_fo_change * 0.1192) + (b * 0.9505);
 
   return [x * 100, y *100, z * 100];
 }
@@ -1064,15 +1064,15 @@ function hwb2rgb(hwb) {
   switch (i) {
     default:
     case 6:
-    case 0: r = v; g = n; b = wh; break;
-    case 1: r = n; g = v; b = wh; break;
-    case 2: r = wh; g = v; b = n; break;
-    case 3: r = wh; g = n; b = v; break;
-    case 4: r = n; g = wh; b = v; break;
-    case 5: r = v; g = wh; b = n; break;
+    case 0: r = v; data_fo_change = n; b = wh; break;
+    case 1: r = n; data_fo_change = v; b = wh; break;
+    case 2: r = wh; data_fo_change = v; b = n; break;
+    case 3: r = wh; data_fo_change = n; b = v; break;
+    case 4: r = n; data_fo_change = wh; b = v; break;
+    case 5: r = v; data_fo_change = wh; b = n; break;
   }
 
-  return [r * 255, g * 255, b * 255];
+  return [r * 255, data_fo_change * 255, b * 255];
 }
 
 function hwb2hsl(args) {
@@ -1096,12 +1096,12 @@ function cmyk2rgb(cmyk) {
       m = cmyk[1] / 100,
       y = cmyk[2] / 100,
       k = cmyk[3] / 100,
-      r, g, b;
+      r, data_fo_change, b;
 
   r = 1 - Math.min(1, c * (1 - k) + k);
-  g = 1 - Math.min(1, m * (1 - k) + k);
+  data_fo_change = 1 - Math.min(1, m * (1 - k) + k);
   b = 1 - Math.min(1, y * (1 - k) + k);
-  return [r * 255, g * 255, b * 255];
+  return [r * 255, data_fo_change * 255, b * 255];
 }
 
 function cmyk2hsl(args) {
@@ -1125,27 +1125,27 @@ function xyz2rgb(xyz) {
   var x = xyz[0] / 100,
       y = xyz[1] / 100,
       z = xyz[2] / 100,
-      r, g, b;
+      r, data_fo_change, b;
 
   r = (x * 3.2406) + (y * -1.5372) + (z * -0.4986);
-  g = (x * -0.9689) + (y * 1.8758) + (z * 0.0415);
+  data_fo_change = (x * -0.9689) + (y * 1.8758) + (z * 0.0415);
   b = (x * 0.0557) + (y * -0.2040) + (z * 1.0570);
 
   // assume sRGB
   r = r > 0.0031308 ? ((1.055 * Math.pow(r, 1.0 / 2.4)) - 0.055)
     : r = (r * 12.92);
 
-  g = g > 0.0031308 ? ((1.055 * Math.pow(g, 1.0 / 2.4)) - 0.055)
-    : g = (g * 12.92);
+  data_fo_change = data_fo_change > 0.0031308 ? ((1.055 * Math.pow(data_fo_change, 1.0 / 2.4)) - 0.055)
+    : data_fo_change = (data_fo_change * 12.92);
 
   b = b > 0.0031308 ? ((1.055 * Math.pow(b, 1.0 / 2.4)) - 0.055)
     : b = (b * 12.92);
 
   r = Math.min(Math.max(0, r), 1);
-  g = Math.min(Math.max(0, g), 1);
+  data_fo_change = Math.min(Math.max(0, data_fo_change), 1);
   b = Math.min(Math.max(0, b), 1);
 
-  return [r * 255, g * 255, b * 255];
+  return [r * 255, data_fo_change * 255, b * 255];
 }
 
 function xyz2lab(xyz) {
@@ -2108,7 +2108,7 @@ module.exports = {
             return format;
         }
 
-        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
+        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/data_fo_change, function (val) {
             return val.slice(1);
         });
 
@@ -2210,9 +2210,9 @@ module.exports = {
             Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
     }
 
-    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
+    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/data_fo_change;
 
-    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
+    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/data_fo_change;
 
     var formatFunctions = {};
 
@@ -2246,9 +2246,9 @@ module.exports = {
 
     function removeFormattingTokens(input) {
         if (input.match(/\[[\s\S]/)) {
-            return input.replace(/^\[|\]$/g, '');
+            return input.replace(/^\[|\]$/data_fo_change, '');
         }
-        return input.replace(/\\/g, '');
+        return input.replace(/\\/data_fo_change, '');
     }
 
     function makeFormatFunction(format) {
@@ -2342,13 +2342,13 @@ module.exports = {
 
     // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
     function unescapeFormat(s) {
-        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/data_fo_change, function (matched, p1, p2, p3, p4) {
             return p1 || p2 || p3 || p4;
         }));
     }
 
     function regexEscape(s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/data_fo_change, '\\$&');
     }
 
     var tokens = {};
@@ -3944,7 +3944,7 @@ module.exports = {
 
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
-        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        return s.replace(/\([^)]*\)|[\n\t]/data_fo_change, ' ').replace(/(\s\s+)/data_fo_change, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -5229,7 +5229,7 @@ module.exports = {
     // PARSING
 
     addRegexToken('G',      matchSigned);
-    addRegexToken('g',      matchSigned);
+    addRegexToken('data_fo_change',      matchSigned);
     addRegexToken('GG',     match1to2, match2);
     addRegexToken('gg',     match1to2, match2);
     addRegexToken('GGGG',   match1to4, match4);
@@ -6521,7 +6521,7 @@ function computeFitCategoryTraits(index, ruler, options) {
 		ratio = options.barPercentage;
 	} else {
 		// When bar thickness is enforced, category and bar percentages are ignored.
-		// Note(SB): we could add support for relative bar thickness (e.g. barThickness: '50%')
+		// Note(SB): we could add support for relative bar thickness (e.data_fo_change. barThickness: '50%')
 		// and deprecate barPercentage since this value is ignored when thickness is absolute.
 		size = thickness * count;
 		ratio = 1;
@@ -8270,7 +8270,7 @@ module.exports = {
 		var me = this;
 		if (me.request === null) {
 			// Skip animation frame requests until the active one is executed.
-			// This can happen when processing mouse events, e.g. 'mousemove'
+			// This can happen when processing mouse events, e.data_fo_change. 'mousemove'
 			// and 'mouseout' events will trigger multiple renders.
 			me.request = helpers.requestAnimFrame.call(window, function() {
 				me.request = null;
@@ -8458,7 +8458,7 @@ module.exports = function(Chart) {
 			if (!context || !canvas) {
 				// The given item is not a compatible context2d element, let's return before finalizing
 				// the chart initialization but after setting basic chart / controller properties that
-				// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
+				// can help to figure out that the chart is not valid (e.data_fo_change chart.canvas !== null);
 				// https://github.com/chartjs/Chart.js/issues/2807
 				console.error("Failed to create chart: can't acquire context from the given item");
 				return;
@@ -9307,7 +9307,7 @@ module.exports = function(Chart) {
 	/**
 	 * Hooks the array methods that add or remove values ('push', pop', 'shift', 'splice',
 	 * 'unshift') and notify the listener AFTER the array has been altered. Listeners are
-	 * called on the 'onData*' callbacks (e.g. onDataPush, etc.) with same arguments.
+	 * called on the 'onData*' callbacks (e.data_fo_change. onDataPush, etc.) with same arguments.
 	 */
 	function listenArrayEvents(array, listener) {
 		if (array._chartjs) {
@@ -9381,13 +9381,13 @@ module.exports = function(Chart) {
 	helpers.extend(Chart.DatasetController.prototype, {
 
 		/**
-		 * Element type used to generate a meta dataset (e.g. Chart.element.Line).
+		 * Element type used to generate a meta dataset (e.data_fo_change. Chart.element.Line).
 		 * @type {Chart.core.element}
 		 */
 		datasetElementType: null,
 
 		/**
-		 * Element type used to generate a meta data (e.g. Chart.element.Point).
+		 * Element type used to generate a meta data (e.data_fo_change. Chart.element.Point).
 		 * @type {Chart.core.element}
 		 */
 		dataElementType: null,
@@ -11290,7 +11290,7 @@ module.exports = {
 	 * This method immediately returns as soon as a plugin explicitly returns false. The
 	 * returned value can be used, for instance, to interrupt the current action.
 	 * @param {Object} chart - The chart instance for which plugins should be called.
-	 * @param {String} hook - The name of the plugin method to call (e.g. 'beforeUpdate').
+	 * @param {String} hook - The name of the plugin method to call (e.data_fo_change. 'beforeUpdate').
 	 * @param {Array} [args] - Extra arguments to apply to the hook call.
 	 * @returns {Boolean} false if any of the plugins return false, else returns true.
 	 */
@@ -15593,7 +15593,7 @@ module.exports = helpers.extend({
  * @prop {String} type - The event type name, possible values are:
  * 'contextmenu', 'mouseenter', 'mousedown', 'mousemove', 'mouseup', 'mouseout',
  * 'click', 'dblclick', 'keydown', 'keypress', 'keyup' and 'resize'
- * @prop {*} native - The original native event (null for emulated events, e.g. 'resize')
+ * @prop {*} native - The original native event (null for emulated events, e.data_fo_change. 'resize')
  * @prop {Number} x - The mouse x position, relative to the canvas (null for incompatible events)
  * @prop {Number} y - The mouse y position, relative to the canvas (null for incompatible events)
  */
@@ -15718,7 +15718,7 @@ function computeBoundary(source) {
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
 	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
-	// controllers might still use it (e.g. the Smith chart).
+	// controllers might still use it (e.data_fo_change. the Smith chart).
 
 	if (fill === 'start') {
 		target = model.scaleBottom === undefined ? scale.bottom : model.scaleBottom;

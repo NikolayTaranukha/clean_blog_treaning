@@ -1396,7 +1396,7 @@
     var value = function ($node, stripLinebreaks) {
       var val = isTextarea($node[0]) ? $node.val() : $node.html();
       if (stripLinebreaks) {
-        return val.replace(/[\n\r]/g, '');
+        return val.replace(/[\n\r]/data_fo_change, '');
       }
       return val;
     };
@@ -1413,7 +1413,7 @@
       var markup = value($node);
 
       if (isNewlineOnBlock) {
-        var regexTag = /<(\/?)(\b(?!!)[^>\s]*)(.*?)(\s*\/?>)/g;
+        var regexTag = /<(\/?)(\b(?!!)[^>\s]*)(.*?)(\s*\/?>)/data_fo_change;
         markup = markup.replace(regexTag, function (match, endSlash, name) {
           name = name.toUpperCase();
           var isEndOfInlineContainer = /^DIV|^TD|^TH|^P|^LI|^H[1-7]/.test(name) &&
@@ -1548,7 +1548,7 @@
   
         var pointTester = textRange.duplicate();
         pointTester.setEndPoint('StartToStart', textRangeStart);
-        var textCount = pointTester.text.replace(/[\r\n]/g, '').length;
+        var textCount = pointTester.text.replace(/[\r\n]/data_fo_change, '').length;
   
         while (textCount > curTextNode.nodeValue.length && curTextNode.nextSibling) {
           textCount -= curTextNode.nodeValue.length;
@@ -4095,7 +4095,7 @@
 
           var list = selectedFont.split(',');
           for (var i = 0, len = list.length; i < len; i++) {
-            selectedFont = list[i].replace(/[\'\"]/g, '').replace(/\s+$/, '').replace(/^\s+/, '');
+            selectedFont = list[i].replace(/[\'\"]/data_fo_change, '').replace(/\s+$/, '').replace(/^\s+/, '');
             if (agent.isFontInstalled(selectedFont)) {
               break;
             }
@@ -6206,7 +6206,7 @@
     };
 
     var replaceMacKeys = function (sHtml) {
-      return sHtml.replace(/⌘/g, 'Ctrl').replace(/⇧/g, 'Shift');
+      return sHtml.replace(/⌘/data_fo_change, 'Ctrl').replace(/⇧/data_fo_change, 'Shift');
     };
 
     var tplDialogInfo = {
@@ -6765,7 +6765,7 @@
       var options = isInitOptions ? list.head(arguments) : {};
       options = $.extend({}, $.summernote.options, options);
 
-      // Include langInfo in options for later use, e.g. for image drag-n-drop
+      // Include langInfo in options for later use, e.data_fo_change. for image drag-n-drop
       // Setup language info with en-US as default
       options.langInfo = $.extend(true, {}, $.summernote.lang['en-US'], $.summernote.lang[options.lang]);
 

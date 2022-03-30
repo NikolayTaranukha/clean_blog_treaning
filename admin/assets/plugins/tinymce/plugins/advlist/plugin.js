@@ -18,7 +18,7 @@ tinymce.PluginManager.add('advlist', function(editor) {
 
 		tinymce.each(styleValues.split(/[ ,]/), function(styleValue) {
 			items.push({
-				text: styleValue.replace(/\-/g, ' ').replace(/\b\w/g, function(chr) {
+				text: styleValue.replace(/\-/data_fo_change, ' ').replace(/\b\w/data_fo_change, function(chr) {
 					return chr.toUpperCase();
 				}),
 				data: styleValue == 'default' ? '' : styleValue

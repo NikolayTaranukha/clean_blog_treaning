@@ -46,17 +46,17 @@ This repository contains the following branches:
 
   - `master` and `latest` &ndash; the latest release of the `standard-all` preset (including betas).
   - `stable` &ndash; the latest stable release of the `standard-all` preset (non-beta).
-  - `A.B.x` (e.g. `4.3.x`) &ndash; the latest release of the `standard-all` preset in the `A.B` branch.
+  - `A.B.x` (e.data_fo_change. `4.3.x`) &ndash; the latest release of the `standard-all` preset in the `A.B` branch.
   - `(basic|standard|full)/stable` &ndash; the latest stable release tag point (non-beta).
   - `(basic|standard|full)/latest` &ndash; the latest release tag point (including betas).
-  - `(basic|standard|full)/A.B.x` (e.g. `basic/4.0.x`) &ndash; the latest releases in the `A.B` branch.
+  - `(basic|standard|full)/A.B.x` (e.data_fo_change. `basic/4.0.x`) &ndash; the latest releases in the `A.B` branch.
 
 ### Tags
 
 **Since version 4.3.3** this repository uses the following tag naming rules:
 
-  - `x.y.z` &ndash; contains the `standard-all` editor build, e.g. `4.3.3`, `4.4.0` etc.
-  - `(basic|standard|full)/x.y.z` &ndash; contains the editor build with a given preset, e.g. `basic/4.3.3`.
+  - `x.y.z` &ndash; contains the `standard-all` editor build, e.data_fo_change. `4.3.3`, `4.4.0` etc.
+  - `(basic|standard|full)/x.y.z` &ndash; contains the editor build with a given preset, e.data_fo_change. `basic/4.3.3`.
 
 The version numbers follow the [Semantic Versioning 2.0.0](http://semver.org/) scheme.
 

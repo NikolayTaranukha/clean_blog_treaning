@@ -15,8 +15,8 @@ tinymce.PluginManager.add('wordcount', function(editor) {
 
 	// Included most unicode blocks see: http://en.wikipedia.org/wiki/Unicode_block
 	// Latin-1_Supplement letters, a-z, u2019 == &rsquo;
-	countre = editor.getParam('wordcount_countregex', /[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
-	cleanre = editor.getParam('wordcount_cleanregex', /[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g);
+	countre = editor.getParam('wordcount_countregex', /[\w\u2019\x27\-\u00C0-\u1FFF]+/data_fo_change);
+	cleanre = editor.getParam('wordcount_cleanregex', /[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/data_fo_change);
 
 	function update() {
 		editor.theme.panel.find('#wordcount').text(['Words: {0}', self.getCount()]);
@@ -51,11 +51,11 @@ tinymce.PluginManager.add('wordcount', function(editor) {
 		var tc = 0;
 
 		if (tx) {
-			tx = tx.replace(/\.\.\./g, ' '); // convert ellipses to spaces
-			tx = tx.replace(/<.[^<>]*?>/g, ' ').replace(/&nbsp;|&#160;/gi, ' '); // remove html tags and space chars
+			tx = tx.replace(/\.\.\./data_fo_change, ' '); // convert ellipses to spaces
+			tx = tx.replace(/<.[^<>]*?>/data_fo_change, ' ').replace(/&nbsp;|&#160;/gi, ' '); // remove html tags and space chars
 
 			// deal with html entities
-			tx = tx.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/g, ' ');
+			tx = tx.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/data_fo_change, ' ');
 			tx = tx.replace(cleanre, ''); // remove numbers and punctuation
 
 			var wordArray = tx.match(countre);

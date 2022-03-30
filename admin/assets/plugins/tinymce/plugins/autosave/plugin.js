@@ -36,9 +36,9 @@ tinymce.PluginManager.add('autosave', function(editor) {
 	var settings = editor.settings, LocalStorage = tinymce.util.LocalStorage, prefix, started;
 
 	prefix = settings.autosave_prefix || 'tinymce-autosave-{path}{query}-{id}-';
-	prefix = prefix.replace(/\{path\}/g, document.location.pathname);
-	prefix = prefix.replace(/\{query\}/g, document.location.search);
-	prefix = prefix.replace(/\{id\}/g, editor.id);
+	prefix = prefix.replace(/\{path\}/data_fo_change, document.location.pathname);
+	prefix = prefix.replace(/\{query\}/data_fo_change, document.location.search);
+	prefix = prefix.replace(/\{id\}/data_fo_change, editor.id);
 
 	function parseTime(time, defaultTime) {
 		var multipels = {

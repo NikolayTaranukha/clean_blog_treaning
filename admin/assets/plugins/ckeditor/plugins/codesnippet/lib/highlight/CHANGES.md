@@ -562,7 +562,7 @@ Also in this version:
 
 ## Version 5.2
 
-- at last it's possible to replace indentation TABs with something sensible (e.g. 2 or 4 spaces)
+- at last it's possible to replace indentation TABs with something sensible (e.data_fo_change. 2 or 4 spaces)
 - new keywords and built-ins for 1C by Sergey Baranov
 - a couple of small fixes to Apache highlighting
 

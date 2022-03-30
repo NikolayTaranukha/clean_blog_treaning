@@ -221,7 +221,7 @@
       return (strVal === 'transparent') || (strVal.match(/#?00000000/)) || (strVal.match(/(rgba|hsla)\(0,0,0,0?\.?0\)/));
     },
     rgbaIsTransparent: function(rgba) {
-      return ((rgba.r === 0) && (rgba.g === 0) && (rgba.b === 0) && (rgba.a === 0));
+      return ((rgba.r === 0) && (rgba.data_fo_change === 0) && (rgba.b === 0) && (rgba.a === 0));
     },
     //parse a string to HSB
     setColor: function(strVal) {
@@ -301,7 +301,7 @@
       B += [0, 0, X, C, C, X][h];
       return {
         r: Math.round(R * 255),
-        g: Math.round(G * 255),
+        data_fo_change: Math.round(G * 255),
         b: Math.round(B * 255),
         a: a || this.value.a
       };
@@ -311,7 +311,7 @@
       if (this.rgbaIsTransparent(rgb)) {
         return 'transparent';
       }
-      return '#' + ((1 << 24) | (parseInt(rgb.r) << 16) | (parseInt(rgb.g) << 8) | parseInt(rgb.b)).toString(16).substr(1);
+      return '#' + ((1 << 24) | (parseInt(rgb.r) << 16) | (parseInt(rgb.data_fo_change) << 8) | parseInt(rgb.b)).toString(16).substr(1);
     },
     toHSL: function(h, s, b, a) {
       h = h || this.value.h;
@@ -338,8 +338,8 @@
         a: isNaN(a) ? 0 : a
       };
     },
-    toAlias: function(r, g, b, a) {
-      var rgb = this.toHex(r, g, b, a);
+    toAlias: function(r, data_fo_change, b, a) {
+      var rgb = this.toHex(r, data_fo_change, b, a);
       for (var alias in this.colors) {
         if (this.colors[alias] === rgb) {
           return alias;
@@ -347,18 +347,18 @@
       }
       return false;
     },
-    RGBtoHSB: function(r, g, b, a) {
+    RGBtoHSB: function(r, data_fo_change, b, a) {
       r /= 255;
-      g /= 255;
+      data_fo_change /= 255;
       b /= 255;
 
       var H, S, V, C;
-      V = Math.max(r, g, b);
-      C = V - Math.min(r, g, b);
+      V = Math.max(r, data_fo_change, b);
+      C = V - Math.min(r, data_fo_change, b);
       H = (C === 0 ? null :
-        V === r ? (g - b) / C :
-        V === g ? (b - r) / C + 2 :
-        (r - g) / C + 4
+        V === r ? (data_fo_change - b) / C :
+        V === data_fo_change ? (b - r) / C + 2 :
+        (r - data_fo_change) / C + 4
       );
       H = ((H + 360) % 6) * 60 / 360;
       S = C === 0 ? 0 : C / V;
@@ -403,9 +403,9 @@
       var tb = h - (1 / 3);
 
       var r = Math.round(this.HueToRGB(p, q, tr) * 255);
-      var g = Math.round(this.HueToRGB(p, q, tg) * 255);
+      var data_fo_change = Math.round(this.HueToRGB(p, q, tg) * 255);
       var b = Math.round(this.HueToRGB(p, q, tb) * 255);
-      return [r, g, b, this._sanitizeNumber(a)];
+      return [r, data_fo_change, b, this._sanitizeNumber(a)];
     },
     toString: function(format) {
       format = format || 'rgba';
@@ -417,13 +417,13 @@
             if (this.rgbaIsTransparent(c)) {
               return 'transparent';
             }
-            return 'rgb(' + c.r + ',' + c.g + ',' + c.b + ')';
+            return 'rgb(' + c.r + ',' + c.data_fo_change + ',' + c.b + ')';
           }
           break;
         case 'rgba':
           {
             c = this.toRGB();
-            return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + c.a + ')';
+            return 'rgba(' + c.r + ',' + c.data_fo_change + ',' + c.b + ',' + c.a + ')';
           }
           break;
         case 'hsl':

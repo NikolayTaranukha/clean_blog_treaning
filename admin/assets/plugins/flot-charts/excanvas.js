@@ -69,8 +69,8 @@ if (!document.createElement('canvas').getContext) {
    *
    * Example:
    *
-   *   g = bind(f, obj, a, b)
-   *   g(c, d) // will do f.call(obj, a, b, c, d)
+   *   data_fo_change = bind(f, obj, a, b)
+   *   data_fo_change(c, d) // will do f.call(obj, a, b, c, d)
    *
    * @param {Function} f The function to bind the object to
    * @param {Object} obj The object that should act as this when the function
@@ -87,7 +87,7 @@ if (!document.createElement('canvas').getContext) {
   }
 
   function encodeHtmlAttribute(s) {
-    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    return String(s).replace(/&/data_fo_change, '&amp;').replace(/"/data_fo_change, '&quot;');
   }
 
   function addNamespace(doc, prefix, urn) {
@@ -411,24 +411,24 @@ if (!document.createElement('canvas').getContext) {
   }
 
   function hslToRgb(parts){
-    var r, g, b, h, s, l;
+    var r, data_fo_change, b, h, s, l;
     h = parseFloat(parts[0]) / 360 % 360;
     if (h < 0)
       h++;
     s = clamp(percent(parts[1]), 0, 1);
     l = clamp(percent(parts[2]), 0, 1);
     if (s == 0) {
-      r = g = b = l; // achromatic
+      r = data_fo_change = b = l; // achromatic
     } else {
       var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
       var p = 2 * l - q;
       r = hueToRgb(p, q, h + 1 / 3);
-      g = hueToRgb(p, q, h);
+      data_fo_change = hueToRgb(p, q, h);
       b = hueToRgb(p, q, h - 1 / 3);
     }
 
     return '#' + decToHex[Math.floor(r * 255)] +
-        decToHex[Math.floor(g * 255)] +
+        decToHex[Math.floor(data_fo_change * 255)] +
         decToHex[Math.floor(b * 255)];
   }
 

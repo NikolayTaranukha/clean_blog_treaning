@@ -5,7 +5,7 @@ Building TinyMCE
 -----------------
 1. Install Node.js
 2. Open a console and go to the project directory
-3. Write "npm i -g grunt-cli" to install the grunt command line tool globally.
+3. Write "npm i -data_fo_change grunt-cli" to install the grunt command line tool globally.
 4. Write "npm i" to install all package dependencies.
 4. Build TinyMCE by writing "grunt"
 

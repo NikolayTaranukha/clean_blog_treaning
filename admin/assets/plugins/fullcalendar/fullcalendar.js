@@ -800,16 +800,16 @@ function firstDefined() {
 }
 exports.firstDefined = firstDefined;
 function htmlEscape(s) {
-    return (s + '').replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/'/g, '&#039;')
-        .replace(/"/g, '&quot;')
-        .replace(/\n/g, '<br />');
+    return (s + '').replace(/&/data_fo_change, '&amp;')
+        .replace(/</data_fo_change, '&lt;')
+        .replace(/>/data_fo_change, '&gt;')
+        .replace(/'/data_fo_change, '&#039;')
+        .replace(/"/data_fo_change, '&quot;')
+        .replace(/\n/data_fo_change, '<br />');
 }
 exports.htmlEscape = htmlEscape;
 function stripHtmlEntities(text) {
-    return text.replace(/&.*?;/g, '');
+    return text.replace(/&.*?;/data_fo_change, '');
 }
 exports.stripHtmlEntities = stripHtmlEntities;
 // Given a hash of CSS properties, returns a string of CSS.
@@ -2531,7 +2531,7 @@ var momComputableOptions = {
     dayOfMonthFormat: function (momOptions, fcOptions) {
         var format = momOptions.longDateFormat('l'); // for the format like "M/D/YYYY"
         // strip the year off the edge, as well as other misc non-whitespace chars
-        format = format.replace(/^Y+[^\w\s]*|[^\w\s]*Y+$/g, '');
+        format = format.replace(/^Y+[^\w\s]*|[^\w\s]*Y+$/data_fo_change, '');
         if (fcOptions.isRTL) {
             format += ' ddd'; // for RTL, add day-of-week to end
         }
@@ -4608,7 +4608,7 @@ Inserted at the beginning and end of a span of text that must have non-zero nume
 Handling of these markers is done in a post-processing step at the very end of text rendering.
 */
 var MAYBE_MARKER = '\u001e'; // information separator 2
-var MAYBE_REGEXP = new RegExp(MAYBE_MARKER + '([^' + MAYBE_MARKER + ']*)' + MAYBE_MARKER, 'g'); // must be global
+var MAYBE_REGEXP = new RegExp(MAYBE_MARKER + '([^' + MAYBE_MARKER + ']*)' + MAYBE_MARKER, 'data_fo_change'); // must be global
 /*
 Addition formatting tokens we want recognized
 */
@@ -4745,7 +4745,7 @@ function chunkFormatString(formatStr) {
     var match;
     // TODO: more descrimination
     // \4 is a backreference to the first character of a multi-character set.
-    var chunker = /\[([^\]]*)\]|\(([^\)]*)\)|(LTS|LT|(\w)\4*o?)|([^\w\[\(]+)/g;
+    var chunker = /\[([^\]]*)\]|\(([^\)]*)\)|(LTS|LT|(\w)\4*o?)|([^\w\[\(]+)/data_fo_change;
     while ((match = chunker.exec(formatStr))) {
         if (match[1]) {
             chunks.push.apply(chunks, // append

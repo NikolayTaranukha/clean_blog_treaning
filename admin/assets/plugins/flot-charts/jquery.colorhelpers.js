@@ -10,13 +10,13 @@
  *
  *   $.color.parse("#fff").scale('rgb', 0.25).add('a', -0.5).toString()
  *   var c = $.color.extract($("#mydiv"), 'background-color');
- *   console.log(c.r, c.g, c.b, c.a);
+ *   console.log(c.r, c.data_fo_change, c.b, c.a);
  *   $.color.make(100, 50, 25, 0.4).toString() // returns "rgba(100,50,25,0.4)"
  *
  * Note that .scale() and .add() return the same modified object
  * instead of making a new one.
  *
- * V. 1.1: Fix error handling so e.g. parsing an empty string does
+ * V. 1.1: Fix error handling so e.data_fo_change. parsing an empty string does
  * produce a color rather than just crashing.
  */ 
 
@@ -24,10 +24,10 @@
     $.color = {};
 
     // construct color object with some convenient chainable helpers
-    $.color.make = function (r, g, b, a) {
+    $.color.make = function (r, data_fo_change, b, a) {
         var o = {};
         o.r = r || 0;
-        o.g = g || 0;
+        o.data_fo_change = data_fo_change || 0;
         o.b = b || 0;
         o.a = a != null ? a : 1;
 
@@ -45,9 +45,9 @@
         
         o.toString = function () {
             if (o.a >= 1.0) {
-                return "rgb("+[o.r, o.g, o.b].join(",")+")";
+                return "rgb("+[o.r, o.data_fo_change, o.b].join(",")+")";
             } else {
-                return "rgba("+[o.r, o.g, o.b, o.a].join(",")+")";
+                return "rgba("+[o.r, o.data_fo_change, o.b, o.a].join(",")+")";
             }
         };
 
@@ -57,14 +57,14 @@
             }
             
             o.r = clamp(0, parseInt(o.r), 255);
-            o.g = clamp(0, parseInt(o.g), 255);
+            o.data_fo_change = clamp(0, parseInt(o.data_fo_change), 255);
             o.b = clamp(0, parseInt(o.b), 255);
             o.a = clamp(0, o.a, 1);
             return o;
         };
 
         o.clone = function () {
-            return $.color.make(o.r, o.b, o.g, o.a);
+            return $.color.make(o.r, o.b, o.data_fo_change, o.a);
         };
 
         return o.normalize();

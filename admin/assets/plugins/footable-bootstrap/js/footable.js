@@ -637,7 +637,7 @@
 	F.str.toCamelCase = function (str) {
 		if (F.is.emptyString(str)) return str;
 		if (str.toUpperCase() === str) return str.toLowerCase();
-		return str.replace(/^([A-Z])|[-\s_](\w)/g, function (match, p1, p2) {
+		return str.replace(/^([A-Z])|[-\s_](\w)/data_fo_change, function (match, p1, p2) {
 			if (F.is.string(p2)) return p2.toUpperCase();
 			return p1.toLowerCase();
 		});
@@ -664,7 +664,7 @@
 	 */
 	F.str.escapeRegExp = function(str){
 		if (F.is.emptyString(str)) return str;
-		return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+		return str.replace(/[.*+?^${}()|[\]\\]/data_fo_change, "\\$&");
 	};
 
 })(FooTable);
@@ -1077,7 +1077,7 @@
 			 * @protected
 			 * @type {Array.<string>}
 			 */
-			this.classes = F.is.jq(this.$el) && this.$el.attr('class') ? this.$el.attr('class').match(/\S+/g) : (F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/g) : []));
+			this.classes = F.is.jq(this.$el) && this.$el.attr('class') ? this.$el.attr('class').match(/\S+/data_fo_change) : (F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/data_fo_change) : []));
 			/**
 			 * The inline styles for the cell.
 			 * @instance
@@ -1190,7 +1190,7 @@
 			}, hasOptions ? value.options : {});
 
 			this.value = hasOptions ? value.value : value;
-			this.classes = F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/g) : []);
+			this.classes = F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/data_fo_change) : []);
 			this.style = F.is.hash(this.o.style) ? this.o.style : (F.is.string(this.o.style) ? F.css2json(this.o.style) : {});
 
 			redrawSelf = F.is.boolean(redrawSelf) ? redrawSelf : true;
@@ -1351,7 +1351,7 @@
 			 * The classes to apply to all cells in this column.
 			 * @type {Array.<string>}
 			 */
-			this.classes = F.is.array(definition.classes) ? definition.classes : (F.is.string(definition.classes) ? definition.classes.match(/\S+/g) : []);
+			this.classes = F.is.array(definition.classes) ? definition.classes : (F.is.string(definition.classes) ? definition.classes.match(/\S+/data_fo_change) : []);
 
 			// override any default functions ensuring when they are executed "this" within the context of the function points to the instance of this object.
 			this.parser = F.checkFnValue(this, definition.parser, this.parser);
@@ -1616,7 +1616,7 @@
 			 * @protected
 			 * @type {Array.<string>}
 			 */
-			this.classes = F.is.jq(this.$el) && this.$el.attr('class') ? this.$el.attr('class').match(/\S+/g) : (F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/g) : []));
+			this.classes = F.is.jq(this.$el) && this.$el.attr('class') ? this.$el.attr('class').match(/\S+/data_fo_change) : (F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/data_fo_change) : []));
 			/**
 			 * The inline styles for the row.
 			 * @instance
@@ -1716,7 +1716,7 @@
 			}, hasOptions ? data.options : {});
 
 			this.expanded = this.o.expanded;
-			this.classes = F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/g) : []);
+			this.classes = F.is.array(this.o.classes) ? this.o.classes : (F.is.string(this.o.classes) ? this.o.classes.match(/\S+/data_fo_change) : []);
 			this.style = F.is.hash(this.o.style) ? this.o.style : (F.is.string(this.o.style) ? F.css2json(this.o.style) : {});
 			if (isObj) {
 				if ( hasOptions ) data = data.value;
@@ -2058,7 +2058,7 @@
 			 * @param {object} data - The jQuery data object from the root table element.
 			 */
 			return this.raise('preinit.ft.table', [self.data]).then(function(){
-				var classes = (self.$el.attr('class') || '').match(/\S+/g) || [];
+				var classes = (self.$el.attr('class') || '').match(/\S+/data_fo_change) || [];
 
 				self.o.ajax = F.checkFnValue(self, self.data.ajax, self.o.ajax);
 				self.o.stopPropagation = F.is.boolean(self.data.stopPropagation)
@@ -2550,9 +2550,9 @@
 			this._super(instance, definition, 'number');
 			this.decimalSeparator = F.is.string(definition.decimalSeparator) ? definition.decimalSeparator : '.';
 			this.thousandSeparator = F.is.string(definition.thousandSeparator) ? definition.thousandSeparator : ',';
-			this.decimalSeparatorRegex = new RegExp(F.str.escapeRegExp(this.decimalSeparator), 'g');
-			this.thousandSeparatorRegex = new RegExp(F.str.escapeRegExp(this.thousandSeparator), 'g');
-			this.cleanRegex = new RegExp('[^\-0-9' + F.str.escapeRegExp(this.decimalSeparator) + ']', 'g');
+			this.decimalSeparatorRegex = new RegExp(F.str.escapeRegExp(this.decimalSeparator), 'data_fo_change');
+			this.thousandSeparatorRegex = new RegExp(F.str.escapeRegExp(this.thousandSeparator), 'data_fo_change');
+			this.cleanRegex = new RegExp('[^\-0-9' + F.str.escapeRegExp(this.decimalSeparator) + ']', 'data_fo_change');
 		},
 		/**
 		 * This is supplied either the cell value or jQuery object to parse. Any value can be returned from this method and will be provided to the {@link FooTable.Column#formatter} function
@@ -2590,7 +2590,7 @@
 			if (value == null) return '';
 			var s = (value + '').split('.');
 			if (s.length == 2 && s[0].length > 3) {
-				s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, this.thousandSeparator);
+				s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/data_fo_change, this.thousandSeparator);
 			}
 			return s.join(this.decimalSeparator);
 		}
@@ -4565,7 +4565,7 @@
 			} else {
 				// we have no more statements to parse so set the parts array by parsing each part of the remaining query
 				var self = this;
-				this.parts = F.arr.map(this._value.match(/(?:[^\s"]+|"[^"]*")+/g), function(str){
+				this.parts = F.arr.map(this._value.match(/(?:[^\s"]+|"[^"]*")+/data_fo_change), function(str){
 					return self._part(str);
 				});
 			}
@@ -4595,7 +4595,7 @@
 				p.phrase = true;
 				p.exact = true;
 			} else if (this.connectors && /(?:\w)+?([-_\+\.])(?:\w)+?/.test(p.query)) { // otherwise replace supported phrase connectors (-_+.) with spaces
-				p.query = p.query.replace(/(?:\w)+?([-_\+\.])(?:\w)+?/g, function(match, p1){
+				p.query = p.query.replace(/(?:\w)+?([-_\+\.])(?:\w)+?/data_fo_change, function(match, p1){
 					return match.replace(p1, ' ');
 				});
 				p.phrase = true;
@@ -5631,11 +5631,11 @@
 			} else {
 				lastRow = lastRow > this.totalRows ? this.totalRows : lastRow;
 			}
-			return formatString.replace(/\{CP}/g, this.current)
-				.replace(/\{TP}/g, this.total)
-				.replace(/\{PF}/g, firstRow)
-				.replace(/\{PL}/g, lastRow)
-				.replace(/\{TR}/g, this.totalRows);
+			return formatString.replace(/\{CP}/data_fo_change, this.current)
+				.replace(/\{TP}/data_fo_change, this.total)
+				.replace(/\{PF}/data_fo_change, firstRow)
+				.replace(/\{PL}/data_fo_change, lastRow)
+				.replace(/\{TR}/data_fo_change, this.totalRows);
 		},
 		/**
 		 * Pages to the first page.
@@ -7281,7 +7281,7 @@
 		csv: function(filtered){
 			var csv = "", columns = this.columns(), value, escaped;
 			F.arr.each(columns, function(column, i){
-				escaped = '"' + column.title.replace(/"/g, '""') + '"';
+				escaped = '"' + column.title.replace(/"/data_fo_change, '""') + '"';
 				csv += (i === 0 ? escaped : "," + escaped);
 			});
 			csv += "\n";
@@ -7291,7 +7291,7 @@
 				F.arr.each(row.cells, function(cell, i){
 					if (!cell.column.internal){
 						value = cell.column.stringify.call(cell.column, cell.value, cell.ft.o, cell.row.value);
-						escaped = '"' + value.replace(/"/g, '""') + '"';
+						escaped = '"' + value.replace(/"/data_fo_change, '""') + '"';
 						csv += (i === 0 ? escaped : "," + escaped);
 					}
 				});

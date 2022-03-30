@@ -238,7 +238,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				// Note that we could split directly on regexps, but IE < 9 is
 				// broken; revisit when we drop IE 7/8 support.
 
-				var lines = (text + "").replace(/<br ?\/?>|\r\n|\r/g, "\n").split("\n");
+				var lines = (text + "").replace(/<br ?\/?>|\r\n|\r/data_fo_change, "\n").split("\n");
 
 				for (var i = 0; i < lines.length; ++i) {
 

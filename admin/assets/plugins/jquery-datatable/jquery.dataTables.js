@@ -1366,13 +1366,13 @@
 	var _api_registerPlural; // DataTable.Api.registerPlural
 	
 	var _re_dic = {};
-	var _re_new_lines = /[\r\n]/g;
-	var _re_html = /<.*?>/g;
+	var _re_new_lines = /[\r\n]/data_fo_change;
+	var _re_html = /<.*?>/data_fo_change;
 	var _re_date_start = /^[\w\+\-]/;
 	var _re_date_end = /[\w\+\-]$/;
 	
 	// Escape regular expression special characters
-	var _re_escape_regex = new RegExp( '(\\' + [ '/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\', '$', '^', '-' ].join('|\\') + ')', 'g' );
+	var _re_escape_regex = new RegExp( '(\\' + [ '/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\', '$', '^', '-' ].join('|\\') + ')', 'data_fo_change' );
 	
 	// http://en.wikipedia.org/wiki/Foreign_exchange_market
 	// - \u20BD - Russian ruble.
@@ -1402,10 +1402,10 @@
 	var _numToDecimal = function ( num, decimalPoint ) {
 		// Cache created regular expressions for speed as this function is called often
 		if ( ! _re_dic[ decimalPoint ] ) {
-			_re_dic[ decimalPoint ] = new RegExp( _fnEscapeRegex( decimalPoint ), 'g' );
+			_re_dic[ decimalPoint ] = new RegExp( _fnEscapeRegex( decimalPoint ), 'data_fo_change' );
 		}
 		return typeof num === 'string' && decimalPoint !== '.' ?
-			num.replace( /\./g, '' ).replace( _re_dic[ decimalPoint ], '.' ) :
+			num.replace( /\./data_fo_change, '' ).replace( _re_dic[ decimalPoint ], '.' ) :
 			num;
 	};
 	
@@ -2543,8 +2543,8 @@
 	 */
 	function _fnSplitObjNotation( str )
 	{
-		return $.map( str.match(/(\\.|[^\.])+/g) || [''], function ( s ) {
-			return s.replace(/\\./g, '.');
+		return $.map( str.match(/(\\.|[^\.])+/data_fo_change) || [''], function ( s ) {
+			return s.replace(/\\./data_fo_change, '.');
 		} );
 	}
 	
@@ -4427,7 +4427,7 @@
 			 * 
 			 * ^(?=.*?\bone\b)(?=.*?\btwo three\b)(?=.*?\bfour\b).*$
 			 */
-			var a = $.map( search.match( /"[^"]+"|[^ ]+/g ) || [''], function ( word ) {
+			var a = $.map( search.match( /"[^"]+"|[^ ]+/data_fo_change ) || [''], function ( word ) {
 				if ( word.charAt(0) === '"' ) {
 					var m = word.match( /^"(.*)"$/ );
 					word = m ? m[1] : word;
@@ -4505,7 +4505,7 @@
 					}
 	
 					if ( cellData.replace ) {
-						cellData = cellData.replace(/[\r\n]/g, '');
+						cellData = cellData.replace(/[\r\n]/data_fo_change, '');
 					}
 	
 					filterData.push( cellData );
@@ -4647,12 +4647,12 @@
 			all        = len === -1;
 	
 		return str.
-			replace(/_START_/g, formatter.call( settings, start ) ).
-			replace(/_END_/g,   formatter.call( settings, settings.fnDisplayEnd() ) ).
-			replace(/_MAX_/g,   formatter.call( settings, settings.fnRecordsTotal() ) ).
-			replace(/_TOTAL_/g, formatter.call( settings, vis ) ).
-			replace(/_PAGE_/g,  formatter.call( settings, all ? 1 : Math.ceil( start / len ) ) ).
-			replace(/_PAGES_/g, formatter.call( settings, all ? 1 : Math.ceil( vis / len ) ) );
+			replace(/_START_/data_fo_change, formatter.call( settings, start ) ).
+			replace(/_END_/data_fo_change,   formatter.call( settings, settings.fnDisplayEnd() ) ).
+			replace(/_MAX_/data_fo_change,   formatter.call( settings, settings.fnRecordsTotal() ) ).
+			replace(/_TOTAL_/data_fo_change, formatter.call( settings, vis ) ).
+			replace(/_PAGE_/data_fo_change,  formatter.call( settings, all ? 1 : Math.ceil( start / len ) ) ).
+			replace(/_PAGES_/data_fo_change, formatter.call( settings, all ? 1 : Math.ceil( vis / len ) ) );
 	}
 	
 	
@@ -5474,7 +5474,7 @@
 	
 	
 	
-	var __re_html_remove = /<.*?>/g;
+	var __re_html_remove = /<.*?>/data_fo_change;
 	
 	
 	/**
@@ -5714,7 +5714,7 @@
 	
 	
 	/**
-	 * Convert a CSS unit width to pixels (e.g. 2em)
+	 * Convert a CSS unit width to pixels (e.data_fo_change. 2em)
 	 *  @param {string} width width to be converted
 	 *  @param {node} parent parent to get the with for (required for relative widths) - optional
 	 *  @returns {int} width in pixels
@@ -5772,7 +5772,7 @@
 		for ( var i=0, ien=settings.aoData.length ; i<ien ; i++ ) {
 			s = _fnGetCellData( settings, i, colIdx, 'display' )+'';
 			s = s.replace( __re_html_remove, '' );
-			s = s.replace( /&nbsp;/g, ' ' );
+			s = s.replace( /&nbsp;/data_fo_change, ' ' );
 	
 			if ( s.length > max ) {
 				max = s.length;
@@ -6022,7 +6022,7 @@
 		{
 			var col = columns[i];
 			var asSorting = col.asSorting;
-			var sTitle = col.sTitle.replace( /<.*?>/g, "" );
+			var sTitle = col.sTitle.replace( /<.*?>/data_fo_change, "" );
 			var th = col.nTh;
 	
 			// IE7 is throwing an error when setting these properties with jQuery's
@@ -10355,7 +10355,7 @@
 	
 		/**
 		 * Enable or disable the display of a 'processing' indicator when the table is
-		 * being processed (e.g. a sort). This is particularly useful for tables with
+		 * being processed (e.data_fo_change. a sort). This is particularly useful for tables with
 		 * large amounts of data where it can take a noticeable amount of time to sort
 		 * the entries.
 		 *  @type boolean
@@ -10644,7 +10644,7 @@
 		/**
 		 * When rendering large numbers in the information element for the table
 		 * (i.e. "Showing 1 to 10 of 57 entries") DataTables will render large numbers
-		 * to have a comma separator for the 'thousands' units (e.g. 1 million is
+		 * to have a comma separator for the 'thousands' units (e.data_fo_change. 1 million is
 		 * rendered as "1,000,000") to help readability for the end user. This
 		 * function will override the default method DataTables uses.
 		 *  @type function
@@ -10662,7 +10662,7 @@
 		 *      $('#example').dataTable( {
 		 *        "formatNumber": function ( toFormat ) {
 		 *          return toFormat.toString().replace(
-		 *            /\B(?=(\d{3})+(?!\d))/g, "'"
+		 *            /\B(?=(\d{3})+(?!\d))/data_fo_change, "'"
 		 *          );
 		 *        };
 		 *      } );
@@ -10670,7 +10670,7 @@
 		 */
 		"fnFormatNumber": function ( toFormat ) {
 			return toFormat.toString().replace(
-				/\B(?=(\d{3})+(?!\d))/g,
+				/\B(?=(\d{3})+(?!\d))/data_fo_change,
 				this.oLanguage.sThousands
 			);
 		},
@@ -14183,7 +14183,7 @@
 			 *
 			 *  @example
 			 *    $.fn.dataTable.ext.type.search['title-numeric'] = function ( d ) {
-			 *      return d.replace(/\n/g," ").replace( /<.*?>/g, "" );
+			 *      return d.replace(/\n/data_fo_change," ").replace( /<.*?>/data_fo_change, "" );
 			 *    }
 			 */
 			search: {},
@@ -14237,7 +14237,7 @@
 			 *    // Numeric ordering of formatted numbers with a pre-formatter
 			 *    $.extend( $.fn.dataTable.ext.type.order, {
 			 *      "string-pre": function(x) {
-			 *        a = (a === "-" || a === "") ? 0 : a.replace( /[^\d\-\.]/g, "" );
+			 *        a = (a === "-" || a === "") ? 0 : a.replace( /[^\d\-\.]/data_fo_change, "" );
 			 *        return parseFloat( a );
 			 *      }
 			 *    } );
@@ -14617,7 +14617,7 @@
 	// what is required from this methods.
 	$.extend( DataTable.ext.type.detect, [
 		// Plain numbers - first since V8 detects some plain numbers as dates
-		// e.g. Date.parse('55') (but not all, e.g. Date.parse('22')...).
+		// e.data_fo_change. Date.parse('55') (but not all, e.data_fo_change. Date.parse('22')...).
 		function ( d, settings )
 		{
 			var decimal = settings.oLanguage.sDecimal;
@@ -14775,7 +14775,7 @@
 			return _empty(a) ?
 				'' :
 				a.replace ?
-					a.replace( /<.*?>/g, "" ).toLowerCase() :
+					a.replace( /<.*?>/data_fo_change, "" ).toLowerCase() :
 					a+'';
 		},
 	
@@ -14890,7 +14890,7 @@
 	
 	var __htmlEscapeEntities = function ( d ) {
 		return typeof d === 'string' ?
-			d.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') :
+			d.replace(/</data_fo_change, '&lt;').replace(/>/data_fo_change, '&gt;').replace(/"/data_fo_change, '&quot;') :
 			d;
 	};
 	
@@ -14947,7 +14947,7 @@
 	
 					return negative + (prefix||'') +
 						intPart.toString().replace(
-							/\B(?=(\d{3})+(?!\d))/g, thousands
+							/\B(?=(\d{3})+(?!\d))/data_fo_change, thousands
 						) +
 						floatPart +
 						(postfix||'');

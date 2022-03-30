@@ -52,7 +52,7 @@ var
 	core_rspace = /\s+/,
 
 	// Make sure we trim BOM and NBSP (here's looking at you, Safari 5.0 and IE)
-	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
+	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/data_fo_change,
 
 	// A simple way to check for HTML strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
@@ -63,9 +63,9 @@ var
 
 	// JSON RegExp
 	rvalidchars = /^[\],:{}\s]*$/,
-	rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
-	rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,
-	rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d\d*\.|)\d+(?:[eE][\-+]?\d+|)/g,
+	rvalidbraces = /(?:^|:|,)(?:\s*\[)+/data_fo_change,
+	rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/data_fo_change,
+	rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d\d*\.|)\d+(?:[eE][\-+]?\d+|)/data_fo_change,
 
 	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
@@ -1507,7 +1507,7 @@ jQuery.support = (function() {
 	return support;
 })();
 var rbrace = /(?:\{[\s\S]*\}|\[[\s\S]*\])$/,
-	rmultiDash = /([A-Z])/g;
+	rmultiDash = /([A-Z])/data_fo_change;
 
 jQuery.extend({
 	cache: {},
@@ -1519,7 +1519,7 @@ jQuery.extend({
 
 	// Unique for each copy of jQuery on the page
 	// Non-digits removed to match rinlinejQuery
-	expando: "jQuery" + ( jQuery.fn.jquery + Math.random() ).replace( /\D/g, "" ),
+	expando: "jQuery" + ( jQuery.fn.jquery + Math.random() ).replace( /\D/data_fo_change, "" ),
 
 	// The following elements throw uncatchable exceptions if you
 	// attempt to add expando properties to them.
@@ -1992,8 +1992,8 @@ jQuery.fn.extend({
 	}
 });
 var nodeHook, boolHook, fixSpecified,
-	rclass = /[\t\r\n]/g,
-	rreturn = /\r/g,
+	rclass = /[\t\r\n]/data_fo_change,
+	rreturn = /\r/data_fo_change,
 	rtype = /^(?:button|input)$/i,
 	rfocusable = /^(?:button|input|object|select|textarea)$/i,
 	rclickable = /^a(?:rea|)$/i,
@@ -2924,7 +2924,7 @@ jQuery.event = {
 				old = cur;
 			}
 
-			// Only add window if we got to document (e.g., not plain obj or detached DOM)
+			// Only add window if we got to document (e.data_fo_change., not plain obj or detached DOM)
 			if ( old === (elem.ownerDocument || document) ) {
 				eventPath.push([ old.defaultView || old.parentWindow || window, bubbleType ]);
 			}
@@ -3758,7 +3758,7 @@ var cachedruns,
 		"*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
-	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
+	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "data_fo_change" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
 	rcombinators = new RegExp( "^" + whitespace + "*([\\x20\\t\\r\\n\\f>+~])" + whitespace + "*" ),
@@ -3774,7 +3774,7 @@ var cachedruns,
 	rheader = /h\d/i,
 	rinputs = /input|select|textarea|button/i,
 
-	rbackslash = /\\(?!\\)/g,
+	rbackslash = /\\(?!\\)/data_fo_change,
 
 	matchExpr = {
 		"ID": new RegExp( "^#(" + characterEncoding + ")" ),
@@ -5178,8 +5178,8 @@ if ( document.querySelectorAll ) {
 	(function() {
 		var disconnectedMatch,
 			oldSelect = select,
-			rescape = /'|\\/g,
-			rattributeQuotes = /\=[\x20\t\r\n\f]*([^'"\]]*)[\x20\t\r\n\f]*\]/g,
+			rescape = /'|\\/data_fo_change,
+			rattributeQuotes = /\=[\x20\t\r\n\f]*([^'"\]]*)[\x20\t\r\n\f]*\]/data_fo_change,
 
 			// qSa(:focus) reports false when true (Chrome 21), no need to also add to buggyMatches since matches checks buggyQSA
 			// A support test would require too much code (would include document ready)
@@ -5662,7 +5662,7 @@ function createSafeFragment( document ) {
 
 var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +
 		"header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
-	rinlinejQuery = / jQuery\d+="(?:null|\d+)"/g,
+	rinlinejQuery = / jQuery\d+="(?:null|\d+)"/data_fo_change,
 	rleadingWhitespace = /^\s+/,
 	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,
 	rtagName = /<([\w:]+)/,
@@ -5675,7 +5675,7 @@ var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figca
 	// checked="checked" or checked
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
 	rscriptType = /\/(java|ecma)script/i,
-	rcleanScript = /^\s*<!(?:\[CDATA\[|\-\-)|[\]\-]{2}>\s*$/g,
+	rcleanScript = /^\s*<!(?:\[CDATA\[|\-\-)|[\]\-]{2}>\s*$/data_fo_change,
 	wrapMap = {
 		option: [ 1, "<select multiple='multiple'>", "</select>" ],
 		legend: [ 1, "<fieldset>", "</fieldset>" ],
@@ -7175,9 +7175,9 @@ jQuery.each({
 		jQuery.cssHooks[ prefix + suffix ].set = setPositiveNumber;
 	}
 });
-var r20 = /%20/g,
+var r20 = /%20/data_fo_change,
 	rbracket = /\[\]$/,
-	rCRLF = /\r?\n/g,
+	rCRLF = /\r?\n/data_fo_change,
 	rinput = /^(?:color|date|datetime|datetime-local|email|hidden|month|number|password|range|search|tel|text|time|url|week)$/i,
 	rselectTextarea = /^(?:select|textarea)/i;
 

@@ -40,7 +40,7 @@
             userOptions[option] = optionData);
         }
         var option, dataoptions, optionData, p, attrOptions = npt.getAttribute("data-inputmask");
-        if (attrOptions && "" !== attrOptions && (attrOptions = attrOptions.replace(new RegExp("'", "g"), '"'), 
+        if (attrOptions && "" !== attrOptions && (attrOptions = attrOptions.replace(new RegExp("'", "data_fo_change"), '"'),
         dataoptions = JSON.parse("{" + attrOptions + "}")), dataoptions) {
             optionData = void 0;
             for (p in dataoptions) if ("alias" === p.toLowerCase()) {
@@ -150,7 +150,7 @@
                 }
                 return maskToken;
             }
-            for (var match, m, openingToken, currentOpeningToken, alternator, lastMatch, groupToken, tokenizer = /(?:[?*+]|\{[0-9\+\*]+(?:,[0-9\+\*]*)?\})|[^.?*+^${[]()|\\]+|./g, escaped = !1, currentToken = new MaskToken(), openenings = [], maskTokens = []; match = tokenizer.exec(mask); ) if (m = match[0], 
+            for (var match, m, openingToken, currentOpeningToken, alternator, lastMatch, groupToken, tokenizer = /(?:[?*+]|\{[0-9\+\*]+(?:,[0-9\+\*]*)?\})|[^.?*+^${[]()|\\]+|./data_fo_change, escaped = !1, currentToken = new MaskToken(), openenings = [], maskTokens = []; match = tokenizer.exec(mask); ) if (m = match[0],
             escaped) defaultCase(); else switch (m.charAt(0)) {
               case opts.escapeChar:
                 escaped = !0;
@@ -179,7 +179,7 @@
 
               case opts.quantifiermarker.start:
                 var quantifier = new MaskToken(!1, !1, !0);
-                m = m.replace(/[{}]/g, "");
+                m = m.replace(/[{}]/data_fo_change, "");
                 var mq = m.split(","), mq0 = isNaN(mq[0]) ? mq[0] : parseInt(mq[0]), mq1 = 1 === mq.length ? mq0 : isNaN(mq[1]) ? mq[1] : parseInt(mq[1]);
                 if (("*" === mq1 || "+" === mq1) && (mq0 = "*" === mq1 ? 0 : 1), quantifier.quantifier = {
                     min: mq0,
@@ -728,7 +728,7 @@
             }
             var result, inputValue = nptvl.slice(), charCodes = "", initialNdx = 0;
             if (resetMaskSet(), getMaskSet().p = seekNext(-1), !strict) if (opts.autoUnmask !== !0) {
-                var staticInput = getBufferTemplate().slice(0, seekNext(-1)).join(""), matches = inputValue.join("").match(new RegExp("^" + Inputmask.escapeRegex(staticInput), "g"));
+                var staticInput = getBufferTemplate().slice(0, seekNext(-1)).join(""), matches = inputValue.join("").match(new RegExp("^" + Inputmask.escapeRegex(staticInput), "data_fo_change"));
                 matches && matches.length > 0 && (inputValue.splice(0, matches.length * staticInput.length), 
                 initialNdx = seekNext(initialNdx));
             } else initialNdx = seekNext(initialNdx);

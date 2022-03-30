@@ -33,7 +33,7 @@ tinymce.PluginManager.add('visualchars', function(editor) {
 				regExp += key;
 			}
 
-			return new RegExp('[' + regExp + ']', 'g');
+			return new RegExp('[' + regExp + ']', 'data_fo_change');
 		}
 
 		function compileCharMapToCssSelector() {

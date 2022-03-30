@@ -15,7 +15,7 @@
             repeat: "*",
             regex: null,
             regexTokens: null,
-            tokenizer: /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
+            tokenizer: /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./data_fo_change,
             quantifierFilter: /[0-9]+[^,]/,
             isComplete: function(buffer, opts) {
                 return new RegExp(opts.regex).test(buffer.join(""));
@@ -46,7 +46,7 @@
                               case "+":
                               case "*":
                                 var quantifierToken = new RegexToken(!1, !0);
-                                m = m.replace(/[{}]/g, "");
+                                m = m.replace(/[{}]/data_fo_change, "");
                                 var mq = m.split(","), mq0 = isNaN(mq[0]) ? mq[0] : parseInt(mq[0]), mq1 = 1 === mq.length ? mq0 : isNaN(mq[1]) ? mq[1] : parseInt(mq[1]);
                                 if (quantifierToken.quantifier = {
                                     min: mq0,

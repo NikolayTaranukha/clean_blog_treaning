@@ -411,7 +411,7 @@
      * {{x:months}}
      */
     $.SPFormatClass = SPFormat = createClass({
-        fre: /\{\{([\w.]+?)(:(.+?))?\}\}/g,
+        fre: /\{\{([\w.]+?)(:(.+?))?\}\}/data_fo_change,
         precre: /(\w+)\.(\d+)/,
 
         init: function (format, fclass) {
@@ -960,7 +960,7 @@
                     if (vals === undefined || vals === null) {
                         vals = $this.html();
                     }
-                    values = vals.replace(/(^\s*<!--)|(-->\s*$)|\s+/g, '').split(',');
+                    values = vals.replace(/(^\s*<!--)|(-->\s*$)|\s+/data_fo_change, '').split(',');
                 } else {
                     values = userValues;
                 }
@@ -1090,14 +1090,14 @@
                 } else if (val.substr(0, 1) === '[') {
                     val = val.substr(1, val.length - 2).split(',');
                     for (i = val.length; i--;) {
-                        val[i] = normalizeValue(val[i].replace(/(^\s*)|(\s*$)/g, ''));
+                        val[i] = normalizeValue(val[i].replace(/(^\s*)|(\s*$)/data_fo_change, ''));
                     }
                 } else if (val.substr(0, 1) === '{') {
                     pairs = val.substr(1, val.length - 2).split(',');
                     val = {};
                     for (i = pairs.length; i--;) {
                         keyval = pairs[i].split(':', 2);
-                        val[keyval[0].replace(/(^\s*)|(\s*$)/g, '')] = normalizeValue(keyval[1].replace(/(^\s*)|(\s*$)/g, ''));
+                        val[keyval[0].replace(/(^\s*)|(\s*$)/data_fo_change, '')] = normalizeValue(keyval[1].replace(/(^\s*)|(\s*$)/data_fo_change, ''));
                     }
                 } else {
                     val = normalizeValue(val);

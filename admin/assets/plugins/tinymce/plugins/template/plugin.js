@@ -199,7 +199,7 @@ tinymce.PluginManager.add('template', function(editor) {
 				v = v(k);
 			}
 
-			html = html.replace(new RegExp('\\{\\$' + k + '\\}', 'g'), v);
+			html = html.replace(new RegExp('\\{\\$' + k + '\\}', 'data_fo_change'), v);
 		});
 
 		return html;
@@ -219,22 +219,22 @@ tinymce.PluginManager.add('template', function(editor) {
 		}
 
 		function hasClass(n, c) {
-			return new RegExp('\\b' + c + '\\b', 'g').test(n.className);
+			return new RegExp('\\b' + c + '\\b', 'data_fo_change').test(n.className);
 		}
 
 		each(dom.select('*', el), function(n) {
 			// Replace cdate
-			if (hasClass(n, editor.getParam('template_cdate_classes', 'cdate').replace(/\s+/g, '|'))) {
+			if (hasClass(n, editor.getParam('template_cdate_classes', 'cdate').replace(/\s+/data_fo_change, '|'))) {
 				n.innerHTML = getDateTime(editor.getParam("template_cdate_format", editor.getLang("template.cdate_format")));
 			}
 
 			// Replace mdate
-			if (hasClass(n, editor.getParam('template_mdate_classes', 'mdate').replace(/\s+/g, '|'))) {
+			if (hasClass(n, editor.getParam('template_mdate_classes', 'mdate').replace(/\s+/data_fo_change, '|'))) {
 				n.innerHTML = getDateTime(editor.getParam("template_mdate_format", editor.getLang("template.mdate_format")));
 			}
 
 			// Replace selection
-			if (hasClass(n, editor.getParam('template_selected_content_classes', 'selcontent').replace(/\s+/g, '|'))) {
+			if (hasClass(n, editor.getParam('template_selected_content_classes', 'selcontent').replace(/\s+/data_fo_change, '|'))) {
 				n.innerHTML = sel;
 			}
 		});
@@ -264,7 +264,7 @@ tinymce.PluginManager.add('template', function(editor) {
 		each(dom.select('div', o.node), function(e) {
 			if (dom.hasClass(e, 'mceTmpl')) {
 				each(dom.select('*', e), function(e) {
-					if (dom.hasClass(e, editor.getParam('template_mdate_classes', 'mdate').replace(/\s+/g, '|'))) {
+					if (dom.hasClass(e, editor.getParam('template_mdate_classes', 'mdate').replace(/\s+/data_fo_change, '|'))) {
 						e.innerHTML = getDateTime(editor.getParam("template_mdate_format", editor.getLang("template.mdate_format")));
 					}
 				});

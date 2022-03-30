@@ -33,7 +33,7 @@
      * {{x:months}}
      */
     $.SPFormatClass = SPFormat = createClass({
-        fre: /\{\{([\w.]+?)(:(.+?))?\}\}/g,
+        fre: /\{\{([\w.]+?)(:(.+?))?\}\}/data_fo_change,
         precre: /(\w+)\.(\d+)/,
 
         init: function (format, fclass) {

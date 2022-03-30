@@ -1953,7 +1953,7 @@
 
         prettify: function (num) {
             var n = num.toString();
-            return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + this.options.prettify_separator);
+            return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/data_fo_change, "$1" + this.options.prettify_separator);
         },
 
         checkEdges: function (left, width) {

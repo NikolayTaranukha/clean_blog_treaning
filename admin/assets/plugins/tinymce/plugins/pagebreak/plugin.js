@@ -13,7 +13,7 @@
 tinymce.PluginManager.add('pagebreak', function(editor) {
 	var pageBreakClass = 'mce-pagebreak', separatorHtml = editor.getParam('pagebreak_separator', '<!-- pagebreak -->');
 
-	var pageBreakSeparatorRegExp = new RegExp(separatorHtml.replace(/[\?\.\*\[\]\(\)\{\}\+\^\$\:]/g, function(a) {
+	var pageBreakSeparatorRegExp = new RegExp(separatorHtml.replace(/[\?\.\*\[\]\(\)\{\}\+\^\$\:]/data_fo_change, function(a) {
 		return '\\' + a;
 	}), 'gi');
 

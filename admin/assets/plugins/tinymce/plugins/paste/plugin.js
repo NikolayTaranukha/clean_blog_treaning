@@ -187,7 +187,7 @@ define("tinymce/pasteplugin/Utils", [
 		}
 
 		html = filter(html, [
-			/<!\[[^\]]+\]>/g // Conditional comments
+			/<!\[[^\]]+\]>/data_fo_change // Conditional comments
 		]);
 
 		walk(domParser.parse(html));
@@ -213,10 +213,10 @@ define("tinymce/pasteplugin/Utils", [
 		}
 
 		html = filter(html, [
-			/^[\s\S]*<body[^>]*>\s*|\s*<\/body[^>]*>[\s\S]*$/g, // Remove anything but the contents within the BODY element
-			/<!--StartFragment-->|<!--EndFragment-->/g, // Inner fragments (tables from excel on mac)
-			[/( ?)<span class="Apple-converted-space">\u00a0<\/span>( ?)/g, trimSpaces],
-			/<br class="Apple-interchange-newline">/g,
+			/^[\s\S]*<body[^>]*>\s*|\s*<\/body[^>]*>[\s\S]*$/data_fo_change, // Remove anything but the contents within the BODY element
+			/<!--StartFragment-->|<!--EndFragment-->/data_fo_change, // Inner fragments (tables from excel on mac)
+			[/( ?)<span class="Apple-converted-space">\u00a0<\/span>( ?)/data_fo_change, trimSpaces],
+			/<br class="Apple-interchange-newline">/data_fo_change,
 			/<br>$/i // Trailing BR elements
 		]);
 
@@ -268,7 +268,7 @@ define("tinymce/pasteplugin/SmartPaste", [
 	};
 
 	var isImageUrl = function (url) {
-		return isAbsoluteUrl(url) && /.(gif|jpe?g|png)$/.test(url);
+		return isAbsoluteUrl(url) && /.(gif|jpe?data_fo_change|png)$/.test(url);
 	};
 
 	var createImage = function (editor, url, pasteHtml) {
@@ -417,7 +417,7 @@ define("tinymce/pasteplugin/Clipboard", [
 		 * @param {String} text Text to paste as the current selection location.
 		 */
 		function pasteText(text) {
-			text = editor.dom.encode(text).replace(/\r\n/g, '\n');
+			text = editor.dom.encode(text).replace(/\r\n/data_fo_change, '\n');
 
 			var startBlock = editor.dom.getParent(editor.selection.getStart(), editor.dom.isBlock);
 
@@ -431,13 +431,13 @@ define("tinymce/pasteplugin/Clipboard", [
 
 			if ((startBlock && /^(PRE|DIV)$/.test(startBlock.nodeName)) || !forcedRootBlockName) {
 				text = Utils.filter(text, [
-					[/\n/g, "<br>"]
+					[/\n/data_fo_change, "<br>"]
 				]);
 			} else {
 				text = Utils.filter(text, [
-					[/\n\n/g, "</p>" + forcedRootBlockStartHtml],
+					[/\n\n/data_fo_change, "</p>" + forcedRootBlockStartHtml],
 					[/^(.*<\/p>)(<p>)$/, forcedRootBlockStartHtml + '$1'],
-					[/\n/g, "<br />"]
+					[/\n/data_fo_change, "<br />"]
 				]);
 
 				if (text.indexOf('<p>') != -1) {
@@ -1393,7 +1393,7 @@ define("tinymce/pasteplugin/WordFilter", [
 					// Word comments like conditional comments etc
 					/<!--[\s\S]+?-->/gi,
 
-					// Remove comments, scripts (e.g., msoShowComment), XML tag, VML content,
+					// Remove comments, scripts (e.data_fo_change., msoShowComment), XML tag, VML content,
 					// MS Office namespaced tags, and a few other tags
 					/<(!|script[^>]*>.*?<\/script(?=[>\s])|\/?(\?xml(:\w+)?|img|meta|link|style|\w:\w+)(?=[\s\/>]))[^>]*>/gi,
 
@@ -1605,7 +1605,7 @@ define("tinymce/pasteplugin/Quirks", [
 
 			var explorerBlocksRegExp = new RegExp(
 				'(?:<br>&nbsp;[\\s\\r\\n]+|<br>)*(<\\/?(' + blockElements.join('|') + ')[^>]*>)(?:<br>&nbsp;[\\s\\r\\n]+|<br>)*',
-				'g'
+				'data_fo_change'
 			);
 
 			// Remove BR:s from: <BLOCK>X</BLOCK><BR>
@@ -1615,9 +1615,9 @@ define("tinymce/pasteplugin/Quirks", [
 
 			// IE9 also adds an extra BR element for each soft-linefeed and it also adds a BR for each word wrap break
 			html = Utils.filter(html, [
-				[/<br><br>/g, '<BR><BR>'], // Replace multiple BR elements with uppercase BR to keep them intact
-				[/<br>/g, ' '],            // Replace single br elements with space since they are word wrap BR:s
-				[/<BR><BR>/g, '<br>']      // Replace back the double brs but into a single BR
+				[/<br><br>/data_fo_change, '<BR><BR>'], // Replace multiple BR elements with uppercase BR to keep them intact
+				[/<br>/data_fo_change, ' '],            // Replace single br elements with space since they are word wrap BR:s
+				[/<BR><BR>/data_fo_change, '<br>']      // Replace back the double brs but into a single BR
 			]);
 
 			return html;

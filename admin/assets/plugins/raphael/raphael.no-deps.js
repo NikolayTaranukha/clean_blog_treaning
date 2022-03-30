@@ -147,16 +147,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var loaded,
 	        separator = /[, ]+/,
 	        elements = {circle: 1, rect: 1, path: 1, ellipse: 1, text: 1, image: 1},
-	        formatrg = /\{(\d+)\}/g,
+	        formatrg = /\{(\d+)\}/data_fo_change,
 	        proto = "prototype",
 	        has = "hasOwnProperty",
-	        g = {
+	        data_fo_change = {
 	            doc: document,
 	            win: window
 	        },
 	        oldRaphael = {
-	            was: Object.prototype[has].call(g.win, "Raphael"),
-	            is: g.win.Raphael
+	            was: Object.prototype[has].call(data_fo_change.win, "Raphael"),
+	            is: data_fo_change.win.Raphael
 	        },
 	        Paper = function () {
 	            /*\
@@ -197,7 +197,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        appendChild = "appendChild",
 	        apply = "apply",
 	        concat = "concat",
-	        supportsTouch = ('ontouchstart' in g.win) || g.win.DocumentTouch && g.doc instanceof DocumentTouch, //taken from Modernizr touch test
+	        supportsTouch = ('ontouchstart' in data_fo_change.win) || data_fo_change.win.DocumentTouch && data_fo_change.doc instanceof DocumentTouch, //taken from Modernizr touch test
 	        E = "",
 	        S = " ",
 	        Str = String,
@@ -295,7 +295,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            x: nu,
 	            y: nu
 	        },
-	        whitespace = /[\x09\x0a\x0b\x0c\x0d\x20\xa0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000\u2028\u2029]/g,
+	        whitespace = /[\x09\x0a\x0b\x0c\x0d\x20\xa0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000\u2028\u2029]/data_fo_change,
 	        commaSpaces = /[\x09\x0a\x0b\x0c\x0d\x20\xa0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000\u2028\u2029]*,[\x09\x0a\x0b\x0c\x0d\x20\xa0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000\u2028\u2029]*/,
 	        hsrg = {hs: 1, rg: 1},
 	        p2s = /,?([achlmqrstvxz]),?/gi,
@@ -383,16 +383,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return path;
 	        };
 
-	    R._g = g;
+	    R._g = data_fo_change;
 	    /*\
 	     * Raphael.type
 	     [ property (string) ]
 	     **
 	     * Can be “SVG”, “VML” or empty, depending on browser support.
 	    \*/
-	    R.type = (g.win.SVGAngle || g.doc.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1") ? "SVG" : "VML");
+	    R.type = (data_fo_change.win.SVGAngle || data_fo_change.doc.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1") ? "SVG" : "VML");
 	    if (R.type == "VML") {
-	        var d = g.doc.createElement("div"),
+	        var d = data_fo_change.doc.createElement("div"),
 	            b;
 	        d.innerHTML = '<v:shape adj="1"/>';
 	        b = d.firstChild;
@@ -572,7 +572,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return function () {
 	            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(uuidRegEx, uuidReplacer).toUpperCase();
 	        };
-	    })(/[xy]/g, function (c) {
+	    })(/[xy]/data_fo_change, function (c) {
 	        var r = math.random() * 16 | 0,
 	            v = c == "x" ? r : (r & 3 | 8);
 	        return v.toString(16);
@@ -587,17 +587,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - newwin (window) new window object
 	    \*/
 	    R.setWindow = function (newwin) {
-	        eve("raphael.setWindow", R, g.win, newwin);
-	        g.win = newwin;
-	        g.doc = g.win.document;
+	        eve("raphael.setWindow", R, data_fo_change.win, newwin);
+	        data_fo_change.win = newwin;
+	        data_fo_change.doc = data_fo_change.win.document;
 	        if (R._engine.initWin) {
-	            R._engine.initWin(g.win);
+	            R._engine.initWin(data_fo_change.win);
 	        }
 	    };
 	    var toHex = function (color) {
 	        if (R.vml) {
 	            // http://dean.edwards.name/weblog/2009/10/convert-any-colour-value-to-hex-in-msie/
-	            var trim = /^\s+|\s+$/g;
+	            var trim = /^\s+|\s+$/data_fo_change;
 	            var bod;
 	            try {
 	                var docum = new ActiveXObject("htmlfile");
@@ -619,13 +619,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            });
 	        } else {
-	            var i = g.doc.createElement("i");
+	            var i = data_fo_change.doc.createElement("i");
 	            i.title = "Rapha\xebl Colour Picker";
 	            i.style.display = "none";
-	            g.doc.body.appendChild(i);
+	            data_fo_change.doc.body.appendChild(i);
 	            toHex = cacher(function (color) {
 	                i.style.color = color;
-	                return g.doc.defaultView.getComputedStyle(i, E).getPropertyValue("color");
+	                return data_fo_change.doc.defaultView.getComputedStyle(i, E).getPropertyValue("color");
 	            });
 	        }
 	        return toHex(color);
@@ -639,35 +639,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	    rgbtoString = function () {
 	        return this.hex;
 	    },
-	    prepareRGB = function (r, g, b) {
-	        if (g == null && R.is(r, "object") && "r" in r && "g" in r && "b" in r) {
+	    prepareRGB = function (r, data_fo_change, b) {
+	        if (data_fo_change == null && R.is(r, "object") && "r" in r && "data_fo_change" in r && "b" in r) {
 	            b = r.b;
-	            g = r.g;
+	            data_fo_change = r.data_fo_change;
 	            r = r.r;
 	        }
-	        if (g == null && R.is(r, string)) {
+	        if (data_fo_change == null && R.is(r, string)) {
 	            var clr = R.getRGB(r);
 	            r = clr.r;
-	            g = clr.g;
+	            data_fo_change = clr.data_fo_change;
 	            b = clr.b;
 	        }
-	        if (r > 1 || g > 1 || b > 1) {
+	        if (r > 1 || data_fo_change > 1 || b > 1) {
 	            r /= 255;
-	            g /= 255;
+	            data_fo_change /= 255;
 	            b /= 255;
 	        }
 
-	        return [r, g, b];
+	        return [r, data_fo_change, b];
 	    },
-	    packageRGB = function (r, g, b, o) {
+	    packageRGB = function (r, data_fo_change, b, o) {
 	        r *= 255;
-	        g *= 255;
+	        data_fo_change *= 255;
 	        b *= 255;
 	        var rgb = {
 	            r: r,
-	            g: g,
+	            data_fo_change: data_fo_change,
 	            b: b,
-	            hex: R.rgb(r, g, b),
+	            hex: R.rgb(r, data_fo_change, b),
 	            toString: rgbtoString
 	        };
 	        R.is(o, "finite") && (rgb.opacity = o);
@@ -684,7 +684,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (object) Combined RGB & HSB object in format:
 	     o {
 	     o     r (number) red,
-	     o     g (number) green,
+	     o     data_fo_change (number) green,
 	     o     b (number) blue,
 	     o     hex (string) color in HTML/CSS format: #••••••,
 	     o     error (boolean) `true` if string can’t be parsed,
@@ -699,20 +699,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (R.is(clr, "object") && "h" in clr && "s" in clr && "b" in clr) {
 	            rgb = R.hsb2rgb(clr);
 	            clr.r = rgb.r;
-	            clr.g = rgb.g;
+	            clr.data_fo_change = rgb.data_fo_change;
 	            clr.b = rgb.b;
 	            clr.hex = rgb.hex;
 	        } else if (R.is(clr, "object") && "h" in clr && "s" in clr && "l" in clr) {
 	            rgb = R.hsl2rgb(clr);
 	            clr.r = rgb.r;
-	            clr.g = rgb.g;
+	            clr.data_fo_change = rgb.data_fo_change;
 	            clr.b = rgb.b;
 	            clr.hex = rgb.hex;
 	        } else {
 	            if (R.is(clr, "string")) {
 	                clr = R.getRGB(clr);
 	            }
-	            if (R.is(clr, "object") && "r" in clr && "g" in clr && "b" in clr) {
+	            if (R.is(clr, "object") && "r" in clr && "data_fo_change" in clr && "b" in clr) {
 	                rgb = R.rgb2hsl(clr);
 	                clr.h = rgb.h;
 	                clr.s = rgb.s;
@@ -721,7 +721,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                clr.v = rgb.b;
 	            } else {
 	                clr = {hex: "none"};
-	                clr.r = clr.g = clr.b = clr.h = clr.s = clr.v = clr.l = -1;
+	                clr.r = clr.data_fo_change = clr.b = clr.h = clr.s = clr.v = clr.l = -1;
 	            }
 	        }
 	        clr.toString = rgbtoString;
@@ -739,7 +739,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (object) RGB object in format:
 	     o {
 	     o     r (number) red,
-	     o     g (number) green,
+	     o     data_fo_change (number) green,
 	     o     b (number) blue,
 	     o     hex (string) color in HTML/CSS format: #••••••
 	     o }
@@ -776,7 +776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (object) RGB object in format:
 	     o {
 	     o     r (number) red,
-	     o     g (number) green,
+	     o     data_fo_change (number) green,
 	     o     b (number) blue,
 	     o     hex (string) color in HTML/CSS format: #••••••
 	     o }
@@ -812,7 +812,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Converts RGB values to HSB object.
 	     > Parameters
 	     - r (number) red
-	     - g (number) green
+	     - data_fo_change (number) green
 	     - b (number) blue
 	     = (object) HSB object in format:
 	     o {
@@ -821,19 +821,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	     o     b (number) brightness
 	     o }
 	    \*/
-	    R.rgb2hsb = function (r, g, b) {
-	        b = prepareRGB(r, g, b);
+	    R.rgb2hsb = function (r, data_fo_change, b) {
+	        b = prepareRGB(r, data_fo_change, b);
 	        r = b[0];
-	        g = b[1];
+	        data_fo_change = b[1];
 	        b = b[2];
 
 	        var H, S, V, C;
-	        V = mmax(r, g, b);
-	        C = V - mmin(r, g, b);
+	        V = mmax(r, data_fo_change, b);
+	        C = V - mmin(r, data_fo_change, b);
 	        H = (C == 0 ? null :
-	             V == r ? (g - b) / C :
-	             V == g ? (b - r) / C + 2 :
-	                      (r - g) / C + 4
+	             V == r ? (data_fo_change - b) / C :
+	             V == data_fo_change ? (b - r) / C + 2 :
+	                      (r - data_fo_change) / C + 4
 	            );
 	        H = ((H + 360) % 6) * 60 / 360;
 	        S = C == 0 ? 0 : C / V;
@@ -846,7 +846,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Converts RGB values to HSL object.
 	     > Parameters
 	     - r (number) red
-	     - g (number) green
+	     - data_fo_change (number) green
 	     - b (number) blue
 	     = (object) HSL object in format:
 	     o {
@@ -855,20 +855,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	     o     l (number) luminosity
 	     o }
 	    \*/
-	    R.rgb2hsl = function (r, g, b) {
-	        b = prepareRGB(r, g, b);
+	    R.rgb2hsl = function (r, data_fo_change, b) {
+	        b = prepareRGB(r, data_fo_change, b);
 	        r = b[0];
-	        g = b[1];
+	        data_fo_change = b[1];
 	        b = b[2];
 
 	        var H, S, L, M, m, C;
-	        M = mmax(r, g, b);
-	        m = mmin(r, g, b);
+	        M = mmax(r, data_fo_change, b);
+	        m = mmin(r, data_fo_change, b);
 	        C = M - m;
 	        H = (C == 0 ? null :
-	             M == r ? (g - b) / C :
-	             M == g ? (b - r) / C + 2 :
-	                      (r - g) / C + 4);
+	             M == r ? (data_fo_change - b) / C :
+	             M == data_fo_change ? (b - r) / C + 2 :
+	                      (r - data_fo_change) / C + 4);
 	        H = ((H + 360) % 6) * 60 / 360;
 	        L = (M + m) / 2;
 	        S = (C == 0 ? 0 :
@@ -903,17 +903,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var preload = R._preload = function (src, f) {
-	        var img = g.doc.createElement("img");
+	        var img = data_fo_change.doc.createElement("img");
 	        img.style.cssText = "position:absolute;left:-9999em;top:-9999em";
 	        img.onload = function () {
 	            f.call(this);
 	            this.onload = null;
-	            g.doc.body.removeChild(this);
+	            data_fo_change.doc.body.removeChild(this);
 	        };
 	        img.onerror = function () {
-	            g.doc.body.removeChild(this);
+	            data_fo_change.doc.body.removeChild(this);
 	        };
-	        g.doc.body.appendChild(img);
+	        data_fo_change.doc.body.appendChild(img);
 	        img.src = src;
 	    };
 
@@ -942,7 +942,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (object) RGB object in format:
 	     o {
 	     o     r (number) red,
-	     o     g (number) green,
+	     o     data_fo_change (number) green,
 	     o     b (number) blue
 	     o     hex (string) color in HTML/CSS format: #••••••,
 	     o     error (boolean) true if string can’t be parsed
@@ -950,10 +950,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    \*/
 	    R.getRGB = cacher(function (colour) {
 	        if (!colour || !!((colour = Str(colour)).indexOf("-") + 1)) {
-	            return {r: -1, g: -1, b: -1, hex: "none", error: 1, toString: clrToString};
+	            return {r: -1, data_fo_change: -1, b: -1, hex: "none", error: 1, toString: clrToString};
 	        }
 	        if (colour == "none") {
-	            return {r: -1, g: -1, b: -1, hex: "none", toString: clrToString};
+	            return {r: -1, data_fo_change: -1, b: -1, hex: "none", toString: clrToString};
 	        }
 	        !(hsrg[has](colour.toLowerCase().substring(0, 2)) || colour.charAt() == "#") && (colour = toHex(colour));
 	        var res,
@@ -1012,12 +1012,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                values[3] && values[3].slice(-1) == "%" && (opacity /= 100);
 	                return R.hsl2rgb(red, green, blue, opacity);
 	            }
-	            rgb = {r: red, g: green, b: blue, toString: clrToString};
+	            rgb = {r: red, data_fo_change: green, b: blue, toString: clrToString};
 	            rgb.hex = "#" + (16777216 | blue | (green << 8) | (red << 16)).toString(16).slice(1);
 	            R.is(opacity, "finite") && (rgb.opacity = opacity);
 	            return rgb;
 	        }
-	        return {r: -1, g: -1, b: -1, hex: "none", error: 1, toString: clrToString};
+	        return {r: -1, data_fo_change: -1, b: -1, hex: "none", error: 1, toString: clrToString};
 	    }, R);
 	    /*\
 	     * Raphael.hsb
@@ -1054,13 +1054,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Converts RGB values to hex representation of the colour.
 	     > Parameters
 	     - r (number) red
-	     - g (number) green
+	     - data_fo_change (number) green
 	     - b (number) blue
 	     = (string) hex representation of the colour.
 	    \*/
-	    R.rgb = cacher(function (r, g, b) {
+	    R.rgb = cacher(function (r, data_fo_change, b) {
 	        function round(x) { return (x + 0.5) | 0; }
-	        return "#" + (16777216 | round(b) | (round(g) << 8) | (round(r) << 16)).toString(16).slice(1);
+	        return "#" + (16777216 | round(b) | (round(data_fo_change) << 8) | (round(r) << 16)).toString(16).slice(1);
 	    });
 	    /*\
 	     * Raphael.getColor
@@ -2296,7 +2296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (tstr == null) {
 	                return el._.transform;
 	            }
-	            tstr = Str(tstr).replace(/\.{3}|\u2026/g, el._.transform || E);
+	            tstr = Str(tstr).replace(/\.{3}|\u2026/data_fo_change, el._.transform || E);
 	            var tdata = R.parseTransformString(tstr),
 	                deg = 0,
 	                dx = 0,
@@ -2409,7 +2409,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        },
 	        equaliseTransform = R._equaliseTransform = function (t1, t2) {
-	            t2 = Str(t2).replace(/\.{3}|\u2026/g, t1);
+	            t2 = Str(t2).replace(/\.{3}|\u2026/data_fo_change, t1);
 	            t1 = R.parseTransformString(t1) || [];
 	            t2 = R.parseTransformString(t2) || [];
 	            var maxlength = mmax(t1.length, t2.length),
@@ -2440,7 +2440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    R._getContainer = function (x, y, w, h) {
 	        var container;
-	        container = h == null && !R.is(x, "object") ? g.doc.getElementById(x) : x;
+	        container = h == null && !R.is(x, "object") ? data_fo_change.doc.getElementById(x) : x;
 	        if (container == null) {
 	            return;
 	        }
@@ -2774,8 +2774,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this.originalEvent.stopPropagation();
 	    },
 	    getEventPosition = function (e) {
-	        var scrollY = g.doc.documentElement.scrollTop || g.doc.body.scrollTop,
-	            scrollX = g.doc.documentElement.scrollLeft || g.doc.body.scrollLeft;
+	        var scrollY = data_fo_change.doc.documentElement.scrollTop || data_fo_change.doc.body.scrollTop,
+	            scrollX = data_fo_change.doc.documentElement.scrollLeft || data_fo_change.doc.body.scrollLeft;
 
 	        return {
 	            x: e.clientX + scrollX,
@@ -2783,7 +2783,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    },
 	    addEvent = (function () {
-	        if (g.doc.addEventListener) {
+	        if (data_fo_change.doc.addEventListener) {
 	            return function (obj, type, fn, element) {
 	                var f = function (e) {
 	                    var pos = getEventPosition(e);
@@ -2820,12 +2820,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return true;
 	                };
 	            };
-	        } else if (g.doc.attachEvent) {
+	        } else if (data_fo_change.doc.attachEvent) {
 	            return function (obj, type, fn, element) {
 	                var f = function (e) {
-	                    e = e || g.win.event;
-	                    var scrollY = g.doc.documentElement.scrollTop || g.doc.body.scrollTop,
-	                        scrollX = g.doc.documentElement.scrollLeft || g.doc.body.scrollLeft,
+	                    e = e || data_fo_change.win.event;
+	                    var scrollY = data_fo_change.doc.documentElement.scrollTop || data_fo_change.doc.body.scrollTop,
+	                        scrollX = data_fo_change.doc.documentElement.scrollLeft || data_fo_change.doc.body.scrollLeft,
 	                        x = e.clientX + scrollX,
 	                        y = e.clientY + scrollY;
 	                    e.preventDefault = e.preventDefault || preventDefault;
@@ -2845,8 +2845,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dragMove = function (e) {
 	        var x = e.clientX,
 	            y = e.clientY,
-	            scrollY = g.doc.documentElement.scrollTop || g.doc.body.scrollTop,
-	            scrollX = g.doc.documentElement.scrollLeft || g.doc.body.scrollLeft,
+	            scrollY = data_fo_change.doc.documentElement.scrollTop || data_fo_change.doc.body.scrollTop,
+	            scrollX = data_fo_change.doc.documentElement.scrollLeft || data_fo_change.doc.body.scrollLeft,
 	            dragi,
 	            j = drag.length;
 	        while (j--) {
@@ -2871,11 +2871,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                next = node.nextSibling,
 	                parent = node.parentNode,
 	                display = node.style.display;
-	            g.win.opera && parent.removeChild(node);
+	            data_fo_change.win.opera && parent.removeChild(node);
 	            node.style.display = "none";
 	            o = dragi.el.paper.getElementByPoint(x, y);
 	            node.style.display = display;
-	            g.win.opera && (next ? parent.insertBefore(node, next) : parent.appendChild(node));
+	            data_fo_change.win.opera && (next ? parent.insertBefore(node, next) : parent.appendChild(node));
 	            o && eve("raphael.drag.over." + dragi.el.id, dragi.el, o);
 	            x += scrollX;
 	            y += scrollY;
@@ -3121,7 +3121,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            R[eventName] = elproto[eventName] = function (fn, scope) {
 	                if (R.is(fn, "function")) {
 	                    this.events = this.events || [];
-	                    this.events.push({name: eventName, f: fn, unbind: addEvent(this.shape || this.node || g.doc, eventName, fn, scope || this)});
+	                    this.events.push({name: eventName, f: fn, unbind: addEvent(this.shape || this.node || data_fo_change.doc, eventName, fn, scope || this)});
 	                }
 	                return this;
 	            };
@@ -3276,8 +3276,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            (e.originalEvent || e).preventDefault();
 	            var x = e.clientX,
 	                y = e.clientY,
-	                scrollY = g.doc.documentElement.scrollTop || g.doc.body.scrollTop,
-	                scrollX = g.doc.documentElement.scrollLeft || g.doc.body.scrollLeft;
+	                scrollY = data_fo_change.doc.documentElement.scrollTop || data_fo_change.doc.body.scrollTop,
+	                scrollX = data_fo_change.doc.documentElement.scrollLeft || data_fo_change.doc.body.scrollLeft;
 	            this._drag.id = e.identifier;
 	            if (supportsTouch && e.touches) {
 	                var i = e.touches.length, touch;
@@ -3611,8 +3611,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            body = doc.body,
 	            docElem = doc.documentElement,
 	            clientTop = docElem.clientTop || body.clientTop || 0, clientLeft = docElem.clientLeft || body.clientLeft || 0,
-	            top  = box.top  + (g.win.pageYOffset || docElem.scrollTop || body.scrollTop ) - clientTop,
-	            left = box.left + (g.win.pageXOffset || docElem.scrollLeft || body.scrollLeft) - clientLeft;
+	            top  = box.top  + (data_fo_change.win.pageYOffset || docElem.scrollTop || body.scrollTop ) - clientTop,
+	            left = box.left + (data_fo_change.win.pageXOffset || docElem.scrollLeft || body.scrollLeft) - clientLeft;
 	        return {
 	            y: top,
 	            x: left
@@ -3635,8 +3635,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    paperproto.getElementByPoint = function (x, y) {
 	        var paper = this,
 	            svg = paper.canvas,
-	            target = g.doc.elementFromPoint(x, y);
-	        if (g.win.opera && target.tagName == "svg") {
+	            target = data_fo_change.doc.elementFromPoint(x, y);
+	        if (data_fo_change.win.opera && target.tagName == "svg") {
 	            var so = getOffset(svg),
 	                sr = svg.createSVGRect();
 	            sr.x = x - so.x;
@@ -4207,7 +4207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            case "colour":
 	                                now = "rgb(" + [
 	                                    upto255(round(from[attr].r + pos * ms * diff[attr].r)),
-	                                    upto255(round(from[attr].g + pos * ms * diff[attr].g)),
+	                                    upto255(round(from[attr].data_fo_change + pos * ms * diff[attr].data_fo_change)),
 	                                    upto255(round(from[attr].b + pos * ms * diff[attr].b))
 	                                ].join(",") + ")";
 	                                break;
@@ -4506,7 +4506,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            var toColour = R.getRGB(to[attr]);
 	                            diff[attr] = {
 	                                r: (toColour.r - from[attr].r) / ms,
-	                                g: (toColour.g - from[attr].g) / ms,
+	                                data_fo_change: (toColour.data_fo_change - from[attr].data_fo_change) / ms,
 	                                b: (toColour.b - from[attr].b) / ms
 	                            };
 	                            break;
@@ -5103,9 +5103,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    setproto.glow = function(glowConfig) {
 	        var ret = this.paper.set();
 	        this.forEach(function(shape, index){
-	            var g = shape.glow(glowConfig);
-	            if(g != null){
-	                g.forEach(function(shape2, index2){
+	            var data_fo_change = shape.glow(glowConfig);
+	            if(data_fo_change != null){
+	                data_fo_change.forEach(function(shape2, index2){
 	                    ret.push(shape2);
 	                });
 	            }
@@ -5178,7 +5178,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                fontcopy.glyphs[glyph] = {
 	                    w: path.w,
 	                    k: {},
-	                    d: path.d && "M" + path.d.replace(/[mlcxtrv]/g, function (command) {
+	                    d: path.d && "M" + path.d.replace(/[mlcxtrv]/data_fo_change, function (command) {
 	                            return {l: "L", c: "C", x: "z", t: "m", r: "l", v: "c"}[command] || "M";
 	                        }) + "z"
 	                };
@@ -5216,7 +5216,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        var font = R.fonts[family];
 	        if (!font) {
-	            var name = new RegExp("(^|\\s)" + family.replace(/[^\w\d\s+!~.:_-]/g, E) + "(\\s|$)", "i");
+	            var name = new RegExp("(^|\\s)" + family.replace(/[^\w\d\s+!~.:_-]/data_fo_change, E) + "(\\s|$)", "i");
 	            for (var fontName in R.fonts) if (R.fonts[has](fontName)) {
 	                if (name.test(fontName)) {
 	                    font = R.fonts[fontName];
@@ -5388,8 +5388,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     | }));
 	    \*/
 	    R.fullfill = (function () {
-	        var tokenRegex = /\{([^\}]+)\}/g,
-	            objNotationRegex = /(?:(?:^|\.)(.+?)(?=\[|\.|$|\()|\[('|")(.+?)\2\])(\(\))?/g, // matches .xxxxx or ["xxxxx"] to run over object properties
+	        var tokenRegex = /\{([^\}]+)\}/data_fo_change,
+	            objNotationRegex = /(?:(?:^|\.)(.+?)(?=\[|\.|$|\()|\[('|")(.+?)\2\])(\(\))?/data_fo_change, // matches .xxxxx or ["xxxxx"] to run over object properties
 	            replacer = function (all, key, obj) {
 	                var res = obj;
 	                key.replace(objNotationRegex, function (all, name, quote, quotedName, isFunc) {
@@ -5426,7 +5426,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    \*/
 	    R.ninja = function () {
 	        if (oldRaphael.was) {
-	            g.win.Raphael = oldRaphael.is;
+	            data_fo_change.win.Raphael = oldRaphael.is;
 	        } else {
 	            // IE8 raises an error when deleting window property
 	            window.Raphael = undefined;
@@ -5584,7 +5584,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (!dots) {
 	                return null;
 	            }
-	            id = id.replace(/[\(\)\s,\xb0#]/g, "_");
+	            id = id.replace(/[\(\)\s,\xb0#]/data_fo_change, "_");
 
 	            if (element.gradient && id != element.gradient.id) {
 	                SVG.defs.removeChild(element.gradient);
@@ -5889,7 +5889,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        if (!value) {
 	                            var path = node.getAttribute("clip-path");
 	                            if (path) {
-	                                var clip = R._g.doc.getElementById(path.replace(/(^url\(#|\)$)/g, E));
+	                                var clip = R._g.doc.getElementById(path.replace(/(^url\(#|\)$)/data_fo_change, E));
 	                                clip && clip.parentNode.removeChild(clip);
 	                                $(node, {"clip-path": E});
 	                                delete o.clip;
@@ -6015,7 +6015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                $(node, {"fill-opacity": attrs["fill-opacity"]});
 	                        } else if ((o.type == "circle" || o.type == "ellipse" || Str(value).charAt() != "r") && addGradientFill(o, value)) {
 	                            if ("opacity" in attrs || "fill-opacity" in attrs) {
-	                                var gradient = R._g.doc.getElementById(node.getAttribute("fill").replace(/^url\(#|\)$/g, E));
+	                                var gradient = R._g.doc.getElementById(node.getAttribute("fill").replace(/^url\(#|\)$/data_fo_change, E));
 	                                if (gradient) {
 	                                    var stops = gradient.getElementsByTagName("stop");
 	                                    $(stops[stops.length - 1], {"stop-opacity": ("opacity" in attrs ? attrs.opacity : 1) * ("fill-opacity" in attrs ? attrs["fill-opacity"] : 1)});
@@ -6045,7 +6045,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        // fall
 	                    case "fill-opacity":
 	                        if (attrs.gradient) {
-	                            gradient = R._g.doc.getElementById(node.getAttribute("fill").replace(/^url\(#|\)$/g, E));
+	                            gradient = R._g.doc.getElementById(node.getAttribute("fill").replace(/^url\(#|\)$/data_fo_change, E));
 	                            if (gradient) {
 	                                stops = gradient.getElementsByTagName("stop");
 	                                $(stops[stops.length - 1], {"stop-opacity": value});
@@ -6054,7 +6054,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        }
 	                    default:
 	                        att == "font-size" && (value = toInt(value, 10) + "px");
-	                        var cssrule = att.replace(/(\-.)/g, function (w) {
+	                        var cssrule = att.replace(/(\-.)/data_fo_change, function (w) {
 	                            return w.substring(1).toUpperCase();
 	                        });
 	                        node.style[cssrule] = value;
@@ -6936,8 +6936,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        E = "",
 	        map = {M: "m", L: "l", C: "c", Z: "x", m: "t", l: "r", c: "v", z: "x"},
 	        bites = /([clmz]),?([^clmz]*)/gi,
-	        blurregexp = / progid:\S+Blur\([^\)]+\)/g,
-	        val = /-?[^,\s-]+/g,
+	        blurregexp = / progid:\S+Blur\([^\)]+\)/data_fo_change,
+	        val = /-?[^,\s-]+/data_fo_change,
 	        cssDot = "position:absolute;left:0;top:0;width:1px;height:1px;behavior:url(#default#VML)",
 	        zoom = 21600,
 	        pathTypes = {path: 1, rect: 1, image: 1},
@@ -6946,7 +6946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var total =  /[ahqstv]/ig,
 	                command = R._pathToAbsolute;
 	            Str(path).match(total) && (command = R._path2curve);
-	            total = /[clmz]/g;
+	            total = /[clmz]/data_fo_change;
 	            if (command == R._pathToAbsolute && !Str(path).match(total)) {
 	                var res = Str(path).replace(bites, function (all, command, args) {
 	                    var vals = [],
@@ -7124,7 +7124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (o.textpath) {
 	            var textpathStyle = o.textpath.style;
 	            params.font && (textpathStyle.font = params.font);
-	            params["font-family"] && (textpathStyle.fontFamily = '"' + params["font-family"].split(",")[0].replace(/^['"]+|['"]+$/g, E) + '"');
+	            params["font-family"] && (textpathStyle.fontFamily = '"' + params["font-family"].split(",")[0].replace(/^['"]+|['"]+$/data_fo_change, E) + '"');
 	            params["font-size"] && (textpathStyle.fontSize = params["font-size"]);
 	            params["font-weight"] && (textpathStyle.fontWeight = params["font-weight"]);
 	            params["font-style"] && (textpathStyle.fontStyle = params["font-style"]);
@@ -7246,7 +7246,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            a["font-style"] && (s.fontStyle = a["font-style"]);
 	            fontSize = toFloat(a["font-size"] || fontSize && fontSize[0]) || 10;
 	            s.fontSize = fontSize * m + "px";
-	            res.textpath.string && (span.innerHTML = Str(res.textpath.string).replace(/</g, "&#60;").replace(/&/g, "&#38;").replace(/\n/g, "<br>"));
+	            res.textpath.string && (span.innerHTML = Str(res.textpath.string).replace(/</data_fo_change, "&#60;").replace(/&/data_fo_change, "&#38;").replace(/\n/data_fo_change, "<br>"));
 	            var brect = span.getBoundingClientRect();
 	            res.W = a.w = (brect.right - brect.left) / m;
 	            res.H = a.h = (brect.bottom - brect.top) / m;
@@ -7376,7 +7376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            vbt = vbs ? "s" + [vbs.scale, vbs.scale] + "-1-1t" + [vbs.dx, vbs.dy] : E,
 	            oldt;
 	        if (vbs) {
-	            oldt = tstr = Str(tstr).replace(/\.{3}|\u2026/g, this._.transform || E);
+	            oldt = tstr = Str(tstr).replace(/\.{3}|\u2026/data_fo_change, this._.transform || E);
 	        }
 	        R._extractTransform(this, vbt + tstr);
 	        var matrix = this.matrix.clone(),
