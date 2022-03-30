@@ -55,7 +55,7 @@ function up_post($change_id)
     $author = $_GET['author'];
     $date = $_GET['date'];
     $visible = $_GET['visible'];
-    $sql = "UPDATE `posts` SET title = ':title', category = ':category', `description`=':description', `text_post`=':text_post', `author`=':author', `date`=':date', `visible`=':visible' WHERE id=':id'";
+    $sql = "UPDATE `posts` SET title = :title, category = :category, `description`=:description, `text_post`=:text_post, `author`=:author, `date`=:date, `visible`=:visible WHERE id=:id";
     $stmt = $dsn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':title', $title);
@@ -67,3 +67,4 @@ function up_post($change_id)
     $stmt->bindParam(':visible', $visible);
     $stmt->execute();
 }
+

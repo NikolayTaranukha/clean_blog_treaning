@@ -686,7 +686,7 @@ if (isset($enter)) {
                 <div class="card">
                     <div class="body">
                         <label for="text"></label><textarea id="text" name="text" cols="137"
-                                                            rows="10"><?= $data_fo_change['text_post']; ?></textarea>
+                                                            rows="10"><?= $data_fo_change['text']; ?></textarea>
                         <button name="enter" type="submit" class="btn btn-info waves-effect m-t-20">Update
                         </button>
                     </div>
