@@ -67,4 +67,11 @@ function up_post($change_id)
     $stmt->bindParam(':visible', $visible);
     $stmt->execute();
 }
+function del_post($change_id)
+{
+    $dsn = connection();
+    $id=$change_id;
+    $sql=$dsn->query("DELETE FROM `posts` WHERE id=$id");
+    $sql->execute();
 
+}
