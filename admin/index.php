@@ -20,6 +20,7 @@ require_once ('header.php');
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -46,6 +47,7 @@ require_once ('header.php');
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card widget_2 big_icon email">
                     <div class="body">

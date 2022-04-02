@@ -1,5 +1,6 @@
 ﻿<?php
-require_once ('header.php');
+require_once('header.php');
+//var_dump(['date']);
 ?>
 
 <!-- Main Content -->
@@ -108,7 +109,9 @@ require_once ('header.php');
                                     <tr>
                                         <td><strong><?php echo $item['id'] ?></strong></td>
                                         <td><strong><?php echo $item['category'] ?></strong></td>
-                                        <td><a href="ticket-detail.html"><?php echo $item['title'] ?></a></td>
+                                        <td>
+                                            <a href="../frontend/page-post.php?title=<?= $item['title']; ?>&text_post=<?= $item['text_post']; ?>"><?php echo $item['title'] ?></a>
+                                        </td>
                                         <td><?php echo $item['description'] ?></td>
                                         <td><?php echo $item['text_post'] ?></td>
                                         <td><?php echo $item['author'] ?></td>
@@ -121,10 +124,11 @@ require_once ('header.php');
                                         <td><?php echo $item['created_at'] ?></td>
                                         <td><?php echo $item['updated_at'] ?></td>
                                         <td>
-                                            <a href="update-post.php?change_id=<?= $item['id']; ?>&category=<?= $item['category'];?>&title=<?= $item['title']; ?>&description=<?= $item['description']; ?>&text_post=<?= $item['text_post']; ?>&author=<?= $item['author']; ?>&date=<?= $item['date']; ?>&visible=<?=$item['visible'] ;?> "
+                                            <a href="update-post.php?change_id=<?= $item['id']; ?>&category=<?= $item['category']; ?>&title=<?= $item['title']; ?>&description=<?= $item['description']; ?>&text_post=<?= $item['text_post']; ?>&author=<?= $item['author']; ?>&date=<?= $item['date']; ?>&visible=<?= $item['visible']; ?> "
                                                class="btn btn-primary btn-sm"><i class="zmdi zmdi-edit"></i></a>
-                                                <a href="ticket-list.php?del_id=<?=$item['id'] ?>" type="submit" id="del" name="del"  class="btn btn-danger btn-sm"><i class="zmdi zmdi-delete"></i>
-                                                </a>
+                                            <a href="ticket-list.php?del_id=<?= $item['id'] ?>" type="submit" id="del"
+                                               name="del" class="btn btn-danger btn-sm"><i class="zmdi zmdi-delete"></i>
+                                            </a>
 
 
                                         </td>

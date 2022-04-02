@@ -67,11 +67,54 @@ function up_post($change_id)
     $stmt->bindParam(':visible', $visible);
     $stmt->execute();
 }
+
 function del_post($change_id)
 {
     $dsn = connection();
-    $id=$change_id;
-    $sql=$dsn->query("DELETE FROM `posts` WHERE id=$id");
+    $id = $change_id;
+    $sql = $dsn->query("DELETE FROM `posts` WHERE id=$id");
     $sql->execute();
+
+}
+
+function data_del($date)
+{
+    $months = array('01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December');
+    $arr = explode("-", $date);
+    $month = $arr[1];
+    $date = $arr[2];
+    $year = $arr[0];
+    echo "on $months[$month] $date $year";
+
+}
+
+function add_us()
+{
+    $dsn = connection();
+    $login = $_POST['login'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $sql = $dsn->prepare("INSERT INTO `user` (login, email, password) VALUES (?, ?, ? )");
+    $sql->bindParam(1, $login);
+    $sql->bindParam(2, $email);
+    $sql->bindParam(3, $password);
+    $sql->execute();
+}
+
+function proverka_us()
+{
+    $dsn = connection();
+    if ($dsn) {
+        $login = htmlspecialchars(trim($_POST['login']));
+        $password = $_POST['password'];
+        $sql = "SELECT * FROM `user` WHERE `user`.login = :login ";
+        $query = $dsn->prepare($sql);
+        $query->bindParam(':login', $login);
+        $query->execute();
+        $r = $query->fetch(PDO::FETCH_ASSOC);
+        return password_verify($password, $r['password']);
+
+    }
+
 
 }
